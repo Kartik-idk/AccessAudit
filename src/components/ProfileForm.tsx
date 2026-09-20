@@ -5,12 +5,12 @@ type Profile = {
   avatar: string;
 };
 
-export function Avatar({ profile }: {profile: Profile;}) {
+export function Avatar({ profile }: { profile: Profile }) {
   return (
     <div className="avatar-wrapper">
-      <img src={profile.avatar} alt="fixed" />
-    </div>);
-
+      <img src={profile.avatar} />
+    </div>
+  );
 }
 
 export function ProfileForm() {
@@ -19,7 +19,7 @@ export function ProfileForm() {
 
   const profile = {
     name,
-    avatar: "/avatar.png"
+    avatar: "/avatar.png",
   };
 
   function handleSubmit(e: React.FormEvent) {
@@ -31,8 +31,8 @@ export function ProfileForm() {
     <form onSubmit={handleSubmit}>
       <input
         value={name}
-        onChange={(e) => setName(e.target.value)} />
-      
+        onChange={(e) => setName(e.target.value)}
+      />
 
       <Avatar profile={profile} />
 
@@ -41,6 +41,6 @@ export function ProfileForm() {
       </button>
 
       {submitted && <p>Saved successfully</p>}
-    </form>);
-
+    </form>
+  );
 }
