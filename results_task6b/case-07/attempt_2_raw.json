@@ -1,0 +1,12 @@
+{
+  "action": "replace",
+  "target": {
+    "element": "div",
+    "file": "src/components/AdversarialCases.tsx",
+    "line": 71,
+    "column": 6
+  },
+  "operation": "REMOVE",
+  "attribute": "onClick",
+  "reason": "The div element is being used as a button, but it lacks a semantic role or visible label that indicates its purpose. Using a button element would provide better semantics and accessibility."
+}

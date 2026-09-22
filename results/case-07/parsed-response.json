@@ -1,0 +1,12 @@
+{
+  "action": "replace",
+  "target": {
+    "element": "div",
+    "file": "src/components/AdversarialCases.tsx",
+    "line": 71,
+    "column": 6
+  },
+  "operation": "REMOVE",
+  "attribute": "onClick",
+  "reason": "The div element is being used as a button, but it lacks a semantic role or text content that clearly indicates its purpose as a button. Using a div for a button is not accessible because it does not provide a clear label or role to assistive technologies."
+}

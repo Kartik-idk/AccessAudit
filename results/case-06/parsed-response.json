@@ -1,0 +1,12 @@
+{
+  "action": "remove",
+  "target": {
+    "element": "a",
+    "file": "src/components/AdversarialCases.tsx",
+    "line": 60,
+    "column": 6
+  },
+  "operation": "REMOVE",
+  "attribute": "tabIndex",
+  "reason": "The use of tabIndex on anchor elements is not recommended as it can disrupt the natural tab order and navigation flow. Instead, rely on the default tab order based on the HTML structure."
+}

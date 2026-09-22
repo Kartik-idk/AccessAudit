@@ -1,0 +1,6 @@
+```json
+{
+  "action": "ABORT",
+  "reason": "The target AST node not found at line 42, col -1. Please verify the target element and coordinates."
+}
+```

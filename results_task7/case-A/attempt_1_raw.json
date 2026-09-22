@@ -1,0 +1,6 @@
+{
+  "action": "MODIFY_ATTRIBUTE",
+  "reason": "The input element does not have an associated label. Adding an aria-label attribute will improve accessibility.",
+  "attribute": "aria-label",
+  "value": "Email"
+}

@@ -1,0 +1,12 @@
+{
+  "action": "remove",
+  "target": {
+    "element": "button",
+    "file": "src/components/AdversarialCases.tsx",
+    "line": 83,
+    "column": 6
+  },
+  "operation": "ADD",
+  "attribute": "aria-hidden",
+  "reason": "The button is not hidden from assistive technology and should not have aria-hidden set to true."
+}

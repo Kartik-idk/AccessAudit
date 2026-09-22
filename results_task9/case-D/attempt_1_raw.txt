@@ -1,0 +1,14 @@
+```json
+{
+  "action": "STRUCTURAL_REMEDIATION",
+  "reason": "The target element is a div, which is not semantically appropriate for a button. A button should be used to indicate that the element is a clickable button.",
+  "target": {
+    "element": "div",
+    "file": "src/components/StructuralCases.tsx",
+    "line": 36,
+    "column": 0
+  },
+  "operation": "REPLACE_TAG",
+  "replacement": "button"
+}
+```

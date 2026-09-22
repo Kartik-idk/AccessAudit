@@ -1,0 +1,12 @@
+{
+  "action": "insert",
+  "target": {
+    "element": "button",
+    "file": "src/components/AdversarialCases.tsx",
+    "line": 39,
+    "column": 6
+  },
+  "operation": "ADD",
+  "attribute": "aria-label",
+  "reason": "The button is icon-only and lacks a visible label. Adding an aria-label provides a text alternative for assistive technology."
+}

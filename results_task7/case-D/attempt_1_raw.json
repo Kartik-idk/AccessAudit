@@ -1,0 +1,1 @@
+{ "action": "STRUCTURAL_REMEDIATION", "reason": "The target element is a div, which is not semantically correct for a button. The 'button-name' rule requires a button element to have an accessible name." }

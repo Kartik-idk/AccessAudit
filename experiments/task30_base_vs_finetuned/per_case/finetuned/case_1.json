@@ -1,0 +1,23 @@
+{
+  "case_id": 1,
+  "category": "SIMPLE",
+  "model": "accessaudit-qwen7b-ft",
+  "raw_model_output": "{\"rationale\":\"Images must have alternative text.\",\"action\":\"MODIFY_ATTRIBUTE\",\"operations\":[{\"target\":\"NODE_A\",\"operation\":\"ADD\",\"attribute\":\"alt\",\"value\":\"Graph Diagram\"}]}",
+  "json_parse_success": true,
+  "schema_valid": true,
+  "semantic_correct": false,
+  "safe_abort_correct": false,
+  "failure_stage": "SEMANTIC",
+  "failure_reason": "Payload does not match ground truth",
+  "prompt_metadata": {
+    "tokens": 69
+  },
+  "inference_parameters": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  },
+  "runtime_metadata": {
+    "eval_duration": 1687948000
+  }
+}

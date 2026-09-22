@@ -1,0 +1,6 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "latency_ms": 5822,
+  "eval_count": 98,
+  "prompt_eval_count": 295
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "case": "case-A",
+    "attempts": 2,
+    "finalStatus": "SAFE_ABORT"
+  },
+  {
+    "case": "case-B",
+    "attempts": 2,
+    "finalStatus": "SAFE_ABORT"
+  },
+  {
+    "case": "case-C",
+    "attempts": 2,
+    "finalStatus": "SAFE_ABORT"
+  },
+  {
+    "case": "case-D",
+    "attempts": 2,
+    "finalStatus": "SAFE_ABORT"
+  },
+  {
+    "case": "case-E",
+    "attempts": 3,
+    "finalStatus": "MAX_ATTEMPTS_REACHED"
+  },
+  {
+    "case": "case-F",
+    "attempts": 2,
+    "finalStatus": "SAFE_ABORT"
+  }
+]

@@ -1,0 +1,1 @@
+{ "action": "MODIFY_ATTRIBUTE", "reason": "The target element is a div, which should be a button for better accessibility. The button should have an accessible name.", "attribute": "role", "value": "button" }

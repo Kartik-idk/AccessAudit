@@ -1,0 +1,92 @@
+[
+  {
+    "case": "case1",
+    "cat": "MODIFY_ATTRIBUTE",
+    "status": "API_ERROR",
+    "attempts": 1
+  },
+  {
+    "case": "case2",
+    "cat": "MODIFY_ATTRIBUTE",
+    "status": "API_ERROR",
+    "attempts": 1
+  },
+  {
+    "case": "case3",
+    "cat": "MODIFY_ATTRIBUTE",
+    "status": "API_ERROR",
+    "attempts": 1
+  },
+  {
+    "case": "case4",
+    "cat": "MODIFY_ATTRIBUTE",
+    "status": "API_ERROR",
+    "attempts": 2
+  },
+  {
+    "case": "case5",
+    "cat": "MODIFY_ATTRIBUTE",
+    "status": "API_ERROR",
+    "attempts": 1
+  },
+  {
+    "case": "case6",
+    "cat": "MULTI_NODE_REMEDIATION",
+    "status": "API_ERROR",
+    "attempts": 1
+  },
+  {
+    "case": "case7",
+    "cat": "MULTI_NODE_REMEDIATION",
+    "status": "API_ERROR",
+    "attempts": 1
+  },
+  {
+    "case": "case8",
+    "cat": "MULTI_NODE_REMEDIATION",
+    "status": "API_ERROR",
+    "attempts": 1
+  },
+  {
+    "case": "case9",
+    "cat": "MULTI_NODE_REMEDIATION",
+    "status": "API_ERROR",
+    "attempts": 1
+  },
+  {
+    "case": "case10",
+    "cat": "MULTI_NODE_REMEDIATION",
+    "status": "API_ERROR",
+    "attempts": 1
+  },
+  {
+    "case": "case11",
+    "cat": "STRUCTURAL_REMEDIATION",
+    "status": "API_ERROR",
+    "attempts": 1
+  },
+  {
+    "case": "case12",
+    "cat": "STRUCTURAL_REMEDIATION",
+    "status": "API_ERROR",
+    "attempts": 1
+  },
+  {
+    "case": "case13",
+    "cat": "STRUCTURAL_REMEDIATION",
+    "status": "API_ERROR",
+    "attempts": 1
+  },
+  {
+    "case": "case14",
+    "cat": "STRUCTURAL_REMEDIATION",
+    "status": "API_ERROR",
+    "attempts": 1
+  },
+  {
+    "case": "case15",
+    "cat": "STRUCTURAL_REMEDIATION",
+    "status": "API_ERROR",
+    "attempts": 1
+  }
+]

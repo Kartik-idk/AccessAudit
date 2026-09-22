@@ -1,0 +1,11 @@
+{
+  "action": "MODIFY_ATTRIBUTE",
+  "reason": "The target element is a div, which is not a button and does not have an accessible name. To meet the button-name rule, we need to add an accessible name to the element.",
+  "target": {
+    "line": 25,
+    "column": 13
+  },
+  "operation": "ADD",
+  "attribute": "aria-label",
+  "value": "Read more"
+}

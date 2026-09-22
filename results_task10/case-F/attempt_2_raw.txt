@@ -1,0 +1,6 @@
+```json
+{
+  "action": "ABORT",
+  "reason": "The target div contains nested interactive controls (an anchor tag), which cannot be replaced with a button without additional context or restructuring."
+}
+```

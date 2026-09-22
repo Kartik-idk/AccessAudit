@@ -1,0 +1,32 @@
+[
+  {
+    "case": "case-A",
+    "attempts": 1,
+    "finalStatus": "SCHEMA_COMPLETE_ABORT"
+  },
+  {
+    "case": "case-B",
+    "attempts": 1,
+    "finalStatus": "SCHEMA_COMPLETE_ACTION"
+  },
+  {
+    "case": "case-C",
+    "attempts": 1,
+    "finalStatus": "SCHEMA_COMPLETE_ACTION"
+  },
+  {
+    "case": "case-D",
+    "attempts": 1,
+    "finalStatus": "SCHEMA_COMPLETE_ACTION"
+  },
+  {
+    "case": "case-E",
+    "attempts": 1,
+    "finalStatus": "SCHEMA_COMPLETE_ACTION"
+  },
+  {
+    "case": "case-F",
+    "attempts": 1,
+    "finalStatus": "SCHEMA_COMPLETE_ACTION"
+  }
+]

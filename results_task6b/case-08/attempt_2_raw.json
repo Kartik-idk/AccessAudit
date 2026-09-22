@@ -1,0 +1,12 @@
+{
+  "action": "abort",
+  "target": {
+    "element": "button",
+    "file": "src/components/AdversarialCases.tsx",
+    "line": 83,
+    "column": 6
+  },
+  "operation": "ADD",
+  "attribute": "aria-hidden",
+  "reason": "The 'aria-hidden' attribute already exists for the target element, and removing it would not address the accessibility violation."
+}

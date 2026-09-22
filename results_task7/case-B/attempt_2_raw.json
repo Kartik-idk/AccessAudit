@@ -1,0 +1,1 @@
+{ "action": "ABORT", "reason": "The proposed remediation is incomplete as it lacks the required 'target' property, which specifies the element to be modified." }

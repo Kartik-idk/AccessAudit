@@ -1,0 +1,6 @@
+```json
+{
+  "action": "ABORT",
+  "reason": "Only div -> button replacements are permitted. Given span -> button"
+}
+```

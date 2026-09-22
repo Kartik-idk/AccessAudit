@@ -1,0 +1,1152 @@
+[
+  {
+    "case_id": 1,
+    "category": "SIMPLE",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"alt_text\": \"Add alt text to the image for better accessibility\",\n    \"code\": \"<img id=\\\"id-je98\\\" src=\\\"/img.png\\\" className=\\\"hero-img\\\" alt=\\\"Description of the image\\\" />\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 69
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 2759508000
+    }
+  },
+  {
+    "case_id": 2,
+    "category": "SIMPLE",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"altText\": \"Add alt text to the image for better accessibility\",\n    \"code\": \"<img id=\\\"id-e58r\\\" src=\\\"/img.png\\\" className=\\\"hero-img\\\" alt=\\\"Description of the image\\\" />\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 69
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 2785894000
+    }
+  },
+  {
+    "case_id": 3,
+    "category": "ABORT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"node\": \"NODE_A\",\n    \"action\": \"add\",\n    \"attribute\": \"aria-label\",\n    \"value\": \"Submit Profile\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 79
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1929118000
+    }
+  },
+  {
+    "case_id": 4,
+    "category": "ABORT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"node\": \"id-vil9\",\n    \"attributes\": {\n      \"role\": \"button\",\n      \"aria-label\": \"Login\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 79
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1999574000
+    }
+  },
+  {
+    "case_id": 5,
+    "category": "ABORT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"node\": \"id-h5qs\",\n    \"attributes\": {\n      \"role\": \"button\",\n      \"aria-label\": \"Submit\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 79
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1934723000
+    }
+  },
+  {
+    "case_id": 6,
+    "category": "STRUCT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"add_role\": \"button\",\n    \"add_tabindex\": \"0\",\n    \"add_aria_label\": \"Profile button\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 72
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1785117000
+    }
+  },
+  {
+    "case_id": 7,
+    "category": "STRUCT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"add_role\": \"button\",\n    \"add_tabindex\": \"0\",\n    \"add_aria_label\": \"Profile button\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 72
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1760794000
+    }
+  },
+  {
+    "case_id": 8,
+    "category": "STRUCT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"role\": \"button\",\n    \"onClick\": \"function() { /* your function here */ }\",\n    \"className\": \"btn-generic\",\n    \"aria-label\": \"Save\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 75
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 2217393000
+    }
+  },
+  {
+    "case_id": 9,
+    "category": "STRUCT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"add_attribute\": {\n      \"aria-label\": \"Settings button\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 76
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1280912000
+    }
+  },
+  {
+    "case_id": 10,
+    "category": "STRUCT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"add_attribute\": {\n      \"aria-label\": \"Submit\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 76
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1223770000
+    }
+  },
+  {
+    "case_id": 11,
+    "category": "MULTI",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"NODE_A\": {\n      \"htmlFor\": \"id-5b30\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 84
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1446476000
+    }
+  },
+  {
+    "case_id": 12,
+    "category": "MULTI",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"NODE_A\": {\n      \"htmlFor\": \"id-y9me\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 83
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1379846000
+    }
+  },
+  {
+    "case_id": 13,
+    "category": "MULTI",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"NODE_A\": {\n      \"htmlFor\": \"id-fqs3\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 83
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1352773000
+    }
+  },
+  {
+    "case_id": 14,
+    "category": "MULTI",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"NODE_A\": {\n      \"htmlFor\": \"id-8cht\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 82
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1350935000
+    }
+  },
+  {
+    "case_id": 15,
+    "category": "MULTI",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"NODE_A\": {\n      \"htmlFor\": \"id-1rxr\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 83
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1435722000
+    }
+  },
+  {
+    "case_id": 16,
+    "category": "MULTI",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"NODE_A\": {\n      \"htmlFor\": \"id-w2ym\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 83
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1355631000
+    }
+  },
+  {
+    "case_id": 17,
+    "category": "MULTI",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"NODE_A\": {\n      \"htmlFor\": \"id-cr93\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 82
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1352036000
+    }
+  },
+  {
+    "case_id": 18,
+    "category": "MULTI",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"NODE_A\": {\n      \"htmlFor\": \"id-dpo7\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 82
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1369708000
+    }
+  },
+  {
+    "case_id": 19,
+    "category": "ABORT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"node\": \"id-98jq\",\n    \"action\": \"add role='button'\",\n    \"reason\": \"The element is used as a button but lacks the role attribute, which is essential for screen readers.\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 80
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 2565939000
+    }
+  },
+  {
+    "case_id": 20,
+    "category": "ABORT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"node\": \"id-iae1\",\n    \"attributes\": {\n      \"role\": \"button\",\n      \"aria-label\": \"Next\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 79
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1968916000
+    }
+  },
+  {
+    "case_id": 21,
+    "category": "ABORT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"node\": \"id-glz2\",\n    \"attributes\": {\n      \"role\": \"button\",\n      \"aria-label\": \"Submit Profile\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 79
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1998218000
+    }
+  },
+  {
+    "case_id": 22,
+    "category": "ARIA",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"role\": \"none\",\n    \"className\": \"deco\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 72
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1172557000
+    }
+  },
+  {
+    "case_id": 23,
+    "category": "ARIA",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"role\": \"none\",\n    \"className\": \"deco\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 73
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1184467000
+    }
+  },
+  {
+    "case_id": 24,
+    "category": "ARIA",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"role\": \"none\",\n    \"className\": \"deco\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 73
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1183927000
+    }
+  },
+  {
+    "case_id": 25,
+    "category": "MULTI",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"NODE_A\": {\n      \"htmlFor\": \"id-154u\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 85
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1451633000
+    }
+  },
+  {
+    "case_id": 26,
+    "category": "MULTI",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"NODE_A\": {\n      \"htmlFor\": \"id-svxe\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 83
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1368226000
+    }
+  },
+  {
+    "case_id": 27,
+    "category": "MULTI",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"NODE_A\": {\n      \"htmlFor\": \"id-k8v7\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 84
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1403010000
+    }
+  },
+  {
+    "case_id": 28,
+    "category": "ABORT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"node\": \"id-ejrn\",\n    \"attributes\": {\n      \"role\": \"button\",\n      \"aria-label\": \"Menu\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 79
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1964396000
+    }
+  },
+  {
+    "case_id": 29,
+    "category": "ABORT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"node\": \"id-f04r\",\n    \"attributes\": {\n      \"role\": \"button\",\n      \"aria-label\": \"Login\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 80
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 2024030000
+    }
+  },
+  {
+    "case_id": 30,
+    "category": "ABORT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"node\": \"id-qt9u\",\n    \"attributes\": {\n      \"role\": \"button\",\n      \"aria-label\": \"Submit Profile\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 80
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 2054871999
+    }
+  },
+  {
+    "case_id": 31,
+    "category": "ARIA",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"role\": \"none\",\n    \"className\": \"deco\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 72
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1225337000
+    }
+  },
+  {
+    "case_id": 32,
+    "category": "ARIA",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"role\": \"none\",\n    \"className\": \"deco\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 72
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1191465000
+    }
+  },
+  {
+    "case_id": 33,
+    "category": "ARIA",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"role\": \"none\",\n    \"className\": \"deco\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 74
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1192008000
+    }
+  },
+  {
+    "case_id": 34,
+    "category": "ARIA",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"role\": \"none\",\n    \"className\": \"deco\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 72
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1191624000
+    }
+  },
+  {
+    "case_id": 35,
+    "category": "ARIA",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"role\": \"none\",\n    \"className\": \"deco\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 72
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1206975000
+    }
+  },
+  {
+    "case_id": 36,
+    "category": "ARIA",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"role\": \"none\",\n    \"className\": \"deco\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 74
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1195122000
+    }
+  },
+  {
+    "case_id": 37,
+    "category": "SIMPLE",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"altText\": \"Add alt text to the image for better accessibility\",\n    \"code\": \"<img id=\\\"id-k60p\\\" src=\\\"/img.png\\\" className=\\\"hero-img\\\" alt=\\\"Description of the image\\\" />\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 69
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 2794354000
+    }
+  },
+  {
+    "case_id": 38,
+    "category": "MULTI",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"NODE_A\": {\n      \"htmlFor\": \"id-skrr\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 83
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1347148000
+    }
+  },
+  {
+    "case_id": 39,
+    "category": "MULTI",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"NODE_A\": {\n      \"htmlFor\": \"id-hadk\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 82
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1387078000
+    }
+  },
+  {
+    "case_id": 40,
+    "category": "STRUCT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"add_attribute\": {\n      \"aria-label\": \"Menu\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 76
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1260865000
+    }
+  },
+  {
+    "case_id": 41,
+    "category": "STRUCT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"add_attribute\": {\n      \"aria-label\": \"Save\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 75
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1263560000
+    }
+  },
+  {
+    "case_id": 42,
+    "category": "STRUCT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"add_role\": \"button\",\n    \"add_tabindex\": 0,\n    \"add_aria_label\": \"Login button\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 71
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1809189000
+    }
+  },
+  {
+    "case_id": 43,
+    "category": "STRUCT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"add_role\": \"button\",\n    \"add_aria_label\": \"Submit\",\n    \"add_tabindex\": \"0\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 72
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1798597000
+    }
+  },
+  {
+    "case_id": 44,
+    "category": "STRUCT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"add_role\": \"button\",\n    \"add_aria_label\": \"Menu button\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 72
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1399918000
+    }
+  },
+  {
+    "case_id": 45,
+    "category": "MULTI",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"NODE_A\": {\n      \"htmlFor\": \"id-0hqr\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 84
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1434590000
+    }
+  },
+  {
+    "case_id": 46,
+    "category": "MULTI",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"NODE_A\": {\n      \"htmlFor\": \"id-j78l\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 84
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1463016000
+    }
+  },
+  {
+    "case_id": 47,
+    "category": "STRUCT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"add_role\": \"button\",\n    \"add_aria_label\": \"Save\",\n    \"add_tabindex\": \"0\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 72
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1769948000
+    }
+  },
+  {
+    "case_id": 48,
+    "category": "STRUCT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"add_role\": \"button\",\n    \"add_aria_label\": \"Save\",\n    \"add_tabindex\": \"0\"\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 70
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1778733000
+    }
+  },
+  {
+    "case_id": 49,
+    "category": "STRUCT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"add_attribute\": {\n      \"aria-label\": \"Menu\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 76
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1265910000
+    }
+  },
+  {
+    "case_id": 50,
+    "category": "STRUCT",
+    "model": "qwen2.5-coder:7b",
+    "raw_model_output": "{\n  \"remediation\": {\n    \"add_attribute\": {\n      \"aria-label\": \"Search\"\n    }\n  }\n}",
+    "json_parse_success": true,
+    "schema_valid": false,
+    "semantic_correct": false,
+    "safe_abort_correct": false,
+    "failure_stage": "SCHEMA",
+    "failure_reason": "Missing action",
+    "prompt_metadata": {
+      "tokens": 76
+    },
+    "inference_parameters": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    },
+    "runtime_metadata": {
+      "eval_duration": 1260518000
+    }
+  }
+]

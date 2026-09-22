@@ -1,0 +1,16 @@
+```json
+{
+  "action": "STRUCTURAL_REMEDIATION",
+  "reason": "The target element is a div, but it is being used as a button. To improve accessibility, it should be replaced with a button element.",
+  "target": {
+    "element": "div",
+    "file": "src/components/StructuralCases.tsx",
+    "line": 30,
+    "column": 4
+  },
+  "operation": "REPLACE_TAG",
+  "replacement": {
+    "element": "button"
+  }
+}
+```

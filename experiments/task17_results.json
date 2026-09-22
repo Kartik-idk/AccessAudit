@@ -1,0 +1,72 @@
+[
+  {
+    "case": "case1",
+    "status": "SUCCESS",
+    "attempts": 1
+  },
+  {
+    "case": "case2",
+    "status": "SUCCESS",
+    "attempts": 1
+  },
+  {
+    "case": "case3",
+    "status": "SUCCESS",
+    "attempts": 2
+  },
+  {
+    "case": "case4",
+    "status": "SAFE_ABORT",
+    "attempts": 2
+  },
+  {
+    "case": "case5",
+    "status": "AXE_UNRESOLVED",
+    "attempts": 1
+  },
+  {
+    "case": "case6",
+    "status": "AXE_UNRESOLVED",
+    "attempts": 2
+  },
+  {
+    "case": "case7",
+    "status": "SUCCESS",
+    "attempts": 1
+  },
+  {
+    "case": "case8",
+    "status": "SUCCESS",
+    "attempts": 1
+  },
+  {
+    "case": "case9",
+    "status": "INVALID_PROPOSAL",
+    "attempts": 3
+  },
+  {
+    "case": "case10",
+    "status": "SUCCESS",
+    "attempts": 1
+  },
+  {
+    "case": "case11",
+    "status": "TARGET_LOCALIZATION_FAILURE",
+    "attempts": 3
+  },
+  {
+    "case": "case12",
+    "status": "SUCCESS",
+    "attempts": 1
+  },
+  {
+    "case": "case13",
+    "status": "AXE_UNRESOLVED",
+    "attempts": 1
+  },
+  {
+    "case": "case14",
+    "status": "BUILD_FAILURE",
+    "attempts": 1
+  }
+]

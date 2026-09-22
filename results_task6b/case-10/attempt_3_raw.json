@@ -1,0 +1,12 @@
+{
+  "action": "add_label",
+  "target": {
+    "element": "input",
+    "file": "src/components/AdversarialCases.tsx",
+    "line": 107,
+    "column": 6
+  },
+  "operation": "ADD",
+  "attribute": "aria-label",
+  "reason": "The input element lacks a label, which can confuse screen readers and make it difficult for users with disabilities to understand the purpose of the input field."
+}

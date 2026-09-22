@@ -1,0 +1,1 @@
+{ "action": "MODIFY_ATTRIBUTE", "reason": "The target element is a div, which is not a button and does not have an accessible name. To resolve this, we need to add an accessible name to the element.", "attribute": "aria-label", "value": "Read more" }

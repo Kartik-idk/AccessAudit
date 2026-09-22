@@ -1,0 +1,23 @@
+{
+  "case_id": 10,
+  "category": "STRUCT",
+  "model": "accessaudit-qwen7b-ft",
+  "raw_model_output": "{\"rationale\":\"Interactive generic elements should be buttons.\",\"action\":\"STRUCTURAL_REMEDIATION\",\"operations\":[{\"target\":\"NODE_A\",\"operation\":\"REPLACE_TAG\",\"replacement_tag\":\"button\"}]}",
+  "json_parse_success": true,
+  "schema_valid": true,
+  "semantic_correct": true,
+  "safe_abort_correct": false,
+  "failure_stage": null,
+  "failure_reason": null,
+  "prompt_metadata": {
+    "tokens": 76
+  },
+  "inference_parameters": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  },
+  "runtime_metadata": {
+    "eval_duration": 2160682000
+  }
+}

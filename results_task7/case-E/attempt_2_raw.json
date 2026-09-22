@@ -1,0 +1,10 @@
+{
+  "action": "STRUCTURAL_REMEDIATION",
+  "reason": "The target element is a span, which is not semantically correct for a button. To fix this, we need to change the tag name to 'button' and ensure it has an accessible name.",
+  "target": {
+    "element": "span",
+    "file": "src/components/StructuralCases.tsx",
+    "line": 45,
+    "column": -1
+  }
+}

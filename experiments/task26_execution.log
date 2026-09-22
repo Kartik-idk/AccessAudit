@@ -1,0 +1,207 @@
+Starting Task 24 Benchmark with open-weights model: qwen2.5-coder:7b
+============================Starting case1
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: TARGET_LOCALIZATION_FAILURE
+============================Starting case2
+  Attempt 1: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 2: Requesting generation...
+  ✅ ACCEPTED BY GATEKEEPER
+  ❌ REJECTED BY GROUND TRUTH: ${gt.reason} - ${gt.msg}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: INVALID_PROPOSAL
+============================Starting case3
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: TARGET_LOCALIZATION_FAILURE
+============================Starting case4
+  Attempt 1: Requesting generation...
+  ✅ ACCEPTED BY GATEKEEPER
+  ❌ REJECTED BY GROUND TRUTH: ${gt.reason} - ${gt.msg}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 3: Requesting generation...
+  ✅ ACCEPTED BY GATEKEEPER
+  ❌ REJECTED BY GROUND TRUTH: ${gt.reason} - ${gt.msg}
+Final Status: GROUND_TRUTH_FAILURE
+============================Starting case5
+  Attempt 1: Requesting generation...
+  Model aborted.
+Final Status: SUCCESS_SAFE_ABORT
+============================Starting case6
+  Attempt 1: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: TARGET_LOCALIZATION_FAILURE
+============================Starting case7
+  Attempt 1: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: TARGET_LOCALIZATION_FAILURE
+============================Starting case8
+  Attempt 1: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: TARGET_LOCALIZATION_FAILURE
+============================Starting case9
+  Attempt 1: Requesting generation...
+  Model aborted.
+Final Status: SUCCESS_SAFE_ABORT
+============================Starting case10
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+Final Status: GROUND_TRUTH_FAILURE
+============================Starting case11
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+Final Status: GROUND_TRUTH_FAILURE
+============================Starting case12
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: TARGET_LOCALIZATION_FAILURE
+============================Starting case13
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  Model aborted.
+Final Status: SUCCESS_SAFE_ABORT
+============================Starting case14
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  Model aborted.
+Final Status: SUCCESS_SAFE_ABORT
+============================Starting case15
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: TARGET_LOCALIZATION_FAILURE
+
+Results: [
+  {
+    case: 'case1',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case2',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'INVALID_PROPOSAL',
+    attempts: 3
+  },
+  {
+    case: 'case3',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case4',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'GROUND_TRUTH_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case5',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'SUCCESS_SAFE_ABORT',
+    attempts: 1
+  },
+  {
+    case: 'case6',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case7',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case8',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case9',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'SUCCESS_SAFE_ABORT',
+    attempts: 1
+  },
+  {
+    case: 'case10',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'GROUND_TRUTH_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case11',
+    cat: 'STRUCTURAL_REMEDIATION',
+    status: 'GROUND_TRUTH_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case12',
+    cat: 'STRUCTURAL_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case13',
+    cat: 'STRUCTURAL_REMEDIATION',
+    status: 'SUCCESS_SAFE_ABORT',
+    attempts: 2
+  },
+  {
+    case: 'case14',
+    cat: 'STRUCTURAL_REMEDIATION',
+    status: 'SUCCESS_SAFE_ABORT',
+    attempts: 3
+  },
+  {
+    case: 'case15',
+    cat: 'STRUCTURAL_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  }
+]

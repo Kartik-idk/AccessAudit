@@ -1,0 +1,216 @@
+Starting Task 24 Benchmark with open-weights model: qwen2.5-coder:7b
+============================Starting case1
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: ${finalStatus}
+============================Starting case2
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: ${finalStatus}
+============================Starting case3
+  Attempt 1: Requesting generation...
+  ✅ ACCEPTED BY GATEKEEPER
+  ❌ REJECTED BY GROUND TRUTH: ${gt.reason} - ${gt.msg}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 3: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+Final Status: ${finalStatus}
+============================Starting case4
+  Attempt 1: Requesting generation...
+  ✅ ACCEPTED BY GATEKEEPER
+  ❌ REJECTED BY GROUND TRUTH: ${gt.reason} - ${gt.msg}
+  Attempt 2: Requesting generation...
+  ✅ ACCEPTED BY GATEKEEPER
+  ❌ REJECTED BY GROUND TRUTH: ${gt.reason} - ${gt.msg}
+  Attempt 3: Requesting generation...
+  ✅ ACCEPTED BY GATEKEEPER
+  ❌ REJECTED BY GROUND TRUTH: ${gt.reason} - ${gt.msg}
+Final Status: ${finalStatus}
+============================Starting case5
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: ${finalStatus}
+============================Starting case6
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: ${finalStatus}
+============================Starting case7
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: ${finalStatus}
+============================Starting case8
+  Attempt 1: Requesting generation...
+  ✅ ACCEPTED BY GATEKEEPER
+  ❌ REJECTED BY GROUND TRUTH: ${gt.reason} - ${gt.msg}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: ${finalStatus}
+============================Starting case9
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: ${finalStatus}
+============================Starting case10
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+Final Status: ${finalStatus}
+============================Starting case11
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+Final Status: ${finalStatus}
+============================Starting case12
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: ${finalStatus}
+============================Starting case13
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: ${finalStatus}
+============================Starting case14
+  Attempt 1: Requesting generation...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 2: Requesting generation...
+  Model aborted.
+Final Status: ${finalStatus}
+============================Starting case15
+  Attempt 1: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 2: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+  Attempt 3: Requesting generation...
+  ❌ REJECTED: ${validationResult.reason}
+Final Status: ${finalStatus}
+Results: [
+  {
+    case: 'case1',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'INVALID_PROPOSAL',
+    attempts: 3
+  },
+  {
+    case: 'case2',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'INVALID_PROPOSAL',
+    attempts: 3
+  },
+  {
+    case: 'case3',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'GROUND_TRUTH_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case4',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'GROUND_TRUTH_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case5',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'INVALID_PROPOSAL',
+    attempts: 3
+  },
+  {
+    case: 'case6',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'SEMANTIC_REJECTION',
+    attempts: 3
+  },
+  {
+    case: 'case7',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'SEMANTIC_REJECTION',
+    attempts: 3
+  },
+  {
+    case: 'case8',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'SEMANTIC_REJECTION',
+    attempts: 3
+  },
+  {
+    case: 'case9',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'SEMANTIC_REJECTION',
+    attempts: 3
+  },
+  {
+    case: 'case10',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'GROUND_TRUTH_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case11',
+    cat: 'STRUCTURAL_REMEDIATION',
+    status: 'GROUND_TRUTH_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case12',
+    cat: 'STRUCTURAL_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case13',
+    cat: 'STRUCTURAL_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case14',
+    cat: 'STRUCTURAL_REMEDIATION',
+    status: 'SUCCESS_SAFE_ABORT',
+    attempts: 2
+  },
+  {
+    case: 'case15',
+    cat: 'STRUCTURAL_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  }
+]

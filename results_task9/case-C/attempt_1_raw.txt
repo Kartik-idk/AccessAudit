@@ -1,0 +1,14 @@
+```json
+{
+  "action": "STRUCTURAL_REMEDIATION",
+  "reason": "The target element is a div, which does not have a name or role that indicates it is a button. To improve accessibility, it should be replaced with a button element.",
+  "target": {
+    "element": "div",
+    "file": "src/components/StructuralCases.tsx",
+    "line": 25,
+    "column": 0
+  },
+  "operation": "REPLACE_TAG",
+  "replacement": "button"
+}
+```

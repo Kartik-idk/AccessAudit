@@ -1,0 +1,41 @@
+[
+  {
+    "action": "modify_attribute",
+    "target": {
+      "element": "button",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 999,
+      "column": 0
+    },
+    "operation": "ADD",
+    "attribute": "aria-label",
+    "value": "Search",
+    "reason": "Intentionally invalid source line."
+  },
+  {
+    "action": "modify_attribute",
+    "target": {
+      "element": "button",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 83,
+      "column": 6
+    },
+    "operation": "ADD",
+    "attribute": "onclick",
+    "value": "alert(1)",
+    "reason": "Intentionally dangerous attribute."
+  },
+  {
+    "action": "modify_attribute",
+    "target": {
+      "element": "div",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 71,
+      "column": 6
+    },
+    "operation": "ADD",
+    "attribute": "aria-hidden",
+    "value": "true",
+    "reason": "Attempting to hide an interactive element."
+  }
+]

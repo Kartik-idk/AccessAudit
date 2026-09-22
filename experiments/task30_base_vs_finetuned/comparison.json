@@ -1,0 +1,461 @@
+{
+  "improved_cases": [
+    3,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50
+  ],
+  "regressed_cases": [],
+  "unchanged_cases": [
+    1,
+    2,
+    4,
+    5,
+    20,
+    29,
+    37
+  ],
+  "identical_outputs": 0,
+  "differing_outputs": 50,
+  "per_case_deltas": [
+    {
+      "case_id": 1,
+      "category": "SIMPLE",
+      "base_correct": false,
+      "ft_correct": false,
+      "delta": "UNCHANGED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 2,
+      "category": "SIMPLE",
+      "base_correct": false,
+      "ft_correct": false,
+      "delta": "UNCHANGED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 3,
+      "category": "ABORT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 4,
+      "category": "ABORT",
+      "base_correct": false,
+      "ft_correct": false,
+      "delta": "UNCHANGED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 5,
+      "category": "ABORT",
+      "base_correct": false,
+      "ft_correct": false,
+      "delta": "UNCHANGED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 6,
+      "category": "STRUCT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 7,
+      "category": "STRUCT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 8,
+      "category": "STRUCT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 9,
+      "category": "STRUCT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 10,
+      "category": "STRUCT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 11,
+      "category": "MULTI",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 12,
+      "category": "MULTI",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 13,
+      "category": "MULTI",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 14,
+      "category": "MULTI",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 15,
+      "category": "MULTI",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 16,
+      "category": "MULTI",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 17,
+      "category": "MULTI",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 18,
+      "category": "MULTI",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 19,
+      "category": "ABORT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 20,
+      "category": "ABORT",
+      "base_correct": false,
+      "ft_correct": false,
+      "delta": "UNCHANGED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 21,
+      "category": "ABORT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 22,
+      "category": "ARIA",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 23,
+      "category": "ARIA",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 24,
+      "category": "ARIA",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 25,
+      "category": "MULTI",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 26,
+      "category": "MULTI",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 27,
+      "category": "MULTI",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 28,
+      "category": "ABORT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 29,
+      "category": "ABORT",
+      "base_correct": false,
+      "ft_correct": false,
+      "delta": "UNCHANGED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 30,
+      "category": "ABORT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 31,
+      "category": "ARIA",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 32,
+      "category": "ARIA",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 33,
+      "category": "ARIA",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 34,
+      "category": "ARIA",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 35,
+      "category": "ARIA",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 36,
+      "category": "ARIA",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 37,
+      "category": "SIMPLE",
+      "base_correct": false,
+      "ft_correct": false,
+      "delta": "UNCHANGED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 38,
+      "category": "MULTI",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 39,
+      "category": "MULTI",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 40,
+      "category": "STRUCT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 41,
+      "category": "STRUCT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 42,
+      "category": "STRUCT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 43,
+      "category": "STRUCT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 44,
+      "category": "STRUCT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 45,
+      "category": "MULTI",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 46,
+      "category": "MULTI",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 47,
+      "category": "STRUCT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 48,
+      "category": "STRUCT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 49,
+      "category": "STRUCT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    },
+    {
+      "case_id": 50,
+      "category": "STRUCT",
+      "base_correct": false,
+      "ft_correct": true,
+      "delta": "IMPROVED",
+      "outputs_identical": false
+    }
+  ]
+}

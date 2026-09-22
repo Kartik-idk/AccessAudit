@@ -1,0 +1,65 @@
+[
+  {
+    "action": "add_attribute",
+    "target": {
+      "element": "img",
+      "source": { "file": "src/components/ProfileForm.tsx", "line": 11, "column": 6 }
+    },
+    "attribute": { "name": "alt", "value": "User profile avatar" },
+    "reason": "The image lacks an alt attribute for screen readers."
+  },
+  {
+    "action": "add_attribute",
+    "target": {
+      "element": "button",
+      "source": { "file": "src/components/ProfileForm.tsx", "line": 36, "column": 6 }
+    },
+    "attribute": { "name": "aria-label", "value": "Search" },
+    "reason": "The button only contains an emoji and lacks an accessible name."
+  },
+  {
+    "action": "add_attribute",
+    "target": {
+      "element": "input",
+      "source": { "file": "src/components/ProfileForm.tsx", "line": 32, "column": 6 }
+    },
+    "attribute": { "name": "aria-label", "value": "Email address" },
+    "reason": "The input field does not have a label or aria-label."
+  },
+  {
+    "action": "add_attribute",
+    "target": {
+      "element": "button",
+      "source": { "file": "src/components/ProfileForm.tsx", "line": 11, "column": 6 }
+    },
+    "attribute": { "name": "aria-label", "value": "test" },
+    "reason": "Intentionally wrong element type for target."
+  },
+  {
+    "action": "add_attribute",
+    "target": {
+      "element": "button",
+      "source": { "file": "src/components/ProfileForm.tsx", "line": 36, "column": 6 }
+    },
+    "attribute": { "name": "onclick", "value": "alert(1)" },
+    "reason": "Intentionally dangerous attribute."
+  },
+  {
+    "action": "add_attribute",
+    "target": {
+      "element": "img",
+      "source": { "file": "src/components/ProfileForm.tsx", "line": 999, "column": 0 }
+    },
+    "attribute": { "name": "alt", "value": "test" },
+    "reason": "Intentionally invalid location."
+  },
+  {
+    "invalid_action": "add_attribute",
+    "target": {
+      "element": "img",
+      "source": { "file": "src/components/ProfileForm.tsx", "line": 11, "column": 6 }
+    },
+    "attribute": { "name": "alt", "value": "test" },
+    "reason": "Intentionally schema invalid (missing action field)."
+  }
+]

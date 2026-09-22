@@ -1,0 +1,18 @@
+{
+  "total": 500,
+  "train": 400,
+  "val": 50,
+  "test": 50,
+  "distribution": {
+    "SIMPLE": 75,
+    "ARIA": 75,
+    "MULTI": 150,
+    "STRUCT": 125,
+    "ABORT": 75
+  },
+  "rejections": {
+    "DIVERSITY_CAP": 336,
+    "Mutated source did not trigger aria-hidden-focus. Axe found: ": 172
+  },
+  "shared_fingerprints_across_splits": 0
+}

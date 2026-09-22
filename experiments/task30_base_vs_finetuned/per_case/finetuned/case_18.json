@@ -1,0 +1,23 @@
+{
+  "case_id": 18,
+  "category": "MULTI",
+  "model": "accessaudit-qwen7b-ft",
+  "raw_model_output": "{\"rationale\":\"Label must be associated with input.\",\"action\":\"MULTI_NODE_REMEDIATION\",\"operations\":[{\"target\":\"NODE_A\",\"operation\":\"UPDATE\",\"attribute\":\"htmlFor\",\"value\":\"id-dpo7\"}]}",
+  "json_parse_success": true,
+  "schema_valid": true,
+  "semantic_correct": true,
+  "safe_abort_correct": false,
+  "failure_stage": null,
+  "failure_reason": null,
+  "prompt_metadata": {
+    "tokens": 82
+  },
+  "inference_parameters": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  },
+  "runtime_metadata": {
+    "eval_duration": 3038328000
+  }
+}

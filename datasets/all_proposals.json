@@ -1,0 +1,161 @@
+[
+  {
+    "action": "add",
+    "target": {
+      "element": "img",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 7,
+      "column": 6
+    },
+    "operation": "ADD",
+    "attribute": "alt",
+    "reason": "The image lacks an alt attribute, which is essential for accessibility. The alt text should describe the image content concisely."
+  },
+  {
+    "action": "add-alt-text",
+    "target": {
+      "element": "img",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 19,
+      "column": 6
+    },
+    "operation": "ADD",
+    "attribute": "alt",
+    "reason": "The image is informative and should have descriptive alt text to convey its content to users who cannot see it."
+  },
+  {
+    "action": "remove",
+    "target": {
+      "element": "img",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 28,
+      "column": 6
+    },
+    "operation": "REMOVE",
+    "attribute": "aria-hidden",
+    "reason": "The image is decorative and does not provide meaningful information. The aria-hidden attribute is redundant and should be removed."
+  },
+  {
+    "action": "insert",
+    "target": {
+      "element": "button",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 39,
+      "column": 6
+    },
+    "operation": "ADD",
+    "attribute": "aria-label",
+    "reason": "The button is icon-only and lacks a visible label. Adding an aria-label provides a text alternative for assistive technology."
+  },
+  {
+    "action": "wrap the input element with a label element",
+    "target": {
+      "element": "input",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 51,
+      "column": 6
+    },
+    "operation": "REMOVE",
+    "attribute": "for",
+    "reason": "The input element is not associated with a label element. Wrapping the input element with a label element will ensure proper association and improve accessibility."
+  },
+  {
+    "action": "remove",
+    "target": {
+      "element": "a",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 60,
+      "column": 6
+    },
+    "operation": "REMOVE",
+    "attribute": "tabIndex",
+    "reason": "The use of tabIndex on anchor elements is not recommended as it can disrupt the natural tab order and navigation flow. Instead, rely on the default tab order based on the HTML structure."
+  },
+  {
+    "action": "replace",
+    "target": {
+      "element": "div",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 71,
+      "column": 6
+    },
+    "operation": "REMOVE",
+    "attribute": "onClick",
+    "reason": "The div element is being used as a button, but it lacks a semantic role or text content that clearly indicates its purpose as a button. Using a div for a button is not accessible because it does not provide a clear label or role to assistive technologies."
+  },
+  {
+    "action": "remove",
+    "target": {
+      "element": "button",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 83,
+      "column": 6
+    },
+    "operation": "ADD",
+    "attribute": "aria-hidden",
+    "reason": "The button is not hidden from assistive technology and should not have aria-hidden set to true."
+  },
+  {
+    "action": "remove",
+    "target": {
+      "element": "nav",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 93,
+      "column": 4
+    },
+    "operation": "REMOVE",
+    "attribute": "role",
+    "reason": "The 'nav' element already has a semantic role of 'navigation' from its tag name, making the 'role' attribute redundant."
+  },
+  {
+    "action": "add-label",
+    "target": {
+      "element": "input",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 107,
+      "column": 6
+    },
+    "operation": "ADD",
+    "attribute": "aria-label",
+    "reason": "The input element lacks a visible label, and adding an aria-label attribute is the smallest semantically correct remediation."
+  },
+  {
+    "action": "modify_attribute",
+    "target": {
+      "element": "button",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 999,
+      "column": 0
+    },
+    "operation": "ADD",
+    "attribute": "aria-label",
+    "value": "Search",
+    "reason": "Intentionally invalid source line."
+  },
+  {
+    "action": "modify_attribute",
+    "target": {
+      "element": "button",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 83,
+      "column": 6
+    },
+    "operation": "ADD",
+    "attribute": "onclick",
+    "value": "alert(1)",
+    "reason": "Intentionally dangerous attribute."
+  },
+  {
+    "action": "modify_attribute",
+    "target": {
+      "element": "div",
+      "file": "src/components/AdversarialCases.tsx",
+      "line": 71,
+      "column": 6
+    },
+    "operation": "ADD",
+    "attribute": "aria-hidden",
+    "value": "true",
+    "reason": "Attempting to hide an interactive element."
+  }
+]

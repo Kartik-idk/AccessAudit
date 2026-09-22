@@ -1,0 +1,40 @@
+[
+  {
+    "model": "qwen2.5-coder:7b",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an expert accessibility engineer. You MUST reply with ONLY a flat JSON object. Do NOT output any conversational text."
+      },
+      {
+        "role": "user",
+        "content": "Remediate the following accessibility issue.\n\nNODE_A:\n<img id=\"id-je98\" src=\"/img.png\" className=\"hero-img\" />"
+      }
+    ],
+    "stream": false,
+    "options": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    }
+  },
+  {
+    "model": "qwen2.5-coder:7b",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an expert accessibility engineer. You MUST reply with ONLY a flat JSON object. Do NOT output any conversational text."
+      },
+      {
+        "role": "user",
+        "content": "Remediate the following accessibility issue.\n\nNODE_A:\n<div id=\"id-h5qs\" onClick={() => {}} className=\"submit-btn\">Submit</div>\nPARENT:\n<form>...</form>"
+      }
+    ],
+    "stream": false,
+    "options": {
+      "temperature": 0.1,
+      "seed": 42,
+      "num_ctx": 4096
+    }
+  }
+]

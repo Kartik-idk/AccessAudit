@@ -1,0 +1,1 @@
+{ "action": "ABORT", "reason": "The proposed STRUCTURAL_REMEDIATION is missing the required 'target' property, which specifies the element to be replaced. Without this property, the remediation cannot be safely applied." }

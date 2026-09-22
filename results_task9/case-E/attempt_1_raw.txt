@@ -1,0 +1,14 @@
+```json
+{
+  "action": "STRUCTURAL_REMEDIATION",
+  "reason": "The span element is being used as a button, but it does not have a button role or a name attribute. Replacing it with a button element will ensure it is accessible.",
+  "target": {
+    "element": "span",
+    "file": "src/components/StructuralCases.tsx",
+    "line": 45,
+    "column": 0
+  },
+  "operation": "REPLACE_TAG",
+  "replacement": "button"
+}
+```

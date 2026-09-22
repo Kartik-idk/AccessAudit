@@ -1,0 +1,12 @@
+{
+  "action": "abort",
+  "target": {
+    "element": "button",
+    "file": "src/components/AdversarialCases.tsx",
+    "line": 39,
+    "column": 6
+  },
+  "operation": "ADD",
+  "attribute": "aria-label",
+  "reason": "The button is icon-only, and the icon does not provide sufficient context for users with visual impairments. Adding an aria-label attribute with a descriptive text will improve accessibility. However, an empty accessible name is not allowed. The context provided does not include enough information to determine a suitable non-empty aria-label."
+}

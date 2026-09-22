@@ -1,0 +1,230 @@
+Starting Task 20 Benchmark with frontier model: llama3:latest
+
+============================
+Starting case1
+ Attempt 1...
+  ✅ ACCEPTED BY GATEKEEPER
+Final Status: SUCCESS
+
+============================
+Starting case2
+ Attempt 1...
+  ✅ ACCEPTED BY GATEKEEPER
+Final Status: SUCCESS
+
+============================
+Starting case3
+ Attempt 1...
+  ❌ REJECTED: JSON_PARSE_FAILURE
+ Attempt 2...
+  ✅ ACCEPTED BY GATEKEEPER
+Final Status: SUCCESS
+
+============================
+Starting case4
+ Attempt 1...
+  ❌ REJECTED: JSON_PARSE_FAILURE
+ Attempt 2...
+  ✅ ACCEPTED BY GATEKEEPER
+Final Status: SUCCESS
+
+============================
+Starting case5
+ Attempt 1...
+  ❌ REJECTED: JSON_PARSE_FAILURE
+ Attempt 2...
+  ❌ REJECTED: JSON_PARSE_FAILURE
+ Attempt 3...
+  ❌ REJECTED: JSON_PARSE_FAILURE
+Final Status: JSON_PARSE_FAILURE
+
+============================
+Starting case6
+ Attempt 1...
+  ❌ REJECTED: TARGET_LOCALIZATION_FAILURE
+ Attempt 2...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+ Attempt 3...
+  ❌ REJECTED: TARGET_LOCALIZATION_FAILURE
+Final Status: TARGET_LOCALIZATION_FAILURE
+
+============================
+Starting case7
+ Attempt 1...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+ Attempt 2...
+  ❌ REJECTED: TARGET_LOCALIZATION_FAILURE
+ Attempt 3...
+  ❌ REJECTED: TARGET_LOCALIZATION_FAILURE
+Final Status: TARGET_LOCALIZATION_FAILURE
+
+============================
+Starting case8
+ Attempt 1...
+  ❌ REJECTED: JSON_PARSE_FAILURE
+ Attempt 2...
+  ❌ REJECTED: JSON_PARSE_FAILURE
+ Attempt 3...
+  ❌ REJECTED: JSON_PARSE_FAILURE
+Final Status: JSON_PARSE_FAILURE
+
+============================
+Starting case9
+ Attempt 1...
+  ❌ REJECTED: JSON_PARSE_FAILURE
+ Attempt 2...
+  ❌ REJECTED: SEMANTIC_REJECTION
+ Attempt 3...
+  ❌ REJECTED: TARGET_LOCALIZATION_FAILURE
+Final Status: TARGET_LOCALIZATION_FAILURE
+
+============================
+Starting case10
+ Attempt 1...
+  ❌ REJECTED: JSON_PARSE_FAILURE
+ Attempt 2...
+  ❌ REJECTED: JSON_PARSE_FAILURE
+ Attempt 3...
+  ❌ REJECTED: TARGET_LOCALIZATION_FAILURE
+Final Status: TARGET_LOCALIZATION_FAILURE
+
+============================
+Starting case11
+ Attempt 1...
+  ❌ REJECTED: JSON_PARSE_FAILURE
+ Attempt 2...
+  ❌ REJECTED: TARGET_LOCALIZATION_FAILURE
+ Attempt 3...
+  ❌ REJECTED: TARGET_LOCALIZATION_FAILURE
+Final Status: TARGET_LOCALIZATION_FAILURE
+
+============================
+Starting case12
+ Attempt 1...
+  ❌ REJECTED: TARGET_LOCALIZATION_FAILURE
+ Attempt 2...
+  ❌ REJECTED: TARGET_LOCALIZATION_FAILURE
+ Attempt 3...
+  ❌ REJECTED: TARGET_LOCALIZATION_FAILURE
+Final Status: TARGET_LOCALIZATION_FAILURE
+
+============================
+Starting case13
+ Attempt 1...
+  ❌ REJECTED: JSON_PARSE_FAILURE
+ Attempt 2...
+  ❌ REJECTED: JSON_PARSE_FAILURE
+ Attempt 3...
+  ❌ REJECTED: TARGET_LOCALIZATION_FAILURE
+Final Status: TARGET_LOCALIZATION_FAILURE
+
+============================
+Starting case14
+ Attempt 1...
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+ Attempt 2...
+  Model aborted.
+Final Status: SUCCESS_SAFE_ABORT
+
+============================
+Starting case15
+ Attempt 1...
+  ❌ REJECTED: TARGET_LOCALIZATION_FAILURE
+ Attempt 2...
+  ❌ REJECTED: TARGET_LOCALIZATION_FAILURE
+ Attempt 3...
+  ❌ REJECTED: TARGET_LOCALIZATION_FAILURE
+Final Status: TARGET_LOCALIZATION_FAILURE
+
+Results: [
+  {
+    case: 'case1',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'SUCCESS',
+    attempts: 1
+  },
+  {
+    case: 'case2',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'SUCCESS',
+    attempts: 1
+  },
+  {
+    case: 'case3',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'SUCCESS',
+    attempts: 2
+  },
+  {
+    case: 'case4',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'SUCCESS',
+    attempts: 2
+  },
+  {
+    case: 'case5',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'JSON_PARSE_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case6',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case7',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case8',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'JSON_PARSE_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case9',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case10',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case11',
+    cat: 'STRUCTURAL_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case12',
+    cat: 'STRUCTURAL_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case13',
+    cat: 'STRUCTURAL_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case14',
+    cat: 'STRUCTURAL_REMEDIATION',
+    status: 'SUCCESS_SAFE_ABORT',
+    attempts: 2
+  },
+  {
+    case: 'case15',
+    cat: 'STRUCTURAL_REMEDIATION',
+    status: 'TARGET_LOCALIZATION_FAILURE',
+    attempts: 3
+  }
+]

@@ -1,0 +1,279 @@
+Starting Task 27.1 Benchmark with open-weights model: qwen2.5-coder:14b
+============================Starting case1
+  Attempt 1: Requesting generation...
+=== RAW MODEL OUTPUT ===
+{
+  "action": "MODIFY_ATTRIBUTE",
+  "reason": "To ensure that all <img> elements have alternative text, which is crucial for screen readers and accessibility.",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "UPDATE",
+      "attribute": "alt",
+      "value": "Descriptive alternative text for the image"
+    }
+  ]
+}
+========================
+  ❌ REJECTED: JSON_PARSE_FAILURE
+  Attempt 2: Requesting generation...
+=== RAW MODEL OUTPUT ===
+{
+  "action": "ABORT",
+  "reason": "The initial proposal was rejected due to a JSON parsing failure. Further context is needed to safely remediate the issue.",
+  "operations": []
+}
+========================
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 3: Requesting generation...
+=== RAW MODEL OUTPUT ===
+{
+  "action": "MODIFY_ATTRIBUTE",
+  "reason": "To ensure that all <img> elements have alternative text, which is crucial for screen readers and accessibility.",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "UPDATE",
+      "attribute": "alt",
+      "value": "Descriptive alternative text for the image"
+    }
+  ]
+}
+========================
+  ❌ REJECTED: JSON_PARSE_FAILURE
+Final Status: JSON_PARSE_FAILURE
+============================Starting case6
+  Attempt 1: Requesting generation...
+=== RAW MODEL OUTPUT ===
+```json
+{
+  "action": "ABORT",
+  "reason": "Insufficient context provided to determine the specific form elements and their labels. Further information is needed to safely remediate the issue.",
+  "operations": []
+}
+```
+========================
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 2: Requesting generation...
+=== RAW MODEL OUTPUT ===
+```json
+{
+  "action": "STRUCTURAL_REMEDIATION",
+  "reason": "To ensure every form element has a label, we will wrap the form elements in a <label> tag and associate them with the form element using the 'for' attribute.",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "REPLACE_TAG",
+      "replacement_tag": "label"
+    }
+  ]
+}
+```
+========================
+  ❌ REJECTED: JSON_PARSE_FAILURE
+  Attempt 3: Requesting generation...
+=== RAW MODEL OUTPUT ===
+```json
+{
+  "action": "MODIFY_ATTRIBUTE",
+  "reason": "To ensure every form element has a label, we will add a 'label' attribute to the form element.",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "ADD",
+      "attribute": "label",
+      "value": "Descriptive Label"
+    }
+  ]
+}
+```
+========================
+  ❌ REJECTED: JSON_PARSE_FAILURE
+Final Status: JSON_PARSE_FAILURE
+============================Starting case7
+  Attempt 1: Requesting generation...
+=== RAW MODEL OUTPUT ===
+```json
+{
+  "action": "ABORT",
+  "reason": "Insufficient context provided to determine the specific form elements and their labels. Additional information is needed to safely remediate the issue.",
+  "operations": []
+}
+```
+========================
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 2: Requesting generation...
+=== RAW MODEL OUTPUT ===
+```json
+{
+  "action": "STRUCTURAL_REMEDIATION",
+  "reason": "To ensure every form element has a label, we will wrap each form element in a label tag and associate it with the form element using the 'for' attribute.",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "REPLACE_TAG",
+      "replacement_tag": "label"
+    },
+    {
+      "target": "NODE_A",
+      "operation": "ADD",
+      "attribute": "for",
+      "value": "unique_id_for_form_element"
+    }
+  ]
+}
+```
+========================
+  ❌ REJECTED: JSON_PARSE_FAILURE
+  Attempt 3: Requesting generation...
+=== RAW MODEL OUTPUT ===
+```json
+{
+  "action": "STRUCTURAL_REMEDIATION",
+  "reason": "To ensure every form element has a label, we will wrap each form element in a label tag and associate it with the form element using the 'for' attribute.",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "REPLACE_TAG",
+      "replacement_tag": "label"
+    },
+    {
+      "target": "NODE_A",
+      "operation": "ADD",
+      "attribute": "for",
+      "value": "unique_id_for_form_element"
+    }
+  ]
+}
+```
+========================
+  ❌ REJECTED: JSON_PARSE_FAILURE
+Final Status: JSON_PARSE_FAILURE
+============================Starting case8
+  Attempt 1: Requesting generation...
+=== RAW MODEL OUTPUT ===
+```json
+{
+  "action": "ABORT",
+  "reason": "Insufficient context provided to determine the specific form elements and their labels. More information is needed to safely remediate the issue.",
+  "operations": []
+}
+```
+========================
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 2: Requesting generation...
+=== RAW MODEL OUTPUT ===
+```json
+{
+  "action": "STRUCTURAL_REMEDIATION",
+  "reason": "To ensure every form element has a label, we need to wrap each form element in a label tag or associate it with a label using the 'for' attribute.",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "REPLACE_TAG",
+      "replacement_tag": "label"
+    }
+  ]
+}
+```
+========================
+  ❌ REJECTED: JSON_PARSE_FAILURE
+  Attempt 3: Requesting generation...
+=== RAW MODEL OUTPUT ===
+```json
+{
+  "action": "STRUCTURAL_REMEDIATION",
+  "reason": "To ensure every form element has a label, we need to wrap each form element in a label tag or associate it with a label using the 'for' attribute.",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "REPLACE_TAG",
+      "replacement_tag": "label"
+    }
+  ]
+}
+```
+========================
+  ❌ REJECTED: JSON_PARSE_FAILURE
+Final Status: JSON_PARSE_FAILURE
+============================Starting case10
+  Attempt 1: Requesting generation...
+=== RAW MODEL OUTPUT ===
+```json
+{
+  "action": "MODIFY_ATTRIBUTE",
+  "reason": "Elements should not have tabindex greater than zero to ensure proper keyboard navigation and accessibility.",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "UPDATE",
+      "attribute": "tabindex",
+      "value": "0"
+    }
+  ]
+}
+```
+========================
+  ❌ REJECTED: JSON_PARSE_FAILURE
+  Attempt 2: Requesting generation...
+=== RAW MODEL OUTPUT ===
+```json
+{
+  "action": "ABORT",
+  "reason": "The initial proposal caused a JSON parsing failure. Further context is needed to safely remediate the issue.",
+  "operations": []
+}
+```
+========================
+  ❌ REJECTED BY GROUND TRUTH: GROUND_TRUTH_FAILURE
+  Attempt 3: Requesting generation...
+=== RAW MODEL OUTPUT ===
+```json
+{
+  "action": "MODIFY_ATTRIBUTE",
+  "reason": "Elements should not have tabindex greater than zero to ensure proper keyboard navigation and accessibility.",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "UPDATE",
+      "attribute": "tabindex",
+      "value": "0"
+    }
+  ]
+}
+```
+========================
+  ❌ REJECTED: JSON_PARSE_FAILURE
+Final Status: JSON_PARSE_FAILURE
+Results: [
+  {
+    case: 'case1',
+    cat: 'MODIFY_ATTRIBUTE',
+    status: 'JSON_PARSE_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case6',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'JSON_PARSE_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case7',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'JSON_PARSE_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case8',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'JSON_PARSE_FAILURE',
+    attempts: 3
+  },
+  {
+    case: 'case10',
+    cat: 'MULTI_NODE_REMEDIATION',
+    status: 'JSON_PARSE_FAILURE',
+    attempts: 3
+  }
+]

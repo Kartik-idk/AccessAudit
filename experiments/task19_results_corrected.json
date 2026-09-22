@@ -1,0 +1,92 @@
+[
+  {
+    "case": "case1",
+    "cat": "MODIFY_ATTRIBUTE",
+    "status": "SUCCESS",
+    "attempts": 1
+  },
+  {
+    "case": "case2",
+    "cat": "MODIFY_ATTRIBUTE",
+    "status": "SUCCESS",
+    "attempts": 1
+  },
+  {
+    "case": "case3",
+    "cat": "MODIFY_ATTRIBUTE",
+    "status": "SUCCESS",
+    "attempts": 1
+  },
+  {
+    "case": "case4",
+    "cat": "MODIFY_ATTRIBUTE",
+    "status": "JSON_PARSE_FAILURE",
+    "attempts": 3
+  },
+  {
+    "case": "case5",
+    "cat": "MODIFY_ATTRIBUTE",
+    "status": "SUCCESS_SAFE_ABORT",
+    "attempts": 3
+  },
+  {
+    "case": "case6",
+    "cat": "MULTI_NODE_REMEDIATION",
+    "status": "SUCCESS",
+    "attempts": 2
+  },
+  {
+    "case": "case7",
+    "cat": "MULTI_NODE_REMEDIATION",
+    "status": "TARGET_LOCALIZATION_FAILURE",
+    "attempts": 3
+  },
+  {
+    "case": "case8",
+    "cat": "MULTI_NODE_REMEDIATION",
+    "status": "JSON_PARSE_FAILURE",
+    "attempts": 3
+  },
+  {
+    "case": "case9",
+    "cat": "MULTI_NODE_REMEDIATION",
+    "status": "SUCCESS_SAFE_ABORT",
+    "attempts": 2
+  },
+  {
+    "case": "case10",
+    "cat": "MULTI_NODE_REMEDIATION",
+    "status": "GROUND_TRUTH_FAILURE",
+    "attempts": 3
+  },
+  {
+    "case": "case11",
+    "cat": "STRUCTURAL_REMEDIATION",
+    "status": "JSON_PARSE_FAILURE",
+    "attempts": 3
+  },
+  {
+    "case": "case12",
+    "cat": "STRUCTURAL_REMEDIATION",
+    "status": "AXE_UNRESOLVED",
+    "attempts": 3
+  },
+  {
+    "case": "case13",
+    "cat": "STRUCTURAL_REMEDIATION",
+    "status": "SUCCESS_SAFE_ABORT",
+    "attempts": 3
+  },
+  {
+    "case": "case14",
+    "cat": "STRUCTURAL_REMEDIATION",
+    "status": "SUCCESS_SAFE_ABORT",
+    "attempts": 2
+  },
+  {
+    "case": "case15",
+    "cat": "STRUCTURAL_REMEDIATION",
+    "status": "AXE_UNRESOLVED",
+    "attempts": 2
+  }
+]

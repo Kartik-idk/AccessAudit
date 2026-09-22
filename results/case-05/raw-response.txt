@@ -1,0 +1,12 @@
+{
+  "action": "wrap the input element with a label element",
+  "target": {
+    "element": "input",
+    "file": "src/components/AdversarialCases.tsx",
+    "line": 51,
+    "column": 6
+  },
+  "operation": "REMOVE",
+  "attribute": "for",
+  "reason": "The input element is not associated with a label element. Wrapping the input element with a label element will ensure proper association and improve accessibility."
+}

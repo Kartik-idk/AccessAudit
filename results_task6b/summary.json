@@ -1,0 +1,52 @@
+[
+  {
+    "case": "case-01",
+    "attempts": 3,
+    "finalStatus": "SAFE_ABORT"
+  },
+  {
+    "case": "case-02",
+    "attempts": 3,
+    "finalStatus": "SAFE_ABORT"
+  },
+  {
+    "case": "case-03",
+    "attempts": 1,
+    "finalStatus": "SAFE_FIX"
+  },
+  {
+    "case": "case-04",
+    "attempts": 3,
+    "finalStatus": "SAFE_ABORT"
+  },
+  {
+    "case": "case-05",
+    "attempts": 1,
+    "finalStatus": "SAFE_FIX"
+  },
+  {
+    "case": "case-06",
+    "attempts": 1,
+    "finalStatus": "SAFE_FIX"
+  },
+  {
+    "case": "case-07",
+    "attempts": 3,
+    "finalStatus": "SAFE_ABORT"
+  },
+  {
+    "case": "case-08",
+    "attempts": 3,
+    "finalStatus": "SAFE_ABORT"
+  },
+  {
+    "case": "case-09",
+    "attempts": 1,
+    "finalStatus": "SAFE_FIX"
+  },
+  {
+    "case": "case-10",
+    "attempts": 3,
+    "finalStatus": "SAFE_ABORT"
+  }
+]

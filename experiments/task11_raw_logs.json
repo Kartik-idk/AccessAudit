@@ -1,0 +1,35 @@
+{
+  "test1_2": {
+    "attempts": [
+      {
+        "attemptNumber": 1,
+        "rawResponse": "```json\n{\n  \"action\": \"STRUCTURAL_REMEDIATION\",\n  \"reason\": \"The div element is used as an interactive element but lacks proper button semantics. It should be replaced with a div to maintain accessibility.\",\n  \"target\": { \"element\": \"div\", \"file\": \"src/components/StructuralCases.tsx\", \"line\": 19, \"column\": 6 },\n  \"operation\": \"REPLACE_TAG\",\n  \"replacement\": { \"element\": \"div\" }\n}\n```",
+        "parseSuccess": true,
+        "gatekeeperResult": "REJECTED",
+        "rejectionReason": "SCHEMA_VALIDATION",
+        "feedback": "REJECTED: SCHEMA_VALIDATION"
+      },
+      {
+        "attemptNumber": 2,
+        "rawResponse": "```json\n{\n  \"action\": \"STRUCTURAL_REMEDIATION\",\n  \"reason\": \"The div element at line 19 in src/components/StructuralCases.tsx is being used as an interactive element but lacks proper button semantics. Replacing it with a button tag will ensure better accessibility for users who rely on screen readers and other assistive technologies.\",\n  \"target\": {\n    \"element\": \"div\",\n    \"file\": \"src/components/StructuralCases.tsx\",\n    \"line\": 19,\n    \"column\": 6\n  },\n  \"operation\": \"REPLACE_TAG\",\n  \"replacement\": {\n    \"element\": \"button\"\n  }\n}\n```",
+        "parseSuccess": true,
+        "gatekeeperResult": "ACCEPTED",
+        "patchSuccess": true,
+        "staticHtmlPass": true,
+        "buildPass": true,
+        "targetedResolved": true
+      }
+    ],
+    "finalStatus": "SUCCESS_REMEDIATED"
+  },
+  "test3": {
+    "gatekeeperResult": "REJECTED",
+    "rejectionReason": "SCHEMA_VALIDATION",
+    "sourceUnchanged": true,
+    "finalStatus": "SECURITY_REJECTED"
+  },
+  "metrics": {
+    "baselineAxeViolations": 3,
+    "postAxeViolations": 3
+  }
+}

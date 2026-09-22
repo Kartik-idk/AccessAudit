@@ -1,0 +1,16 @@
+```json
+{
+  "action": "STRUCTURAL_REMEDIATION",
+  "reason": "The 'span' element is being used as a button, but it does not have an accessible name. To fix this, the 'span' element should be replaced with a 'button' element.",
+  "target": {
+    "element": "span",
+    "file": "src/components/StructuralCases.tsx",
+    "line": 52,
+    "column": 4
+  },
+  "operation": "REPLACE_TAG",
+  "replacement": {
+    "element": "button"
+  }
+}
+```

@@ -1,0 +1,10 @@
+{
+  "action": "MODIFY_ATTRIBUTE",
+  "reason": "The target element is a div, which should be a button to meet the button-name rule.",
+  "target": {
+    "line": 54,
+    "column": 7
+  },
+  "operation": "REPLACE_TAG",
+  "replacement": "button"
+}

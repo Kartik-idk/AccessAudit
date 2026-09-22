@@ -1,0 +1,23 @@
+{
+  "case_id": 30,
+  "category": "ABORT",
+  "model": "accessaudit-qwen7b-ft",
+  "raw_model_output": "{\"rationale\":\"Changing to button inside form could trigger unintended submits.\",\"action\":\"ABORT\"}",
+  "json_parse_success": true,
+  "schema_valid": true,
+  "semantic_correct": true,
+  "safe_abort_correct": true,
+  "failure_stage": null,
+  "failure_reason": null,
+  "prompt_metadata": {
+    "tokens": 80
+  },
+  "inference_parameters": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  },
+  "runtime_metadata": {
+    "eval_duration": 1424768000
+  }
+}

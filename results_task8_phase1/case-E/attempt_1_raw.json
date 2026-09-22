@@ -1,0 +1,10 @@
+{
+  "action": "MODIFY_ATTRIBUTE",
+  "reason": "The target element is a span, which is not semantically correct for a button. A span does not have a name attribute, which is required for accessibility.",
+  "target": {
+    "line": 45,
+    "column": 10
+  },
+  "operation": "REPLACE_TAG",
+  "replacement": "button"
+}

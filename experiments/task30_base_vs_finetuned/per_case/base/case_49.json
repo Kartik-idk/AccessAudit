@@ -1,0 +1,23 @@
+{
+  "case_id": 49,
+  "category": "STRUCT",
+  "model": "qwen2.5-coder:7b",
+  "raw_model_output": "{\n  \"remediation\": {\n    \"add_attribute\": {\n      \"aria-label\": \"Menu\"\n    }\n  }\n}",
+  "json_parse_success": true,
+  "schema_valid": false,
+  "semantic_correct": false,
+  "safe_abort_correct": false,
+  "failure_stage": "SCHEMA",
+  "failure_reason": "Missing action",
+  "prompt_metadata": {
+    "tokens": 76
+  },
+  "inference_parameters": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  },
+  "runtime_metadata": {
+    "eval_duration": 1265910000
+  }
+}

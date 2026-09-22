@@ -1,0 +1,32 @@
+[
+  {
+    "case": "case1",
+    "cat": "MODIFY_ATTRIBUTE",
+    "status": "JSON_PARSE_FAILURE",
+    "attempts": 3
+  },
+  {
+    "case": "case6",
+    "cat": "MULTI_NODE_REMEDIATION",
+    "status": "JSON_PARSE_FAILURE",
+    "attempts": 3
+  },
+  {
+    "case": "case7",
+    "cat": "MULTI_NODE_REMEDIATION",
+    "status": "JSON_PARSE_FAILURE",
+    "attempts": 3
+  },
+  {
+    "case": "case8",
+    "cat": "MULTI_NODE_REMEDIATION",
+    "status": "JSON_PARSE_FAILURE",
+    "attempts": 3
+  },
+  {
+    "case": "case10",
+    "cat": "MULTI_NODE_REMEDIATION",
+    "status": "JSON_PARSE_FAILURE",
+    "attempts": 3
+  }
+]

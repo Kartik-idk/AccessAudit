@@ -1,0 +1,1 @@
+{ "action": "ABORT", "reason": "The proposed remediation requires a 'target' property, which is missing. Without this property, it's not possible to safely perform the proposed action." }

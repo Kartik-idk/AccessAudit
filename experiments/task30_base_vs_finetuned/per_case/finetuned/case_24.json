@@ -1,0 +1,23 @@
+{
+  "case_id": 24,
+  "category": "ARIA",
+  "model": "accessaudit-qwen7b-ft",
+  "raw_model_output": "{\"rationale\":\"Invalid ARIA roles must be removed or corrected.\",\"action\":\"MODIFY_ATTRIBUTE\",\"operations\":[{\"target\":\"NODE_A\",\"operation\":\"REMOVE\",\"attribute\":\"role\"}]}",
+  "json_parse_success": true,
+  "schema_valid": true,
+  "semantic_correct": true,
+  "safe_abort_correct": false,
+  "failure_stage": null,
+  "failure_reason": null,
+  "prompt_metadata": {
+    "tokens": 73
+  },
+  "inference_parameters": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  },
+  "runtime_metadata": {
+    "eval_duration": 2600176000
+  }
+}

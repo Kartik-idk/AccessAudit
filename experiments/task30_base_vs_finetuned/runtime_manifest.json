@@ -1,0 +1,11 @@
+{
+  "OLLAMA_VERSION": "ollama version is 0.34.2",
+  "HARDWARE": "Apple M4, 16 GB memory",
+  "SYSTEM_PROMPT": "You are an expert accessibility engineer. You MUST reply with ONLY a flat JSON object. Do NOT output any conversational text.",
+  "USER_PROMPT_TEMPLATE": "Remediate the following accessibility issue.\n\n{CONTEXT}",
+  "OPTIONS": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  }
+}

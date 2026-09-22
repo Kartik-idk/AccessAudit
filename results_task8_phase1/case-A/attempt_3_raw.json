@@ -1,0 +1,11 @@
+{
+  "action": "MODIFY_ATTRIBUTE",
+  "reason": "The input element does not have an associated label.",
+  "target": {
+    "line": 7,
+    "column": 21
+  },
+  "operation": "ADD",
+  "attribute": "aria-label",
+  "value": "Email"
+}

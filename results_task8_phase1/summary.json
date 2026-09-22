@@ -1,0 +1,38 @@
+[
+  {
+    "case": "case-A",
+    "attempts": 3,
+    "firstPassValid": false,
+    "finalStatus": "MAX_ATTEMPTS_REACHED"
+  },
+  {
+    "case": "case-B",
+    "attempts": 3,
+    "firstPassValid": false,
+    "finalStatus": "MAX_ATTEMPTS_REACHED"
+  },
+  {
+    "case": "case-C",
+    "attempts": 3,
+    "firstPassValid": false,
+    "finalStatus": "MAX_ATTEMPTS_REACHED"
+  },
+  {
+    "case": "case-D",
+    "attempts": 3,
+    "firstPassValid": false,
+    "finalStatus": "MAX_ATTEMPTS_REACHED"
+  },
+  {
+    "case": "case-E",
+    "attempts": 3,
+    "firstPassValid": false,
+    "finalStatus": "MAX_ATTEMPTS_REACHED"
+  },
+  {
+    "case": "case-F",
+    "attempts": 3,
+    "firstPassValid": false,
+    "finalStatus": "MAX_ATTEMPTS_REACHED"
+  }
+]

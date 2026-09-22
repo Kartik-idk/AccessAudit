@@ -1,0 +1,29 @@
+{
+  "attempts": [
+    {
+      "attemptNumber": 1,
+      "rawResponse": "```json\n{\n  \"action\": \"MODIFY_ATTRIBUTE\",\n  \"reason\": \"To ensure accessibility, each form element must be associated with a label. This helps screen readers and other assistive technologies to understand the purpose of the input field.\",\n  \"target\": { \"element\": \"input\", \"file\": \"src/components/StructuralCases.tsx\", \"line\": 31, \"column\": 6 },\n  \"operation\": \"ADD\",\n  \"attribute\": \"aria-label\",\n  \"value\": \"Search\"\n}\n```",
+      "parseSuccess": true,
+      "gatekeeperResult": "REJECTED",
+      "rejectionReason": "SEMANTIC_REJECTION",
+      "feedback": "SEMANTIC_REJECTION:\nSelf-contained accessible names are disabled for this input. You must establish a programmatic relationship with existing visible text in the component."
+    },
+    {
+      "attemptNumber": 2,
+      "rawResponse": "```json\n{\n  \"action\": \"MODIFY_ATTRIBUTE\",\n  \"reason\": \"To ensure accessibility, the input element must be associated with a label that is visible to screen readers. This can be achieved by using the 'aria-labelledby' attribute to reference an existing visible label.\",\n  \"target\": { \"element\": \"input\", \"file\": \"src/components/StructuralCases.tsx\", \"line\": 31, \"column\": 6 },\n  \"operation\": \"ADD\",\n  \"attribute\": \"aria-labelledby\",\n  \"value\": \"search-label\"\n}\n```",
+      "parseSuccess": true,
+      "gatekeeperResult": "REJECTED",
+      "rejectionReason": "SEMANTIC_REJECTION",
+      "feedback": "SEMANTIC_REJECTION:\nThe referenced ID does not resolve to an existing element."
+    },
+    {
+      "attemptNumber": 3,
+      "rawResponse": "```json\n{\n  \"action\": \"MODIFY_ATTRIBUTE\",\n  \"reason\": \"To ensure accessibility, each form element must be associated with a label. This association helps screen readers and other assistive technologies to understand the purpose of the input field.\",\n  \"target\": { \"element\": \"input\", \"file\": \"src/components/StructuralCases.tsx\", \"line\": 31, \"column\": 6 },\n  \"operation\": \"ADD\",\n  \"attribute\": \"aria-labelledby\",\n  \"value\": \"search-label\"\n}\n```",
+      "parseSuccess": true,
+      "gatekeeperResult": "REJECTED",
+      "rejectionReason": "SEMANTIC_REJECTION",
+      "feedback": "SEMANTIC_REJECTION:\nThe referenced ID does not resolve to an existing element."
+    }
+  ],
+  "finalStatus": "SEMANTIC_RECOVERY"
+}

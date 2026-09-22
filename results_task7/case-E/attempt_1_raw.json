@@ -1,0 +1,6 @@
+{
+  "action": "MODIFY_ATTRIBUTE",
+  "reason": "The target element is a span, which is not semantically correct for a button. To fix this, we need to change the tag name to 'button' and ensure it has an accessible name.",
+  "attribute": "role",
+  "value": "button"
+}

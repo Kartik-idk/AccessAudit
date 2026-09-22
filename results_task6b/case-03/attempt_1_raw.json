@@ -1,0 +1,12 @@
+{
+  "action": "remove",
+  "target": {
+    "element": "img",
+    "file": "src/components/AdversarialCases.tsx",
+    "line": 28,
+    "column": 6
+  },
+  "operation": "REMOVE",
+  "attribute": "aria-hidden",
+  "reason": "The image is decorative and does not provide meaningful information. The aria-hidden attribute is redundant and should be removed."
+}

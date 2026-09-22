@@ -1,0 +1,12 @@
+{
+  "action": "add",
+  "target": {
+    "element": "input",
+    "file": "src/components/AdversarialCases.tsx",
+    "line": 51,
+    "column": 6
+  },
+  "operation": "ADD",
+  "attribute": "id",
+  "reason": "The input element does not have an associated label. Adding an id to the input and referencing it in the label's htmlFor attribute will improve accessibility."
+}

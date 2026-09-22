@@ -1,0 +1,12 @@
+{
+  "action": "add",
+  "target": {
+    "element": "img",
+    "file": "src/components/AdversarialCases.tsx",
+    "line": 7,
+    "column": 6
+  },
+  "operation": "ADD",
+  "attribute": "alt",
+  "reason": "The image lacks an alt attribute, which is essential for accessibility. The alt text should describe the image content concisely."
+}

@@ -1,0 +1,26 @@
+const benchmarkCases = [
+    { name: "case1", cat: "MODIFY_ATTRIBUTE", targetSelector: "#c1-img", expectedOutcome: "REMEDIATION", line: 9, col: 9 },
+    { name: "case2", cat: "MODIFY_ATTRIBUTE", targetSelector: "#c2-btn", expectedOutcome: "REMEDIATION", line: 14, col: 9 },
+    { name: "case3", cat: "MODIFY_ATTRIBUTE", targetSelector: "#c3-input", expectedOutcome: "REMEDIATION", line: 19, col: 9 },
+    { name: "case4", cat: "MODIFY_ATTRIBUTE", targetSelector: "#c4-div", expectedOutcome: "REMEDIATION", line: 24, col: 9 },
+    { name: "case5", cat: "MODIFY_ATTRIBUTE", targetSelector: "#c5-h1", expectedOutcome: "SAFE_ABORT", line: 29, col: 9 },
+    
+    { name: "case6", cat: "MULTI_NODE_REMEDIATION", targetSelector: "#c6-input", expectedOutcome: "REMEDIATION", line: 41, col: 6 },
+    { name: "case7", cat: "MULTI_NODE_REMEDIATION", targetSelector: "#c7-input", expectedOutcome: "REMEDIATION", line: 51, col: 6 },
+    { name: "case8", cat: "MULTI_NODE_REMEDIATION", targetSelector: "#c8-input", expectedOutcome: "REMEDIATION", line: 61, col: 6 },
+    { name: "case9", cat: "MULTI_NODE_REMEDIATION", targetSelector: "#c9-input", expectedOutcome: "SAFE_ABORT", line: 71, col: 6 },
+    { name: "case10", cat: "MULTI_NODE_REMEDIATION", targetSelector: "#c10-a1", expectedOutcome: "REMEDIATION", line: 80, col: 6 },
+
+    { name: "case11", cat: "STRUCTURAL_REMEDIATION", targetSelector: "#c11-div", expectedOutcome: "REMEDIATION", line: 92, col: 9 },
+    { name: "case12", cat: "STRUCTURAL_REMEDIATION", targetSelector: "#c12-div", expectedOutcome: "REMEDIATION", line: 97, col: 9 },
+    { name: "case13", cat: "STRUCTURAL_REMEDIATION", targetSelector: "#c13-div", expectedOutcome: "SAFE_ABORT", line: 104, col: 6 },
+    { name: "case14", cat: "STRUCTURAL_REMEDIATION", targetSelector: "#c14-div", expectedOutcome: "SAFE_ABORT", line: 112, col: 4 },
+    { name: "case15", cat: "STRUCTURAL_REMEDIATION", targetSelector: "#c15-div", expectedOutcome: "REMEDIATION", line: 121, col: 4 }
+];
+
+function checkSemanticGroundTruth(c, parsedObjs) {
+    if (parsedObjs.length === 1 && parsedObjs[0].action === "ABORT") {
+        if (c.expectedOutcome !== "SAFE_ABORT") {
+            return { valid: false, reason: "GROUND_TRUTH_FAILURE", msg: "Model aborted, but case requires remediation." };
+        }
+        return { valid: true };

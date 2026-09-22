@@ -1,0 +1,62 @@
+[
+  {
+    "case": "case-A",
+    "attempts": 1,
+    "jsonParseSuccess": true,
+    "gatekeeperResult": "SAFE_ABORT",
+    "patchResult": "N/A",
+    "buildResult": "N/A",
+    "axeResult": "N/A",
+    "finalStatus": "SAFE_ABORT"
+  },
+  {
+    "case": "case-B",
+    "attempts": 1,
+    "jsonParseSuccess": true,
+    "gatekeeperResult": "ACCEPTED",
+    "patchResult": "SUCCESS",
+    "buildResult": "SUCCESS",
+    "axeResult": "PASS",
+    "finalStatus": "SAFE_FIX"
+  },
+  {
+    "case": "case-C",
+    "attempts": 1,
+    "jsonParseSuccess": true,
+    "gatekeeperResult": "ACCEPTED",
+    "patchResult": "SUCCESS",
+    "buildResult": "SUCCESS",
+    "axeResult": "PASS",
+    "finalStatus": "SAFE_FIX"
+  },
+  {
+    "case": "case-D",
+    "attempts": 1,
+    "jsonParseSuccess": true,
+    "gatekeeperResult": "ACCEPTED",
+    "patchResult": "SUCCESS",
+    "buildResult": "SUCCESS",
+    "axeResult": "PASS",
+    "finalStatus": "SAFE_FIX"
+  },
+  {
+    "case": "case-E",
+    "attempts": 2,
+    "jsonParseSuccess": true,
+    "gatekeeperResult": "SAFE_ABORT",
+    "patchResult": "N/A",
+    "buildResult": "N/A",
+    "axeResult": "N/A",
+    "finalStatus": "SAFE_ABORT"
+  },
+  {
+    "case": "case-F",
+    "attempts": 2,
+    "jsonParseSuccess": true,
+    "gatekeeperResult": "SAFE_ABORT",
+    "patchResult": "N/A",
+    "buildResult": "N/A",
+    "axeResult": "N/A",
+    "finalStatus": "SAFE_ABORT"
+  }
+]

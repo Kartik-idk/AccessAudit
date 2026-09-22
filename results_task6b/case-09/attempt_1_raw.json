@@ -1,0 +1,12 @@
+{
+  "action": "remove",
+  "target": {
+    "element": "nav",
+    "file": "src/components/AdversarialCases.tsx",
+    "line": 93,
+    "column": 4
+  },
+  "operation": "REMOVE",
+  "attribute": "role",
+  "reason": "The 'nav' element already has a semantic role of 'navigation' from its tag name, making the 'role' attribute redundant."
+}

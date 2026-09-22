@@ -1,0 +1,12 @@
+{
+  "action": "abort",
+  "target": {
+    "element": "img",
+    "file": "src/components/AdversarialCases.tsx",
+    "line": 7,
+    "column": 6
+  },
+  "operation": "REMOVE",
+  "attribute": "alt",
+  "reason": "The context does not provide enough information to determine a meaningful alt text for the image. Without a clear description of the image content, an empty alt attribute would not fulfill the accessibility objective."
+}
