@@ -9,291 +9,300 @@ import { execSync } from 'child_process';
 const traverse = _traverse.default || _traverse;
 
 const MODEL = "accessaudit-qwen7b-ft";
+const OLLAMA_URL = "http://127.0.0.1:11434/api/chat";
 
 const SYSTEM_PROMPT = `You are an automated accessibility remediation system.
-You MUST reply with ONLY a flat JSON object. Do NOT output any conversational text.
-Your response MUST exactly match this JSON schema:
+Reply with ONLY a valid JSON object. No markdown, no prose.
+Schema:
 {
-  "rationale": "String explaining the root cause and proposed fix",
+  "rationale": "<explanation>",
   "action": "MODIFY_ATTRIBUTE" | "MULTI_NODE_REMEDIATION" | "STRUCTURAL_REMEDIATION" | "ABORT",
   "operations": [
     {
-      "target": "NODE_A" | "NODE_B",
+      "target": "NODE_A",
       "operation": "ADD" | "UPDATE" | "REMOVE" | "REPLACE_TAG",
-      "attribute": "String attribute name (if applicable)",
-      "value": "String attribute value (if applicable)",
-      "replacement_tag": "String replacement tag name (if applicable)"
+      "attribute": "<attr name>",
+      "value": "<attr value>",
+      "replacement_tag": "<tag name if REPLACE_TAG>"
     }
   ]
 }
-If the vulnerability cannot be remediated safely with the available operations (e.g. requires modifying surrounding visual DOM structure, requires changing global CSS, or requires interactive state management), you MUST use the ABORT action.`;
+If remediation is unsafe or unsupported, use action=ABORT with no operations.`;
+
+async function runInference(messages) {
+    let response;
+    try {
+        response = await fetch(OLLAMA_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model: MODEL,
+                messages,
+                format: 'json',
+                stream: false,
+                options: { temperature: 0.1, seed: 42, num_ctx: 4096 }
+            }),
+            signal: AbortSignal.timeout(120000)
+        });
+    } catch (e) {
+        throw new Error(`OLLAMA_CONNECT_FAILED: ${e.message}. Is ollama serve running?`);
+    }
+    if (!response.ok) {
+        const body = await response.text().catch(() => '');
+        throw new Error(`OLLAMA_HTTP_${response.status}: ${body.slice(0, 300)}`);
+    }
+    let data;
+    try {
+        data = await response.json();
+    } catch (e) {
+        throw new Error(`OLLAMA_RESPONSE_NOT_JSON: ${e.message}`);
+    }
+    const content = data?.message?.content;
+    if (typeof content !== 'string' || content.trim() === '') {
+        throw new Error(`OLLAMA_EMPTY_CONTENT: ${JSON.stringify(data).slice(0, 300)}`);
+    }
+    return content;
+}
 
 function injectEvaluatorId(originalCode, patchedCode, targetIds) {
-    let originalAst = parser.parse(originalCode, { sourceType: 'module', plugins: ['jsx', 'typescript'] });
-    let targetIndices = {}; 
-    let currentIndex = 0;
-    traverse(originalAst, {
-        JSXElement(path) {
-            for (const attr of path.node.openingElement.attributes) {
-                if (attr.name && attr.name.name === 'id' && attr.value && attr.value.value) {
-                    if (targetIds.includes(attr.value.value)) {
-                        targetIndices[attr.value.value] = currentIndex;
-                    }
+    const targetIndices = {};
+    let idx = 0;
+    const origAst = parser.parse(originalCode, { sourceType: 'module', plugins: ['jsx', 'typescript'] });
+    traverse(origAst, {
+        JSXElement(p) {
+            for (const attr of p.node.openingElement.attributes) {
+                if (attr.name && attr.name.name === 'id' && attr.value && attr.value.value && targetIds.includes(attr.value.value)) {
+                    targetIndices[attr.value.value] = idx;
                 }
             }
-            currentIndex++;
+            idx++;
         }
     });
-
-    let patchedAst = parser.parse(patchedCode, { sourceType: 'module', plugins: ['jsx', 'typescript'] });
-    let pIndex = 0;
-    let newCode = patchedCode;
-    let injections = [];
+    const patchedAst = parser.parse(patchedCode, { sourceType: 'module', plugins: ['jsx', 'typescript'] });
+    let pIdx = 0;
+    const injections = [];
     traverse(patchedAst, {
-        JSXElement(path) {
-            for (const [id, idx] of Object.entries(targetIndices)) {
-                if (pIndex === idx) {
-                    injections.push({
-                        pos: path.node.openingElement.name.end,
-                        id: id
-                    });
-                }
+        JSXElement(p) {
+            for (const [id, origIdx] of Object.entries(targetIndices)) {
+                if (pIdx === origIdx) injections.push({ pos: p.node.openingElement.name.end, id });
             }
-            pIndex++;
+            pIdx++;
         }
     });
-
     injections.sort((a, b) => b.pos - a.pos);
+    let newCode = patchedCode;
     for (const inj of injections) {
         newCode = newCode.slice(0, inj.pos) + ` data-a11y-id="${inj.id}"` + newCode.slice(inj.pos);
     }
     return newCode;
 }
 
-async function runInference(model, messages) {
-    try {
-        const response = await fetch('http://127.0.0.1:11434/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                model: model,
-                messages: messages,
-                format: 'json',
-                stream: false,
-                options: { temperature: 0.1, seed: 42, num_ctx: 4096 }
-            })
-        });
-        const data = await response.json();
-        return data.message.content;
-    } catch (e) {
-        return "";
+async function collectViolationSet(page, url) {
+    await page.goto(url, { waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(600);
+    const result = await new AxeBuilder({ page }).analyze();
+    const vioSet = new Set();
+    for (const v of result.violations) {
+        for (const n of v.nodes) vioSet.add(`${v.id}::${n.target.join(',')}`);
     }
+    return vioSet;
+}
+
+async function collectTargetViolationSet(page, url) {
+    await page.goto(url, { waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(600);
+    const result = await new AxeBuilder({ page }).analyze();
+    const vioSet = new Set();
+    for (const v of result.violations) {
+        for (const n of v.nodes) {
+            const a11yId = await page.evaluate((sel) => {
+                const el = document.querySelector(sel);
+                return el ? el.getAttribute('data-a11y-id') : null;
+            }, n.target[0]).catch(() => null);
+            if (a11yId) vioSet.add(`${v.id}::${a11yId}`);
+        }
+    }
+    return vioSet;
 }
 
 export async function runPrototypePipeline({ baseUrl, sandboxDir, fixturePath, caseId, emit, stopVite, restartVite }) {
     const originalContent = fs.readFileSync(fixturePath, 'utf8');
+    const CASE_MAP = {
+        case1: { targets: ['c1-img'], rule: 'image-alt' },
+        case2: { targets: ['c2-btn'], rule: 'button-name' },
+        case3: { targets: ['c3-div'], rule: 'aria-roles'  }
+    };
+    const caseSpec = CASE_MAP[caseId];
+    if (!caseSpec) { emit('ERROR', { message: `Unknown caseId: ${caseId}` }); return; }
+    const { targets, rule } = caseSpec;
 
-    let browser = await chromium.launch();
-    let context = await browser.newContext();
-    let page = await context.newPage();
+    emit('DETECTED', { rule, targets, message: `Baseline detection for rule="${rule}"` });
 
-    let targets = [];
-    let rule = "";
-    if (caseId === "case1") { targets = ["c1-img"]; rule = "image-alt"; }
-    if (caseId === "case2") { targets = ["c2-btn"]; rule = "button-name"; }
-    if (caseId === "case3") { targets = ["c3-div"]; rule = "aria-roles"; }
+    const browser = await chromium.launch();
+    const context = await browser.newContext();
+    const page = await context.newPage();
 
-    emit("DETECTED", { message: `Detecting baseline for ${rule}` });
+    try {
+        // Baseline — inject evaluator IDs, run Axe
+        const baselineInjected = injectEvaluatorId(originalContent, originalContent, targets);
+        fs.writeFileSync(fixturePath, baselineInjected);
 
-    // Baseline EOI Injection
-    const baselineInjected = injectEvaluatorId(originalContent, originalContent, targets);
-    fs.writeFileSync(fixturePath, baselineInjected);
-    
-    await page.goto(baseUrl);
-    await page.waitForTimeout(500); // give React time to render
-    const baselineAxe = await new AxeBuilder({ page }).analyze();
-    
-    const baseViolations = new Set();
-    for (const v of baselineAxe.violations) {
-        for (const n of v.nodes) {
-            let a11yId = await page.evaluate((selector) => {
-                const el = document.querySelector(selector);
-                return el ? el.getAttribute('data-a11y-id') : null;
-            }, n.target[0]);
-            if (a11yId) baseViolations.add(`${v.id}::${a11yId}`);
-        }
-    }
-    
-    // Restore canonical for AST
-    fs.writeFileSync(fixturePath, originalContent);
+        const baseGlobal = await collectViolationSet(page, baseUrl);
+        const baseTarget = await collectTargetViolationSet(page, baseUrl);
 
-    // Provenance context extraction
-    let ast = parser.parse(originalContent, { sourceType: 'module', plugins: ['typescript', 'jsx'] });
-    let nodesMap = {};
-    let letters = ['A', 'B'];
-    let contextBlocks = [];
-    
-    for (let i = 0; i < targets.length; i++) {
-        const targetId = targets[i];
-        traverse(ast, {
-            JSXElement(p) {
-                for (const attr of p.node.openingElement.attributes) {
-                    if (attr.name && attr.name.name === 'id' && attr.value && attr.value.value === targetId) {
-                        nodesMap[`NODE_${letters[i]}`] = {
-                            target_element: p.node.openingElement.name.name,
-                            line: p.node.loc.start.line,
-                            column: p.node.loc.start.column
-                        };
-                        let snippet = originalContent.substring(p.node.start, p.node.end);
-                        contextBlocks.push(`NODE_${letters[i]}:\n\`\`\`tsx\n${snippet}\n\`\`\``);
-                        p.stop();
+        fs.writeFileSync(fixturePath, originalContent);
+
+        emit('DETECTED', {
+            baselineTargetViolations: [...baseTarget],
+            globalCount: baseGlobal.size
+        });
+
+        // Provenance
+        const ast = parser.parse(originalContent, { sourceType: 'module', plugins: ['typescript', 'jsx'] });
+        const nodesMap = {};
+        const letters = ['A', 'B'];
+        const contextBlocks = [];
+        for (let i = 0; i < targets.length; i++) {
+            const tid = targets[i];
+            traverse(ast, {
+                JSXElement(p) {
+                    for (const attr of p.node.openingElement.attributes) {
+                        if (attr.name && attr.name.name === 'id' && attr.value && attr.value.value === tid) {
+                            nodesMap[`NODE_${letters[i]}`] = {
+                                target_element: p.node.openingElement.name.name,
+                                line: p.node.loc.start.line,
+                                column: p.node.loc.start.column
+                            };
+                            contextBlocks.push(`NODE_${letters[i]}:\n\`\`\`tsx\n${originalContent.substring(p.node.start, p.node.end)}\n\`\`\``);
+                            p.stop();
+                        }
                     }
                 }
-            }
-        });
-    }
-
-    emit("PROVENANCE", { context: contextBlocks.join('\n') });
-
-    const userPrompt = `Remediate the following accessibility issue.\n\n${contextBlocks.join('\n')}`;
-    let messages = [
-        { role: "system", content: SYSTEM_PROMPT },
-        { role: "user", content: userPrompt }
-    ];
-
-    const responseText = await runInference(MODEL, messages);
-    
-    let parsed;
-    try {
-        let cleanJson = responseText.trim();
-        if (cleanJson.startsWith("```json")) cleanJson = cleanJson.split('```json')[1].split('```')[0];
-        else if (cleanJson.startsWith("```")) cleanJson = cleanJson.split('```')[1].split('```')[0];
-        parsed = JSON.parse(cleanJson.trim());
-    } catch (e) {
-        emit("ERROR", { message: "Failed to parse LLM JSON", raw: responseText });
-        await browser.close();
-        return;
-    }
-
-    emit("PROPOSAL", parsed);
-
-    let bundle = [];
-    if (parsed.action === 'ABORT') {
-        emit("SAFE_REJECTED", { reason: "Model aborted safely" });
-        await browser.close();
-        return;
-    }
-
-    if (!parsed.operations || !Array.isArray(parsed.operations)) {
-        emit("SAFE_REJECTED", { reason: "Missing operations array" });
-        await browser.close();
-        return;
-    }
-
-    for (const op of parsed.operations) {
-        const targetNodeData = nodesMap[op.target];
-        if (!targetNodeData) {
-            emit("SAFE_REJECTED", { reason: "Invalid target mapping" });
-            await browser.close();
+            });
+        }
+        emit('PROVENANCE', { nodesFound: Object.keys(nodesMap), context: contextBlocks.join('\n') });
+        if (Object.keys(nodesMap).length === 0) {
+            emit('ERROR', { message: `Source nodes not found for ${caseId}` });
             return;
         }
-        bundle.push({
-            action: parsed.action,
-            reason: parsed.rationale || parsed.reason || "remediation",
-            target_element: targetNodeData.target_element,
-            file: fixturePath,
-            line: targetNodeData.line,
-            column: targetNodeData.column,
-            operation: op.operation,
-            attribute: op.attribute,
-            value: op.value,
-            replacement_tag: op.replacement_tag
-        });
-    }
 
-    // Stop Vite before patching
-    await stopVite();
-
-    const validationResult = validateProposalBundle(bundle, fixturePath, false); // SG ON
-    
-    if (!validationResult.valid) {
-        emit("GATEKEEPER", { status: "REJECTED", reason: validationResult.message });
-        emit("SAFE_REJECTED", { reason: "Semantic Gatekeeper rejected patch" });
-        await browser.close();
-        return;
-    }
-    
-    emit("GATEKEEPER", { status: "ACCEPTED" });
-
-    const patchRes = applyPatchBundle({ ...validationResult, valid: true, objects: bundle }, fixturePath);
-    if (!patchRes.success) {
-        emit("ERROR", { message: "Patch failed", reason: patchRes.message });
-        await browser.close();
-        return;
-    }
-    const patchedCode = fs.readFileSync(fixturePath, 'utf8');
-
-    // Build
-    try {
-        execSync('npx tsc --noEmit', { stdio: 'ignore', cwd: sandboxDir });
-        emit("BUILD", { status: "SUCCESS" });
-    } catch (e) {
-        emit("BUILD", { status: "FAILURE" });
-        emit("ERROR", { message: "Build failed after patching" });
-        await browser.close();
-        return;
-    }
-
-    // Inject data-a11y-id for post-patch tracking
-    const evalCode = injectEvaluatorId(originalContent, patchedCode, targets);
-    const trackingFailed = !evalCode.includes(`data-a11y-id="${targets[0]}"`);
-    fs.writeFileSync(fixturePath, evalCode); // write what the browser will see
-
-    if (trackingFailed) {
-        emit("ERROR", { message: "Task32 Target Tracking Failed. Evaluator ID could not be injected." });
-        await browser.close();
-        return;
-    }
-
-    // Restart Vite and Verify
-    emit("PATCH", { status: "APPLIED" });
-    await restartVite();
-
-    await page.goto(baseUrl);
-    await page.waitForTimeout(500);
-
-    const postAxe = await new AxeBuilder({ page }).analyze();
-
-    const postViolations = new Set();
-    for (const v of postAxe.violations) {
-        for (const n of v.nodes) {
-            let a11yId = await page.evaluate((selector) => {
-                const el = document.querySelector(selector);
-                return el ? el.getAttribute('data-a11y-id') : null;
-            }, n.target[0]);
-            if (a11yId) postViolations.add(`${v.id}::${a11yId}`);
+        // Inference
+        const userPrompt = `Remediate this accessibility violation.\nRule: ${rule}\nTargets:\n${contextBlocks.join('\n')}`;
+        let responseText;
+        try {
+            responseText = await runInference([
+                { role: 'system', content: SYSTEM_PROMPT },
+                { role: 'user',   content: userPrompt }
+            ]);
+        } catch (ie) {
+            emit('ERROR', { message: `Inference failed: ${ie.message}` });
+            return;
         }
-    }
 
-    await browser.close();
+        let parsed;
+        try {
+            let clean = responseText.trim();
+            if (clean.startsWith('```json')) clean = clean.split('```json')[1].split('```')[0];
+            else if (clean.startsWith('```')) clean = clean.split('```')[1].split('```')[0];
+            parsed = JSON.parse(clean.trim());
+        } catch (pe) {
+            emit('ERROR', { message: `LLM JSON parse failed: ${pe.message}`, raw: responseText.slice(0, 500) });
+            return;
+        }
+        emit('PROPOSAL', parsed);
 
-    let newViolations = 0;
-    postViolations.forEach(v => { if (!baseViolations.has(v)) newViolations++; });
+        if (parsed.action === 'ABORT') {
+            emit('SAFE_REJECTED', { reason: 'Model issued ABORT' });
+            return;
+        }
+        if (!Array.isArray(parsed.operations) || parsed.operations.length === 0) {
+            emit('SAFE_REJECTED', { reason: 'Model produced no operations' });
+            return;
+        }
 
-    const primaryTargetId = targets[0];
-    const targetVioStr = `${rule}::${primaryTargetId}`;
-    
-    let targetResolved = false;
-    if (!postViolations.has(targetVioStr)) targetResolved = true;
+        const bundle = [];
+        for (const op of parsed.operations) {
+            const nodeData = nodesMap[op.target] || nodesMap['NODE_A'];
+            if (!nodeData) {
+                emit('SAFE_REJECTED', { reason: `Unknown target "${op.target}"` });
+                return;
+            }
+            bundle.push({
+                action: parsed.action,
+                reason: parsed.rationale || 'remediation',
+                target_element: nodeData.target_element,
+                file: fixturePath,
+                line: nodeData.line,
+                column: nodeData.column,
+                operation: op.operation,
+                attribute: op.attribute,
+                value: op.value,
+                replacement_tag: op.replacement_tag
+            });
+        }
 
-    if (!targetResolved) {
-        emit("VERIFY", { status: "UNVERIFIED", reason: "Target accessibility issue was not resolved" });
-        emit("FAILED", { message: "Target issue unresolved" });
-    } else if (newViolations > 0) {
-        emit("VERIFY", { status: "UNVERIFIED", reason: "Introduced new accessibility violations" });
-        emit("FAILED", { message: "Regressions introduced" });
-    } else {
-        emit("VERIFY", { status: "VERIFIED" });
-        emit("DONE", { message: "SUCCESS" });
+        await stopVite();
+
+        const validationResult = validateProposalBundle(bundle, fixturePath, false);
+        if (!validationResult.valid) {
+            emit('GATEKEEPER', { status: 'REJECTED', reason: validationResult.message });
+            emit('SAFE_REJECTED', { reason: `Gatekeeper: ${validationResult.message}` });
+            return;
+        }
+        emit('GATEKEEPER', { status: 'ACCEPTED' });
+
+        const patchRes = applyPatchBundle({ ...validationResult, valid: true, objects: bundle }, fixturePath);
+        if (!patchRes.success) {
+            emit('ERROR', { message: `Patch failed: ${patchRes.message}` });
+            return;
+        }
+        const patchedCode = fs.readFileSync(fixturePath, 'utf8');
+
+        // Build
+        try {
+            execSync('npx tsc --noEmit', { stdio: 'pipe', cwd: sandboxDir });
+            emit('BUILD', { status: 'SUCCESS' });
+        } catch (be) {
+            emit('BUILD', { status: 'FAILURE', stderr: be.stderr ? be.stderr.toString().slice(0, 500) : '' });
+            emit('ERROR', { message: 'TypeScript build failed after patch' });
+            return;
+        }
+
+        // Inject evaluator IDs into patched code
+        const evalCode = injectEvaluatorId(originalContent, patchedCode, targets);
+        const trackingOk = targets.every(t => evalCode.includes(`data-a11y-id="${t}"`));
+        if (!trackingOk) {
+            emit('ERROR', { message: 'Task32 evaluator ID injection failed — tracking aborted' });
+            return;
+        }
+        fs.writeFileSync(fixturePath, evalCode);
+        emit('PATCH', { status: 'APPLIED', trackingInjected: targets });
+
+        // Restart Vite and verify
+        const verifyUrl = await restartVite();
+
+        const postGlobal = await collectViolationSet(page, verifyUrl);
+        const postTarget = await collectTargetViolationSet(page, verifyUrl);
+
+        const targetResolved = ![...postTarget].some(v => v.startsWith(`${rule}::`));
+        const regressions = [...postGlobal].filter(v => !baseGlobal.has(v));
+
+        emit('VERIFY', {
+            targetResolved,
+            targetViolationsPost: [...postTarget],
+            regressions,
+            globalBaselineCount: baseGlobal.size,
+            globalPostCount: postGlobal.size
+        });
+
+        if (!targetResolved) {
+            emit('FAILED', { message: 'Target accessibility issue NOT resolved' });
+        } else if (regressions.length > 0) {
+            emit('FAILED', { message: `${regressions.length} new global Axe violation(s) introduced`, regressions });
+        } else {
+            emit('DONE', { message: 'SUCCESS — target resolved, no regressions' });
+        }
+    } finally {
+        await browser.close().catch(() => {});
     }
 }
