@@ -1,0 +1,6 @@
+{
+  "valid": false,
+  "stage": "GATEKEEPER",
+  "reason": "SEMANTIC_REJECTION",
+  "message": "NESTED_INTERACTIVE: Cannot replace div with button because it contains nested interactive controls."
+}

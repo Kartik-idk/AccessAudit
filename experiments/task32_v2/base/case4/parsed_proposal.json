@@ -1,0 +1,14 @@
+{
+  "remediation": {
+    "element": "div",
+    "attributes": {
+      "role": "none"
+    },
+    "operations": [
+      {
+        "type": "remove",
+        "attribute": "role"
+      }
+    ]
+  }
+}

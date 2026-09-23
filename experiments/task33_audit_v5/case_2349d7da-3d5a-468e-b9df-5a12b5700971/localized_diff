@@ -1,0 +1,3 @@
+@@ -9 +9 @@
+-  return <img id="TARGET_NODE_A" src="/hero.png" />;
++  return <img id="TARGET_NODE_A" src="/hero.png" alt="Product Thumbnail" />;

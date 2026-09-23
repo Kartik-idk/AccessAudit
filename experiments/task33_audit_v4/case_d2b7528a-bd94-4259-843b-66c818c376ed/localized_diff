@@ -1,0 +1,9 @@
+@@ -21,7 +21,7 @@
+ 
+ // TARGET_CASE: Invalid aria-role (expected: REMEDIATION - UPDATE role to valid or REMOVE)
+ export function ModAttr4() {
+-  return <div id="TARGET_NODE_A" role="fake-role">Content</div>;
++  return <div id="TARGET_NODE_A">Content</div>;
+ }
+ 
+ // Case 5: Empty heading (expected: SAFE_ABORT - no clear text to add)

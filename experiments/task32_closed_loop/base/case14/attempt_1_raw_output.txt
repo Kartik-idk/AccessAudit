@@ -1,0 +1,7 @@
+{
+  "remediation": {
+    "role": "button",
+    "onClick": "handleLoginClick",
+    "aria-label": "Login with help"
+  }
+}

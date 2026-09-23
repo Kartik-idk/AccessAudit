@@ -1,0 +1,280 @@
+[
+  {
+    "package_id": "d29b3dae-3382-4600-a46e-d11ff45afb54",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "c229e730-d108-47cf-87d5-294a81fd5b4e",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "ec9f751b-b72b-4543-b7d6-e9e48d70c26e",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "a64c319b-8297-4007-bdcb-192689ca37b8",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "e4cf2ef2-d7ab-46ba-a3ee-fb8778df994e",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "afda036d-4249-4f51-9eeb-c514cd4a5e83",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "ae25bae9-e8d5-408e-981b-4ae283e32c8d",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": false,
+    "consistency_status": "INCONSISTENT",
+    "exact_fields_that_differ": [
+      "patch_assigned_TARGET_NODE_A_but_diff_shows_TARGET_NODE_B"
+    ],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "4b96e911-8630-4adb-93fc-2ff613ff481d",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "8b240f0b-3ea3-4dce-a50e-7f3f5f8c8c25",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "6768ad9a-7315-4815-8f1e-1d36b93cd0cd",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "d7eda41d-359d-4168-beda-6537ba9bbff7",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "3ca45425-a79d-442c-9af4-dd377ccb6a38",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "e59082d9-fc39-46b6-a2fc-6968814a3310",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": false,
+    "consistency_status": "INCONSISTENT",
+    "exact_fields_that_differ": [
+      "patch_assigned_TARGET_NODE_A_but_diff_shows_TARGET_NODE_B"
+    ],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "4726e98a-d45e-47b5-b0c4-3b00b3c7f021",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "0cd2984a-2966-4888-9151-cb2470979e0a",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "232155c6-032e-4244-aeab-860e695649cf",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "54afdda4-0fd7-47a3-89b9-f6ad0bf0a698",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "8c991b6c-8e88-4868-976b-76501209b344",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "749a4cf0-24de-4baf-97cc-dd3cee024c7c",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "9c4648e0-2dbb-438f-9010-8a2ff6e7f88a",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "eee0537d-5346-4035-ba28-7e956ffb3248",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": false,
+    "consistency_status": "INCONSISTENT",
+    "exact_fields_that_differ": [
+      "patch_assigned_TARGET_NODE_A_but_diff_shows_TARGET_NODE_B"
+    ],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "034b046c-c4f3-49de-8b05-e4b16da442b7",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "e383bd8c-9369-4ff4-b408-0b0fd1c480ff",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "9a48b19f-4932-4224-8c74-aeafb707e0f7",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "e85977ca-1eab-4bff-9dc0-18392217eb1f",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "f6f3c6b8-9d9b-49ff-bc83-a7835bec9fde",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": true,
+    "consistency_status": "CONSISTENT",
+    "exact_fields_that_differ": [],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  },
+  {
+    "package_id": "99f23e47-a55b-4788-ad07-7d59d6ce4931",
+    "proposal_patch_consistent": true,
+    "patch_diff_consistent": false,
+    "consistency_status": "INCONSISTENT",
+    "exact_fields_that_differ": [
+      "patch_assigned_TARGET_NODE_A_but_diff_shows_TARGET_NODE_B"
+    ],
+    "source_artifact_paths": [
+      "experiments/task33_audit_v5_READABLE.md"
+    ]
+  }
+]

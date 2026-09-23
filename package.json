@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prototype": "concurrently \"npx vite\" \"node scripts/prototype_server.js\""
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,9 @@
     "@babel/preset-react": "^8.0.1",
     "@vitejs/plugin-react": "^6.1.1",
     "axe-core": "^4.13.0",
+    "concurrently": "^10.0.5",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
     "html-validate": "^11.16.0",
     "playwright": "^1.63.0",
     "react": "^19.3.0",

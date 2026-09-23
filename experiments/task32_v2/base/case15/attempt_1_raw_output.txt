@@ -1,0 +1,9 @@
+{
+  "remediation": {
+    "role": "button",
+    "className": "btn",
+    "data-test": "btn",
+    "onClick": "() => {}",
+    "innerHTML": "Proceed"
+  }
+}

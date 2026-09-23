@@ -1,0 +1,34 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert accessibility engineer. You MUST reply with ONLY a flat JSON object. Do NOT output any conversational text."
+    },
+    {
+      "role": "user",
+      "content": "Remediate the following accessibility issue.\n\nNODE_A:\n<span id=\"c8-span\">Search</span>\nNODE_B:\n<input id=\"c8-input\"type=\"text\"aria-labelledby=\"wrong-id\"/>"
+    },
+    {
+      "role": "assistant",
+      "content": "{\n  \"remediation\": {\n    \"NODE_B\": {\n      \"aria-labelledby\": \"c8-span\"\n    }\n  }\n}"
+    },
+    {
+      "role": "user",
+      "content": "Your proposal was rejected: Missing operations array."
+    },
+    {
+      "role": "assistant",
+      "content": "{\n  \"remediation\": {\n    \"NODE_B\": {\n      \"operations\": [\n        {\n          \"type\": \"update\",\n          \"property\": \"aria-labelledby\",\n          \"value\": \"c8-span\"\n        }\n      ]\n    }\n  }\n}"
+    },
+    {
+      "role": "user",
+      "content": "Your proposal was rejected: Missing operations array."
+    }
+  ],
+  "options": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  }
+}

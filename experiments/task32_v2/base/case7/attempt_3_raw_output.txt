@@ -1,0 +1,22 @@
+{
+  "remediation": {
+    "NODE_A": {
+      "operations": [
+        {
+          "action": "add",
+          "attribute": "aria-label",
+          "value": "Username"
+        }
+      ]
+    },
+    "NODE_B": {
+      "operations": [
+        {
+          "action": "add",
+          "attribute": "aria-labelledby",
+          "value": "c7-span"
+        }
+      ]
+    }
+  }
+}

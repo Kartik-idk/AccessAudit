@@ -1,0 +1,18 @@
+{
+  "model": "accessaudit-qwen7b-ft",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert accessibility engineer. You MUST reply with ONLY a flat JSON object. Do NOT output any conversational text."
+    },
+    {
+      "role": "user",
+      "content": "Remediate the following accessibility issue.\n\nNODE_A:\n<div id=\"c11-div\"role=\"button\"tabIndex={5}onClick={()=>{}}>Click Me</div>"
+    }
+  ],
+  "options": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  }
+}

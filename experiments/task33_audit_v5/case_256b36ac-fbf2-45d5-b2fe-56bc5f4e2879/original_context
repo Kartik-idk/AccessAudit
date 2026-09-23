@@ -1,0 +1,6 @@
+Remediate the following accessibility issue.
+
+NODE_A:
+```tsx
+<div id="TARGET_NODE_A" role="fake-role">Content</div>
+```

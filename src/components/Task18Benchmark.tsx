@@ -26,7 +26,7 @@ export function ModAttr4() {
 
 // Case 5: Empty heading (expected: SAFE_ABORT - no clear text to add)
 export function ModAttr5() {
-  return <h1 id="c5-h1"></h1>;
+  return <h1 data-a11y-id="c5-h1" id="id-1234"></h1>;
 }
 
 // ==========================================

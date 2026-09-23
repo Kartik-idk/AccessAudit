@@ -1,0 +1,4 @@
+Baseline Target Violation Rule: aria-valid-attr-value
+Post-Patch Target Violation Count: 0
+Target-Level Evidence: INDETERMINATE FROM FROZEN ARTIFACT
+Total NEW Violations Introduced: 9

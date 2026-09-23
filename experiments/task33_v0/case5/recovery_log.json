@@ -1,0 +1,17 @@
+[
+  {
+    "attempt_number": 1,
+    "triggering_stage": "SCHEMA",
+    "trigger_reason": "INVALID_TARGET_MAPPING"
+  },
+  {
+    "attempt_number": 2,
+    "triggering_stage": "SCHEMA",
+    "trigger_reason": "INVALID_TARGET_MAPPING"
+  },
+  {
+    "attempt_number": 3,
+    "triggering_stage": "SCHEMA",
+    "trigger_reason": "INVALID_TARGET_MAPPING"
+  }
+]

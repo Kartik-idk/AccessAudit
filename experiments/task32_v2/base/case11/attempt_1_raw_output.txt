@@ -1,0 +1,8 @@
+{
+  "remediation": {
+    "role": "button",
+    "tabIndex": 5,
+    "onClick": "() => {}",
+    "aria-label": "Click Me"
+  }
+}

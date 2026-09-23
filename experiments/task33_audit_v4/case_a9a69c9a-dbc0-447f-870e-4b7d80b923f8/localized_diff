@@ -1,0 +1,9 @@
+@@ -11,7 +11,7 @@
+ 
+ // TARGET_CASE: Button missing accessible name (expected: REMEDIATION)
+ export function ModAttr2() {
+-  return <button id="TARGET_NODE_A"></button>;
++  return <button id="TARGET_NODE_A" aria-label="Submit"></button>;
+ }
+ 
+ // Case 3: Focusable element with aria-hidden (expected: REMEDIATION - REMOVE aria-hidden)

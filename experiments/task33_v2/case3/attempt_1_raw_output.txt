@@ -1,0 +1,1 @@
+{"rationale":"ARIA attribute should not be used if the element is already accessible.","action":"MODIFY_ATTRIBUTE","operations":[{"target":"NODE_A","operation":"REMOVE","attribute":"aria-hidden"}]}

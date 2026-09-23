@@ -1,0 +1,6 @@
+{
+  "remediation": {
+    "role": "button",
+    "onClick": "function() { /* submit logic */ }"
+  }
+}

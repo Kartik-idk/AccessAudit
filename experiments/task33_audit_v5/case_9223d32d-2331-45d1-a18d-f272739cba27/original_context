@@ -1,0 +1,10 @@
+Remediate the following accessibility issue.
+
+NODE_A:
+```tsx
+<span id="TARGET_NODE_A">Search</span>
+```
+NODE_B:
+```tsx
+<input id="TARGET_NODE_B" type="text" aria-labelledby="wrong-id" />
+```

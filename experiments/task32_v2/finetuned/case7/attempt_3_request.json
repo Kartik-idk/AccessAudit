@@ -1,0 +1,34 @@
+{
+  "model": "accessaudit-qwen7b-ft",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert accessibility engineer. You MUST reply with ONLY a flat JSON object. Do NOT output any conversational text."
+    },
+    {
+      "role": "user",
+      "content": "Remediate the following accessibility issue.\n\nNODE_A:\n<span id=\"c7-span\">Username</span>\nNODE_B:\n<input id=\"c7-input\"type=\"text\"/>"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"rationale\":\"Labels must be associated with inputs.\",\"action\":\"MULTI_NODE_REMEDIATION\",\"operations\":[{\"target\":\"NODE_A\",\"operation\":\"UPDATE\",\"attribute\":\"id\",\"value\":\"id-22\"}]}"
+    },
+    {
+      "role": "user",
+      "content": "Your proposal was rejected: Unsupported attribute id"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"rationale\":\"Labels must be associated with inputs.\",\"action\":\"MULTI_NODE_REMEDIATION\",\"operations\":[{\"target\":\"NODE_A\",\"operation\":\"UPDATE\",\"attribute\":\"id\",\"value\":\"id-22\"}]}"
+    },
+    {
+      "role": "user",
+      "content": "Your proposal was rejected: Unsupported attribute id"
+    }
+  ],
+  "options": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  }
+}

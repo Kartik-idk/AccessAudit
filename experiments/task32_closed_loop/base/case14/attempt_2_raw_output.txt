@@ -1,0 +1,23 @@
+{
+  "remediation": {
+    "role": "button",
+    "onClick": "handleLoginClick",
+    "aria-label": "Login with help",
+    "operations": [
+      {
+        "type": "replace",
+        "target": "div",
+        "attributes": {
+          "role": "button"
+        }
+      },
+      {
+        "type": "add",
+        "target": "a",
+        "attributes": {
+          "aria-label": "Help"
+        }
+      }
+    ]
+  }
+}

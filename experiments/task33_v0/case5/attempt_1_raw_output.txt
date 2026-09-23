@@ -1,0 +1,1 @@
+{"rationale":"Changing id of node A.","action":"MODIFY_ATTRIBUTE","operations":[{"target":"NODE_A","operation":"UPDATE","attribute":"id","value":"id-1234"}]}

@@ -1,0 +1,17 @@
+[
+  {
+    "attempt_number": 1,
+    "triggering_stage": "PATCH",
+    "trigger_reason": "PATCH_FAILURE"
+  },
+  {
+    "attempt_number": 2,
+    "triggering_stage": "PATCH",
+    "trigger_reason": "PATCH_FAILURE"
+  },
+  {
+    "attempt_number": 3,
+    "triggering_stage": "PATCH",
+    "trigger_reason": "PATCH_FAILURE"
+  }
+]

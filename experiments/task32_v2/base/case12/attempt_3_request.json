@@ -1,0 +1,34 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert accessibility engineer. You MUST reply with ONLY a flat JSON object. Do NOT output any conversational text."
+    },
+    {
+      "role": "user",
+      "content": "Remediate the following accessibility issue.\n\nNODE_A:\n<div id=\"c12-div\"role=\"fake\"onClick={()=>{}}>Submit</div>"
+    },
+    {
+      "role": "assistant",
+      "content": "{\n  \"remediation\": {\n    \"role\": \"button\",\n    \"onClick\": \"function() { /* submit logic */ }\"\n  }\n}"
+    },
+    {
+      "role": "user",
+      "content": "Your proposal was rejected: Missing operations array."
+    },
+    {
+      "role": "assistant",
+      "content": "{\n  \"remediation\": {\n    \"role\": \"button\",\n    \"onClick\": \"function() { /* submit logic */ }\",\n    \"operations\": [\n      {\n        \"type\": \"add\",\n        \"element\": \"<button id='c12-button' role='button' onClick='function() { /* submit logic */ }'>Submit</button>\"\n      }\n    ]\n  }\n}"
+    },
+    {
+      "role": "user",
+      "content": "Your proposal was rejected: Missing operations array."
+    }
+  ],
+  "options": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  }
+}

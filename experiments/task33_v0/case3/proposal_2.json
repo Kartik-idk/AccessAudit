@@ -1,0 +1,11 @@
+{
+  "rationale": "NODE_A is a generic input. It should be converted to button.",
+  "action": "STRUCTURAL_REMEDIATION",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "REPLACE_TAG",
+      "replacement_tag": "button"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "rationale": "NODE_A should be associated with NODE_B.",
+  "action": "MULTI_NODE_REMEDIATION",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "UPDATE",
+      "attribute": "id",
+      "value": "id-1234"
+    },
+    {
+      "target": "NODE_B",
+      "operation": "UPDATE",
+      "attribute": "id",
+      "value": "id-1234"
+    }
+  ]
+}

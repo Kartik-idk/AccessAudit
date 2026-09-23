@@ -1,0 +1,6 @@
+Remediate the following accessibility issue.
+
+NODE_A:
+```tsx
+<button id="TARGET_NODE_A"></button>
+```

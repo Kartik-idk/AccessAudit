@@ -1,0 +1,13 @@
+[
+  {
+    "action": "MODIFY_ATTRIBUTE",
+    "reason": "Label must be associated with input.",
+    "target_element": "label",
+    "file": "/Users/kartikeyapradhan/Nit Surathkal/Access Audit/dom-source-test/src/components/Task18Benchmark.tsx",
+    "line": 40,
+    "column": 6,
+    "operation": "UPDATE",
+    "attribute": "htmlFor",
+    "value": "TARGET_NODE_A"
+  }
+]

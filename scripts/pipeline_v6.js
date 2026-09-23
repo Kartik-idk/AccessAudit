@@ -35,7 +35,7 @@ const schema = {
 };
 
 const validateSchema = ajv.compile(schema);
-const ALLOWED_ATTRIBUTES = ['alt', 'aria-label', 'aria-labelledby', 'aria-describedby', 'role', 'title', 'for', 'htmlFor', 'id', 'tabIndex', 'aria-hidden', 'placeholder'];
+const ALLOWED_ATTRIBUTES = ['alt', 'aria-label', 'aria-labelledby', 'aria-describedby', 'role', 'title', 'for', 'htmlFor', 'tabIndex', 'aria-hidden', 'placeholder'];
 
 export function parseMultiObjectResponse(responseText) {
     const objects = [];
@@ -98,7 +98,13 @@ export function parseMultiObjectResponse(responseText) {
     return { valid: true, objects };
 }
 
-export function validateProposalBundle(objects, absPath) {
+export function validateProposalBundle(objects, targetFile, bypassSG = false) {
+    if (!Array.isArray(objects)) {
+        return { valid: false, stage: "SCHEMA", reason: "SCHEMA_VALIDATION_FAILURE", message: "Root must be an array" };
+    }
+
+    const absPath = targetFile;
+
     if (objects.length === 0) return { valid: false, reason: "JSON_PARSE_FAILURE", message: "No objects to process." };
 
     let code = '';
@@ -156,11 +162,11 @@ export function validateProposalBundle(objects, absPath) {
             if (obj.operation !== "REPLACE_TAG") {
                 return { valid: false, stage: "SYNTACTIC", reason: "UNSUPPORTED_REMEDIATION", message: `Operation ${obj.operation} is not allowed for structural.` };
             }
-            if (elementName !== 'div') return { valid: false, stage: "GATEKEEPER", reason: "SEMANTIC_REJECTION", message: `INVALID_TARGET: Target must be a div.` };
-            if (obj.replacement_tag !== 'button') return { valid: false, stage: "GATEKEEPER", reason: "UNSUPPORTED_REMEDIATION", message: `INVALID_REPLACEMENT: Replacement must be button.` };
+            if (!bypassSG && elementName !== 'div') return { valid: false, stage: "GATEKEEPER", reason: "SEMANTIC_REJECTION", message: `INVALID_TARGET: Target must be a div.` };
+            if (!bypassSG && obj.replacement_tag !== 'button') return { valid: false, stage: "GATEKEEPER", reason: "UNSUPPORTED_REMEDIATION", message: `INVALID_REPLACEMENT: Replacement must be button.` };
 
             const hasClickHandler = targetNode.openingElement.attributes.some(a => a.name && (a.name.name === 'onClick' || a.name.name === 'onKeyDown' || a.name.name === 'onKeyUp'));
-            if (!hasClickHandler) return { valid: false, stage: "GATEKEEPER", reason: "SEMANTIC_REJECTION", message: `NO_INTERACTION_EVIDENCE: div -> button replacement requires interaction evidence on the target.` };
+            if (!bypassSG && !hasClickHandler) return { valid: false, stage: "GATEKEEPER", reason: "SEMANTIC_REJECTION", message: `NO_INTERACTION_EVIDENCE: div -> button replacement requires interaction evidence on the target.` };
 
             let insideForm = false;
             let curr = targetPath.parentPath;
@@ -170,7 +176,7 @@ export function validateProposalBundle(objects, absPath) {
                 }
                 curr = curr.parentPath;
             }
-            if (insideForm) return { valid: false, stage: "GATEKEEPER", reason: "SEMANTIC_REJECTION", message: `FORM_CONTEXT_UNSUPPORTED: div -> button not allowed inside <form>.` };
+            if (!bypassSG && insideForm) return { valid: false, stage: "GATEKEEPER", reason: "SEMANTIC_REJECTION", message: `FORM_CONTEXT_UNSUPPORTED: div -> button not allowed inside <form>.` };
 
             let nestedInteractive = false;
             const interactiveTags = ['button', 'a', 'input', 'select', 'textarea'];
@@ -181,14 +187,14 @@ export function validateProposalBundle(objects, absPath) {
                     }
                 }
             });
-            if (nestedInteractive) return { valid: false, stage: "GATEKEEPER", reason: "SEMANTIC_REJECTION", message: `NESTED_INTERACTIVE: Cannot replace div with button because it contains nested interactive controls.` };
+            if (!bypassSG && nestedInteractive) return { valid: false, stage: "GATEKEEPER", reason: "SEMANTIC_REJECTION", message: `NESTED_INTERACTIVE: Cannot replace div with button because it contains nested interactive controls.` };
 
             resolvedOps.push({ obj, type: 'STRUCTURAL', opening: targetNode.openingElement, closing: targetNode.closingElement });
         } else if (obj.action === "MODIFY_ATTRIBUTE" || obj.action === "MULTI_NODE_REMEDIATION") {
-            if (!ALLOWED_ATTRIBUTES.includes(obj.attribute)) {
+            if (!bypassSG && !ALLOWED_ATTRIBUTES.includes(obj.attribute)) {
                 return { valid: false, stage: "SYNTACTIC", reason: "UNSUPPORTED_REMEDIATION", message: `Unsupported attribute ${obj.attribute}` };
             }
-            if (elementName === 'input' && ['aria-label', 'title', 'placeholder'].includes(obj.attribute) && (obj.operation === 'ADD' || obj.operation === 'UPDATE')) {
+            if (!bypassSG && elementName === 'input' && ['aria-label', 'title', 'placeholder'].includes(obj.attribute) && (obj.operation === 'ADD' || obj.operation === 'UPDATE')) {
                 return { valid: false, stage: "GATEKEEPER", reason: "SEMANTIC_REJECTION", message: "SEMANTIC_REJECTION: Self-contained accessible names are disabled for this input. Establish a programmatic relationship with existing visible text." };
             }
 

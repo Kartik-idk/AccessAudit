@@ -1,0 +1,6 @@
+{
+  "valid": false,
+  "stage": "SYNTACTIC",
+  "reason": "INVALID_PROPOSAL",
+  "message": "Attribute 'id' already exists for ADD operation."
+}

@@ -1,0 +1,4 @@
+{
+  "rationale": "NODE_A is inside NODE_B.",
+  "action": "ABORT"
+}

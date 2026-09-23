@@ -1,0 +1,12 @@
+{
+  "remediation": {
+    "role": "button",
+    "onClick": "function() { /* submit logic */ }",
+    "operations": [
+      {
+        "type": "replace",
+        "element": "<button id='c12-button' role='button' onClick='function() { /* submit logic */ }'>Submit</button>"
+      }
+    ]
+  }
+}

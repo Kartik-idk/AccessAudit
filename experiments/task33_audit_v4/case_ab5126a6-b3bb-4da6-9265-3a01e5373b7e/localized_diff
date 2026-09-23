@@ -1,0 +1,9 @@
+@@ -37,7 +37,7 @@
+ export function MultiNode1() {
+   return (
+     <div>
+-      <label id="TARGET_NODE_A" htmlFor="wrong-email">Email</label>
++      <label id="TARGET_NODE_A" htmlFor="TARGET_NODE_B">Email</label>
+       <input id="TARGET_NODE_B" type="text" />
+     </div>
+   );

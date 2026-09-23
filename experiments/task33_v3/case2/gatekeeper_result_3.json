@@ -1,0 +1,6 @@
+{
+  "valid": false,
+  "stage": "SYNTACTIC",
+  "reason": "INVALID_PROPOSAL",
+  "message": "Attribute 'aria-label' does not exist for UPDATE operation."
+}

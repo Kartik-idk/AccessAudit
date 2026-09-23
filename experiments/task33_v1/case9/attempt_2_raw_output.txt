@@ -1,0 +1,1 @@
+{"rationale":"NODE_A must be wrapped in label.","action":"STRUCTURAL_REMEDIATION","operations":[{"target":"NODE_A","operation":"REPLACE_TAG","replacement_tag":"label"}]}

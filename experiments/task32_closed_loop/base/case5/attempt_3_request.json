@@ -1,0 +1,34 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert accessibility engineer. You MUST reply with ONLY a flat JSON object. Do NOT output any conversational text."
+    },
+    {
+      "role": "user",
+      "content": "Remediate the following accessibility issue.\n\nNODE_A:\n<h1 id=\"c5-h1\"></h1>"
+    },
+    {
+      "role": "assistant",
+      "content": "{\n  \"remediation\": {\n    \"description\": \"Ensure that the <h1> element contains meaningful text that accurately describes the content of the section it is associated with.\",\n    \"example\": \"<h1 id=\\\"c5-h1\\\">Welcome to Our Website</h1>\"\n  }\n}"
+    },
+    {
+      "role": "user",
+      "content": "Your proposal was rejected: Missing operations array."
+    },
+    {
+      "role": "assistant",
+      "content": "{\n  \"remediation\": {\n    \"description\": \"Ensure that the <h1> element contains meaningful text that accurately describes the content of the section it is associated with.\",\n    \"example\": \"<h1 id=\\\"c5-h1\\\">Welcome to Our Website</h1>\"\n  },\n  \"operations\": [\n    {\n      \"type\": \"edit\",\n      \"element\": \"h1\",\n      \"attribute\": \"id\",\n      \"value\": \"c5-h1\"\n    },\n    {\n      \"type\": \"edit\",\n      \"element\": \"h1\",\n      \"content\": \"Welcome to Our Website\"\n    }\n  ]\n}"
+    },
+    {
+      "role": "user",
+      "content": "Your proposal was rejected: Invalid target mapping."
+    }
+  ],
+  "options": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  }
+}

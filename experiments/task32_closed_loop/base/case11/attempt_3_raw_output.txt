@@ -1,0 +1,19 @@
+{
+  "remediation": {
+    "role": "button",
+    "tabIndex": 5,
+    "onClick": "() => {}",
+    "aria-label": "Click Me",
+    "operations": [
+      {
+        "type": "add",
+        "element": "span",
+        "attributes": {
+          "aria-hidden": "true",
+          "style": "position: absolute; clip: rect(0 0 0 0); width: 1px; height: 1px; margin: -1px; padding: 0; border: 0;"
+        },
+        "content": "Click Me"
+      }
+    ]
+  }
+}

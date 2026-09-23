@@ -1,0 +1,9 @@
+@@ -94,7 +94,7 @@
+ 
+ // TARGET_CASE: Interactive div missing role/tabindex (expected: REMEDIATION - REPLACE_TAG)
+ export function Struct2() {
+-  return <div id="TARGET_NODE_A" role="fake" onClick={() => {}}>Submit</div>;
++  return <div id="TARGET_NODE_A" onClick={() => {}}>Submit</div>;
+ }
+ 
+ // Case 13: Interactive div nested inside form (expected: SAFE_ABORT)

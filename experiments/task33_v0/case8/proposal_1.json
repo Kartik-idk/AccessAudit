@@ -1,0 +1,12 @@
+{
+  "rationale": "NODE_A should be associated with NODE_B.",
+  "action": "MODIFY_ATTRIBUTE",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "UPDATE",
+      "attribute": "id",
+      "value": "id-aq2z"
+    }
+  ]
+}

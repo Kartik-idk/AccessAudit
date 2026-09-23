@@ -1,0 +1,10 @@
+{
+  "remediation": {
+    "NODE_A": {
+      "tabIndex": null
+    },
+    "NODE_B": {
+      "tabIndex": null
+    }
+  }
+}

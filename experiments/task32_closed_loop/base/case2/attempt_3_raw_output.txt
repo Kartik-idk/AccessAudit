@@ -1,0 +1,10 @@
+{
+  "remediation": {
+    "operations": [
+      {
+        "add_text": "aria-label",
+        "value": "Click me"
+      }
+    ]
+  }
+}

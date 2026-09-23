@@ -1,0 +1,1 @@
+{"rationale":"Invalid ARIA roles must be removed.","action":"MODIFY_ATTRIBUTE","operations":[{"target":"NODE_A","operation":"REMOVE","attribute":"role"}]}

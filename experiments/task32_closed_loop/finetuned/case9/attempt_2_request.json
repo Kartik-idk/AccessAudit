@@ -1,0 +1,26 @@
+{
+  "model": "accessaudit-qwen7b-ft",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert accessibility engineer. You MUST reply with ONLY a flat JSON object. Do NOT output any conversational text."
+    },
+    {
+      "role": "user",
+      "content": "Remediate the following accessibility issue.\n\nNODE_A:\n<input id=\"c9-input\"type=\"text\"/>"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"rationale\":\"Inputs must have labels.\",\"action\":\"MODIFY\",\"operations\":[{\"target\":\"NODE_A\",\"operation\":\"ADD\",\"attribute\":\"id\",\"value\":\"id-529z\"}]}"
+    },
+    {
+      "role": "user",
+      "content": "Your proposal was rejected: Schema validation failed: data/action must be equal to one of the allowed values"
+    }
+  ],
+  "options": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  }
+}

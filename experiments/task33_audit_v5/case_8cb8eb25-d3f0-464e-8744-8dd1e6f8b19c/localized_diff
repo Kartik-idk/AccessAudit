@@ -1,0 +1,3 @@
+@@ -121 +121 @@
+-    <div id="TARGET_NODE_A" role="fake" className="btn" data-test="btn" onClick={() => {}}>
++    <div id="TARGET_NODE_A" className="btn" data-test="btn" onClick={() => {}}>

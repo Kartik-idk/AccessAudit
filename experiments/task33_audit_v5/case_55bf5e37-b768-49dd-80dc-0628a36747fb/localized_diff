@@ -1,0 +1,3 @@
+@@ -104 +104 @@
+-      <div id="TARGET_NODE_A" role="fake" onClick={() => {}}>Save</div>
++      <div id="TARGET_NODE_A" onClick={() => {}}>Save</div>

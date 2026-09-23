@@ -1,0 +1,166 @@
+{
+  "valid": true,
+  "isAbort": false,
+  "action": "BUNDLE",
+  "vCode": "import React from 'react';\n\n// ==========================================\n// CATEGORY A: MODIFY_ATTRIBUTE (5 cases)\n// ==========================================\n\n// Case 1: Image missing alt (expected: REMEDIATION)\nexport function ModAttr1() {\n  return <img id=\"c1-img\" src=\"/hero.png\" />;\n}\n\n// Case 2: Button missing accessible name (expected: REMEDIATION)\nexport function ModAttr2() {\n  return <button id=\"c2-btn\"></button>;\n}\n\n// Case 3: Focusable element with aria-hidden (expected: REMEDIATION - REMOVE aria-hidden)\nexport function ModAttr3() {\n  return <input id=\"c3-input\" type=\"text\" aria-label=\"Name\" aria-hidden=\"true\" />;\n}\n\n// Case 4: Invalid aria-role (expected: REMEDIATION - UPDATE role to valid or REMOVE)\nexport function ModAttr4() {\n  return <div id=\"c4-div\" role=\"fake-role\">Content</div>;\n}\n\n// Case 5: Empty heading (expected: SAFE_ABORT - no clear text to add)\nexport function ModAttr5() {\n  return <h1 data-a11y-id=\"c5-h1\" id=\"id-1234\"></h1>;\n}\n\n// ==========================================\n// CATEGORY B: MULTI_NODE_REMEDIATION (5 cases)\n// ==========================================\n\n// Case 6: Input + disconnected label (expected: REMEDIATION - ADD htmlFor/id)\nexport function MultiNode1() {\n  return (\n    <div>\n      <label id=\"c6-label\" htmlFor=\"wrong-email\">Email</label>\n      <input id=\"c6-input\" type=\"text\" />\n    </div>\n  );\n}\n\n// Case 7: Input + span missing relationship (expected: REMEDIATION - ADD id + aria-labelledby)\nexport function MultiNode2() {\n  return (\n    <div>\n      <span id=\"c7-span\">Username</span>\n      <input id=\"c7-input\" type=\"text\" />\n    </div>\n  );\n}\n\n// Case 8: Redundant/invalid IDREF update (expected: REMEDIATION - UPDATE aria-labelledby)\nexport function MultiNode3() {\n  return (\n    <div>\n      <span id=\"id-aq2z\">Search</span>\n      <input id=\"c8-input\" type=\"text\" aria-labelledby=\"wrong-id\" />\n    </div>\n  );\n}\n\n// Case 9: Input missing label completely (expected: SAFE_ABORT)\nexport function MultiNode4() {\n  return (\n    <div>\n      <span>Enter value:</span>\n      <input id=\"c9-input\" type=\"text\" />\n    </div>\n  );\n}\n\n// Case 10: Multi-node removal of tabindex from multiple elements (expected: REMEDIATION - REMOVE)\nexport function MultiNode5() {\n  return (\n    <div>\n      <a id=\"c10-a1\" tabIndex={5}>Link 1</a>\n      <a id=\"c10-a2\" tabIndex={6}>Link 2</a>\n    </div>\n  );\n}\n\n// ==========================================\n// CATEGORY C: STRUCTURAL_REMEDIATION (5 cases)\n// ==========================================\n\n// Case 11: Normal interactive div (expected: REMEDIATION - REPLACE_TAG)\nexport function Struct1() {\n  return <div id=\"c11-div\" role=\"button\" tabIndex={5} onClick={() => {}}>Click Me</div>;\n}\n\n// Case 12: Interactive div missing role/tabindex (expected: REMEDIATION - REPLACE_TAG)\nexport function Struct2() {\n  return <div id=\"c12-div\" role=\"fake\" onClick={() => {}}>Submit</div>;\n}\n\n// Case 13: Interactive div nested inside form (expected: SAFE_ABORT)\nexport function Struct3() {\n  return (\n    <form>\n      <div id=\"c13-div\" role=\"fake\" onClick={() => {}}>Save</div>\n    </form>\n  );\n}\n\n// Case 14: Interactive div containing nested interactive control (expected: SAFE_ABORT)\nexport function Struct4() {\n  return (\n    <div id=\"c14-div\" role=\"fake\" onClick={() => {}}>\n      Login <a href=\"/help\">Help</a>\n    </div>\n  );\n}\n\n// Case 15: Interactive div with existing attributes preserved (expected: REMEDIATION)\nexport function Struct5() {\n  return (\n    <div id=\"c15-div\" role=\"fake\" className=\"btn\" data-test=\"btn\" onClick={() => {}}>\n      Proceed\n    </div>\n  );\n}\n\nexport function BenchmarkRoot() {\n  return (\n    <div>\n      <ModAttr1 />\n      <ModAttr2 />\n      <ModAttr3 />\n      <ModAttr4 />\n      <ModAttr5 />\n      <MultiNode1 />\n      <MultiNode2 />\n      <MultiNode3 />\n      <MultiNode4 />\n      <MultiNode5 />\n      <Struct1 />\n      <Struct2 />\n      <Struct3 />\n      <Struct4 />\n      <Struct5 />\n    </div>\n  );\n}\n",
+  "objects": [
+    {
+      "action": "MODIFY_ATTRIBUTE",
+      "reason": "NODE_A should be associated with NODE_B.",
+      "target_element": "span",
+      "file": "/Users/kartikeyapradhan/Nit Surathkal/Access Audit/dom-source-test/src/components/Task18Benchmark.tsx",
+      "line": 60,
+      "column": 6,
+      "operation": "UPDATE",
+      "attribute": "id",
+      "value": "id-aq2z"
+    }
+  ],
+  "resolvedOps": [
+    {
+      "obj": {
+        "action": "MODIFY_ATTRIBUTE",
+        "reason": "NODE_A should be associated with NODE_B.",
+        "target_element": "span",
+        "file": "/Users/kartikeyapradhan/Nit Surathkal/Access Audit/dom-source-test/src/components/Task18Benchmark.tsx",
+        "line": 60,
+        "column": 6,
+        "operation": "UPDATE",
+        "attribute": "id",
+        "value": "id-aq2z"
+      },
+      "type": "ATTRIBUTE",
+      "opening": {
+        "type": "JSXOpeningElement",
+        "start": 1766,
+        "end": 1785,
+        "loc": {
+          "start": {
+            "line": 60,
+            "column": 6,
+            "index": 1766
+          },
+          "end": {
+            "line": 60,
+            "column": 25,
+            "index": 1785
+          }
+        },
+        "name": {
+          "type": "JSXIdentifier",
+          "start": 1767,
+          "end": 1771,
+          "loc": {
+            "start": {
+              "line": 60,
+              "column": 7,
+              "index": 1767
+            },
+            "end": {
+              "line": 60,
+              "column": 11,
+              "index": 1771
+            }
+          },
+          "name": "span"
+        },
+        "attributes": [
+          {
+            "type": "JSXAttribute",
+            "start": 1772,
+            "end": 1784,
+            "loc": {
+              "start": {
+                "line": 60,
+                "column": 12,
+                "index": 1772
+              },
+              "end": {
+                "line": 60,
+                "column": 24,
+                "index": 1784
+              }
+            },
+            "name": {
+              "type": "JSXIdentifier",
+              "start": 1772,
+              "end": 1774,
+              "loc": {
+                "start": {
+                  "line": 60,
+                  "column": 12,
+                  "index": 1772
+                },
+                "end": {
+                  "line": 60,
+                  "column": 14,
+                  "index": 1774
+                }
+              },
+              "name": "id"
+            },
+            "value": {
+              "type": "StringLiteral",
+              "start": 1775,
+              "end": 1784,
+              "loc": {
+                "start": {
+                  "line": 60,
+                  "column": 15,
+                  "index": 1775
+                },
+                "end": {
+                  "line": 60,
+                  "column": 24,
+                  "index": 1784
+                }
+              },
+              "extra": {
+                "rawValue": "c8-span",
+                "raw": "\"c8-span\""
+              },
+              "value": "c8-span"
+            }
+          }
+        ],
+        "selfClosing": false
+      },
+      "closing": {
+        "type": "JSXClosingElement",
+        "start": 1791,
+        "end": 1798,
+        "loc": {
+          "start": {
+            "line": 60,
+            "column": 31,
+            "index": 1791
+          },
+          "end": {
+            "line": 60,
+            "column": 38,
+            "index": 1798
+          }
+        },
+        "name": {
+          "type": "JSXIdentifier",
+          "start": 1793,
+          "end": 1797,
+          "loc": {
+            "start": {
+              "line": 60,
+              "column": 33,
+              "index": 1793
+            },
+            "end": {
+              "line": 60,
+              "column": 37,
+              "index": 1797
+            }
+          },
+          "name": "span"
+        }
+      },
+      "existingAttrIndex": 0
+    }
+  ]
+}

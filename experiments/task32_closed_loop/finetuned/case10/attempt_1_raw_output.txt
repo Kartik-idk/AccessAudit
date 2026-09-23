@@ -1,0 +1,1 @@
+{"rationale":"Changing the tab index of multiple nodes could cause confusion for screen reader users.","action":"MULTI_NODE_REMEDIATION","operations":[{"target":"NODE_A","operation":"REMOVE","attribute":"tabIndex"}]}

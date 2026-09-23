@@ -1,0 +1,34 @@
+{
+  "model": "accessaudit-qwen7b-ft",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert accessibility engineer. You MUST reply with ONLY a flat JSON object. Do NOT output any conversational text."
+    },
+    {
+      "role": "user",
+      "content": "Remediate the following accessibility issue.\n\nNODE_A:\n<div id=\"c14-div\"role=\"fake\"onClick={()=>{}}>\n      Login <a href=\"/help\">Help</a>\n    </div>"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"rationale\":\"Interactive generic elements should be buttons.\",\"action\":\"STRUCTURAL_REMEDIATION\",\"operations\":[{\"target\":\"NODE_A\",\"operation\":\"REPLACE_TAG\",\"replacement_tag\":\"button\"}]}"
+    },
+    {
+      "role": "user",
+      "content": "Your proposal was rejected: NESTED_INTERACTIVE: Cannot replace div with button because it contains nested interactive controls."
+    },
+    {
+      "role": "assistant",
+      "content": "{\"rationale\":\"Interactive generic elements should be buttons.\",\"action\":\"STRUCTURAL_REMEDIATION\",\"operations\":[{\"target\":\"NODE_A\",\"operation\":\"REPLACE_TAG\",\"replacement_tag\":\"button\"}]}"
+    },
+    {
+      "role": "user",
+      "content": "Your proposal was rejected: NESTED_INTERACTIVE: Cannot replace div with button because it contains nested interactive controls."
+    }
+  ],
+  "options": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  }
+}

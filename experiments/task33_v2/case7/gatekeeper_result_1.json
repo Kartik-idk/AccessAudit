@@ -1,0 +1,6 @@
+{
+  "valid": false,
+  "stage": "SYNTACTIC",
+  "reason": "INVALID_PROPOSAL",
+  "message": "Attribute 'role' does not exist for UPDATE operation."
+}

@@ -1,0 +1,6 @@
+{
+  "valid": false,
+  "stage": "SCHEMA",
+  "reason": "JSON_PARSE_FAILURE",
+  "message": "Schema validation failed: data/replacement_tag must be equal to one of the allowed values"
+}

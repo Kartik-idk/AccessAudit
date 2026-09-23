@@ -1,0 +1,22 @@
+{
+  "remediation": {
+    "description": "Ensure that the <h1> element contains meaningful text that accurately describes the content of the section it is associated with.",
+    "example": "<h1 id=\"c5-h1\">Welcome to Our Website</h1>"
+  },
+  "operations": [
+    {
+      "type": "edit",
+      "element": "h1",
+      "attribute": "id",
+      "value": "c5-h1"
+    },
+    {
+      "type": "edit",
+      "element": "h1",
+      "content": "Welcome to Our Website"
+    }
+  ],
+  "target_mapping": {
+    "NODE_A": "h1"
+  }
+}

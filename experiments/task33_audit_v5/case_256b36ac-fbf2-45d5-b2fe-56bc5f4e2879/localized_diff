@@ -1,0 +1,3 @@
+@@ -24 +24 @@
+-  return <div id="TARGET_NODE_A" role="fake-role">Content</div>;
++  return <div id="TARGET_NODE_A">Content</div>;

@@ -1,0 +1,137 @@
+{
+  "1170670b-91d3-4076-acfb-63754b45a93f": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "58830776-dfa1-4e1b-82b8-0eae926ec53f": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "8f16a828-9190-4582-8a48-2df71d72e2e1": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "d9cd8cda-4c75-4ab1-a345-ae7b7a9176ce": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "3e5e057e-6d9e-4ee3-8c10-341a32f5e53e": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "10bfef64-df3d-4109-8d95-fc81b730a9c5": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "aead52b6-c873-42eb-beed-dde0784d5dde": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "dd64a407-9968-4b5c-84eb-7f569744281b": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "1a23e695-63bd-4502-a6a9-4876b72f74f2": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "0fe3b512-5604-45e0-8bf9-01cec70b33b8": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "232feb20-a127-431a-8f3b-61fcf6fce8bf": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "d7f945a0-0400-49e8-b867-95b01f1944a6": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "3905a438-5b48-4a36-a9f1-e4ff3ce3cf92": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "af2be66b-8d37-4732-8f89-457971055e05": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "11f5ad53-b0ef-410f-8bee-c8f25c97f5a4": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "536e32e7-a94a-4b65-96e7-c24e757b341d": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "4e587608-4e6e-47f2-9cc7-f4603821531e": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "65096b38-5ba4-4885-a210-af1c42c41dc8": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "2edd13df-0d06-4c2c-8aa9-5f9f0046282d": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "286997aa-eb60-4930-ac42-8f8dd3e5d64e": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "c940a9d7-a343-4446-a96a-354f1f6ebca8": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "25dd2a43-4d84-4dfb-ab32-0803535bc13d": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "126208f4-28f5-447c-b7a9-761fa646894c": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "c3613910-e49f-4de7-a8ea-5df9b3a61110": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "49728ac1-fb08-45f6-91f0-8d6b8d02654c": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "dd26ec3d-5548-4a61-a065-e9a94b7eca5f": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  },
+  "29bba5b1-ca9f-437f-a7bc-00f0e2afb158": {
+    "classification": "AUDIT_INDETERMINATE",
+    "rationale": "",
+    "evidence_used": "Patch operation semantics and surrounding HTML context"
+  }
+}

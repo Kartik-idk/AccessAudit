@@ -1,0 +1,12 @@
+[
+  {
+    "action": "MODIFY_ATTRIBUTE",
+    "reason": "Invalid ARIA roles must be removed.",
+    "target_element": "div",
+    "file": "/Users/kartikeyapradhan/Nit Surathkal/Access Audit/dom-source-test/src/components/Task18Benchmark.tsx",
+    "line": 121,
+    "column": 4,
+    "operation": "REMOVE",
+    "attribute": "role"
+  }
+]

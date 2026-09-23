@@ -1,0 +1,1 @@
+{"rationale":"Labels must be associated with inputs.","action":"MULTI_NODE_REMEDIATION","operations":[{"target":"NODE_A","operation":"UPDATE","attribute":"id","value":"id-22"}]}

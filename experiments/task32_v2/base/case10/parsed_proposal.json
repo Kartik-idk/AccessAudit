@@ -1,0 +1,20 @@
+{
+  "remediation": {
+    "NODE_A": {
+      "operations": [
+        {
+          "type": "remove",
+          "property": "tabIndex"
+        }
+      ]
+    },
+    "NODE_B": {
+      "operations": [
+        {
+          "type": "remove",
+          "property": "tabIndex"
+        }
+      ]
+    }
+  }
+}

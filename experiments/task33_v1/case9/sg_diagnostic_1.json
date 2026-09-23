@@ -1,0 +1,8 @@
+{
+  "variant": "V1",
+  "case": "case9",
+  "attempt": 1,
+  "would_pass_sg": false,
+  "rejection_reason": "UNSUPPORTED_REMEDIATION",
+  "rejection_stage": "SYNTACTIC"
+}

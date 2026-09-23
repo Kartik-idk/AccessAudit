@@ -1,0 +1,13 @@
+[
+  {
+    "action": "MODIFY_ATTRIBUTE",
+    "reason": "Images must have alternative text.",
+    "target_element": "img",
+    "file": "/Users/kartikeyapradhan/Nit Surathkal/Access Audit/dom-source-test/src/components/Task18Benchmark.tsx",
+    "line": 9,
+    "column": 9,
+    "operation": "ADD",
+    "attribute": "alt",
+    "value": "Product Thumbnail"
+  }
+]

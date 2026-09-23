@@ -1,0 +1,9 @@
+@@ -101,7 +101,7 @@
+ export function Struct3() {
+   return (
+     <form>
+-      <div id="TARGET_NODE_A" role="fake" onClick={() => {}}>Save</div>
++      <div id="TARGET_NODE_A" onClick={() => {}}>Save</div>
+     </form>
+   );
+ }

@@ -1,0 +1,8 @@
+{
+  "remediation": {
+    "add_label": {
+      "for": "c9-input",
+      "text": "Enter your name"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "model": "accessaudit-qwen7b-ft",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert accessibility engineer. You MUST reply with ONLY a flat JSON object. Do NOT output any conversational text."
+    },
+    {
+      "role": "user",
+      "content": "Remediate the following accessibility issue.\n\nNODE_A:\n<input id=\"c3-input\"type=\"text\"aria-label=\"Name\"aria-hidden=\"true\"/>"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"rationale\":\"Interactive generic elements should be buttons.\",\"action\":\"STRUCTURAL_REMEDIATION\",\"operations\":[{\"target\":\"NODE_A\",\"operation\":\"REPLACE_TAG\",\"replacement_tag\":\"button\"}]}"
+    },
+    {
+      "role": "user",
+      "content": "Your proposal was rejected: INVALID_TARGET: Target must be a div."
+    }
+  ],
+  "options": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "rationale": "Sibling elements should be semantically related.",
+  "action": "MULTI_NODE_REMEDIATION",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "UPDATE",
+      "attribute": "id",
+      "value": "id-1234"
+    }
+  ]
+}

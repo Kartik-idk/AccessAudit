@@ -1,0 +1,3 @@
+@@ -97 +97 @@
+-  return <div id="TARGET_NODE_A" role="fake" onClick={() => {}}>Submit</div>;
++  return <div id="TARGET_NODE_A" onClick={() => {}}>Submit</div>;

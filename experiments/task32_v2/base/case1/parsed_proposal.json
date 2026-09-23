@@ -1,0 +1,13 @@
+{
+  "remediation": "<img id=\"c1-img\" src=\"/hero.png\" alt=\"Description of the hero image\"/>",
+  "operations": [
+    {
+      "type": "add",
+      "element": "alt",
+      "value": "Description of the hero image"
+    }
+  ],
+  "target_mapping": {
+    "NODE_A": "img#c1-img"
+  }
+}

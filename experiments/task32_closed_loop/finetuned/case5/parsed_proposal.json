@@ -1,0 +1,11 @@
+{
+  "rationale": "Headings must have discernible text.",
+  "action": "MODIFY_ATTRIBUTE",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "REMOVE",
+      "attribute": "id"
+    }
+  ]
+}

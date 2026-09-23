@@ -1,0 +1,9 @@
+@@ -57,7 +57,7 @@
+ export function MultiNode3() {
+   return (
+     <div>
+-      <span id="TARGET_NODE_A">Search</span>
++      <span id="id-aq2z">Search</span>
+       <input id="TARGET_NODE_B" type="text" aria-labelledby="wrong-id" />
+     </div>
+   );

@@ -1,0 +1,5 @@
+Baseline Target Violation Rule: image-alt
+Baseline Target Violation Count: 1 (Assumed from pre-patch state)
+Post-Patch Target Violation Count: 0
+Relevant Target-Level Axe Evidence: Resolved.
+Total NEW Violations Introduced: 8

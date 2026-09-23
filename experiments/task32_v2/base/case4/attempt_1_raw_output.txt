@@ -1,0 +1,8 @@
+{
+  "remediation": {
+    "element": "div",
+    "attributes": {
+      "role": "none"
+    }
+  }
+}

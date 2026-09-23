@@ -1,0 +1,5 @@
+Baseline Target Violation Rule: label
+Baseline Target Violation Count: 1 (Assumed from pre-patch state)
+Post-Patch Target Violation Count: 1
+Relevant Target-Level Axe Evidence: Still failing. Nodes affected: 3
+Total NEW Violations Introduced: 8

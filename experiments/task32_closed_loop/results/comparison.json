@@ -1,0 +1,195 @@
+{
+  "metrics": {
+    "base": {
+      "json": 45,
+      "attempts": 45,
+      "schema": 0,
+      "json_cases": 15,
+      "semantic": 0,
+      "schema_cases": 15,
+      "patch": 0,
+      "semantic_cases": 0,
+      "build": 0,
+      "patch_cases": 0,
+      "axe": 0,
+      "build_cases": 0,
+      "reg": 0,
+      "axe_cases": 0,
+      "e2e": 0
+    },
+    "finetuned": {
+      "json": 23,
+      "attempts": 23,
+      "schema": 11,
+      "json_cases": 15,
+      "semantic": 11,
+      "schema_cases": 15,
+      "patch": 11,
+      "semantic_cases": 11,
+      "build": 11,
+      "patch_cases": 11,
+      "axe": 8,
+      "build_cases": 11,
+      "reg": 8,
+      "axe_cases": 11,
+      "e2e": 7,
+      "reg_cases": 8
+    }
+  },
+  "analysis": {
+    "base": [
+      {
+        "id": "case1",
+        "status": "SCHEMA_FAILURE",
+        "attempts": 3
+      },
+      {
+        "id": "case2",
+        "status": "SCHEMA_FAILURE",
+        "attempts": 3
+      },
+      {
+        "id": "case3",
+        "status": "SCHEMA_FAILURE",
+        "attempts": 3
+      },
+      {
+        "id": "case4",
+        "status": "SCHEMA_FAILURE",
+        "attempts": 3
+      },
+      {
+        "id": "case5",
+        "status": "SCHEMA_FAILURE",
+        "attempts": 3
+      },
+      {
+        "id": "case6",
+        "status": "SCHEMA_FAILURE",
+        "attempts": 3
+      },
+      {
+        "id": "case7",
+        "status": "SCHEMA_FAILURE",
+        "attempts": 3
+      },
+      {
+        "id": "case8",
+        "status": "SCHEMA_FAILURE",
+        "attempts": 3
+      },
+      {
+        "id": "case9",
+        "status": "SCHEMA_FAILURE",
+        "attempts": 3
+      },
+      {
+        "id": "case10",
+        "status": "SCHEMA_FAILURE",
+        "attempts": 3
+      },
+      {
+        "id": "case11",
+        "status": "SCHEMA_FAILURE",
+        "attempts": 3
+      },
+      {
+        "id": "case12",
+        "status": "SCHEMA_FAILURE",
+        "attempts": 3
+      },
+      {
+        "id": "case13",
+        "status": "SCHEMA_FAILURE",
+        "attempts": 3
+      },
+      {
+        "id": "case14",
+        "status": "SCHEMA_FAILURE",
+        "attempts": 3
+      },
+      {
+        "id": "case15",
+        "status": "SCHEMA_FAILURE",
+        "attempts": 3
+      }
+    ],
+    "finetuned": [
+      {
+        "id": "case1",
+        "status": "SUCCESS",
+        "attempts": 1
+      },
+      {
+        "id": "case2",
+        "status": "SUCCESS",
+        "attempts": 1
+      },
+      {
+        "id": "case3",
+        "status": "SEMANTIC_REJECTION",
+        "attempts": 3
+      },
+      {
+        "id": "case4",
+        "status": "SUCCESS",
+        "attempts": 1
+      },
+      {
+        "id": "case5",
+        "status": "UNSAFE_ACCEPTANCE",
+        "attempts": 1
+      },
+      {
+        "id": "case6",
+        "status": "SUCCESS",
+        "attempts": 1
+      },
+      {
+        "id": "case7",
+        "status": "AXE_UNRESOLVED",
+        "attempts": 1
+      },
+      {
+        "id": "case8",
+        "status": "AXE_UNRESOLVED",
+        "attempts": 1
+      },
+      {
+        "id": "case9",
+        "status": "SEMANTIC_REJECTION",
+        "attempts": 3
+      },
+      {
+        "id": "case10",
+        "status": "SUCCESS",
+        "attempts": 1
+      },
+      {
+        "id": "case11",
+        "status": "AXE_UNRESOLVED",
+        "attempts": 1
+      },
+      {
+        "id": "case12",
+        "status": "SUCCESS",
+        "attempts": 1
+      },
+      {
+        "id": "case13",
+        "status": "SEMANTIC_REJECTION",
+        "attempts": 3
+      },
+      {
+        "id": "case14",
+        "status": "SEMANTIC_REJECTION",
+        "attempts": 3
+      },
+      {
+        "id": "case15",
+        "status": "SUCCESS",
+        "attempts": 1
+      }
+    ]
+  }
+}

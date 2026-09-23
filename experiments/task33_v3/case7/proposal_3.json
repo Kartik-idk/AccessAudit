@@ -1,0 +1,11 @@
+{
+  "rationale": "NODE_A is a generic span.",
+  "action": "MODIFY_ATTRIBUTE",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "REPLACE_TAG",
+      "replacement_tag": "label"
+    }
+  ]
+}

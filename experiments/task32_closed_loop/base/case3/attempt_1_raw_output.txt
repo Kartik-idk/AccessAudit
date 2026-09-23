@@ -1,0 +1,8 @@
+{
+  "remediation": {
+    "aria-hidden": {
+      "value": "false",
+      "reason": "The input element should not be hidden from screen readers as it has an aria-label attribute."
+    }
+  }
+}

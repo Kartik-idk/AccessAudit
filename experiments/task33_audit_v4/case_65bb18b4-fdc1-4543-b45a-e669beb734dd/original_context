@@ -1,0 +1,10 @@
+Remediate the following accessibility issue.
+
+NODE_A:
+```tsx
+<label id="TARGET_NODE_A" htmlFor="wrong-email">Email</label>
+```
+NODE_B:
+```tsx
+<input id="TARGET_NODE_B" type="text" />
+```

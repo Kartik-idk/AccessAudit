@@ -1,0 +1,3 @@
+@@ -14 +14 @@
+-  return <button id="TARGET_NODE_A"></button>;
++  return <button id="TARGET_NODE_A" aria-label="Submit"></button>;

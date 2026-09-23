@@ -1,0 +1,13 @@
+[
+  {
+    "action": "MODIFY_ATTRIBUTE",
+    "reason": "NODE_A should be associated with NODE_B.",
+    "target_element": "span",
+    "file": "/Users/kartikeyapradhan/Nit Surathkal/Access Audit/dom-source-test/src/components/Task18Benchmark.tsx",
+    "line": 60,
+    "column": 6,
+    "operation": "UPDATE",
+    "attribute": "id",
+    "value": "id-aq2z"
+  }
+]

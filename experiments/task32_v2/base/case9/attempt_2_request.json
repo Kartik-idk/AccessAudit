@@ -1,0 +1,26 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert accessibility engineer. You MUST reply with ONLY a flat JSON object. Do NOT output any conversational text."
+    },
+    {
+      "role": "user",
+      "content": "Remediate the following accessibility issue.\n\nNODE_A:\n<input id=\"c9-input\"type=\"text\"/>"
+    },
+    {
+      "role": "assistant",
+      "content": "{\n  \"remediation\": {\n    \"add_label\": {\n      \"for\": \"c9-input\",\n      \"text\": \"Enter your name\"\n    }\n  }\n}"
+    },
+    {
+      "role": "user",
+      "content": "Your proposal was rejected: Missing operations array."
+    }
+  ],
+  "options": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  }
+}

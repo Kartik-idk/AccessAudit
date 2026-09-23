@@ -1,0 +1,15 @@
+{
+  "remediation": {
+    "NODE_B": {
+      "operations": [
+        {
+          "type": "set_attribute",
+          "attributes": {
+            "type": "email",
+            "aria-labelledby": "c6-label"
+          }
+        }
+      ]
+    }
+  }
+}

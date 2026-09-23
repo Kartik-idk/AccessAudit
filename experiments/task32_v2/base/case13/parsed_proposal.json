@@ -1,0 +1,38 @@
+{
+  "remediation": {
+    "node": "c13-div",
+    "attributes": {
+      "role": "button",
+      "onClick": "handleSave"
+    },
+    "parent": {
+      "tag": "form",
+      "attributes": {
+        "action": "#",
+        "method": "post"
+      }
+    },
+    "operations": [
+      {
+        "type": "replace",
+        "target": "role",
+        "value": "button"
+      },
+      {
+        "type": "add",
+        "target": "onClick",
+        "value": "handleSave"
+      },
+      {
+        "type": "add",
+        "target": "parent.attributes.action",
+        "value": "#"
+      },
+      {
+        "type": "add",
+        "target": "parent.attributes.method",
+        "value": "post"
+      }
+    ]
+  }
+}

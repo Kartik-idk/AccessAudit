@@ -1,0 +1,9 @@
+@@ -6,7 +6,7 @@
+ 
+ // TARGET_CASE: Image missing alt (expected: REMEDIATION)
+ export function ModAttr1() {
+-  return <img id="TARGET_NODE_A" src="/hero.png" />;
++  return <img id="TARGET_NODE_A" src="/hero.png" alt="Product Thumbnail" />;
+ }
+ 
+ // Case 2: Button missing accessible name (expected: REMEDIATION)

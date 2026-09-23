@@ -1,0 +1,13 @@
+{
+  "remediation": {
+    "NODE_B": {
+      "operations": [
+        {
+          "type": "update",
+          "property": "aria-labelledby",
+          "value": "c8-span"
+        }
+      ]
+    }
+  }
+}

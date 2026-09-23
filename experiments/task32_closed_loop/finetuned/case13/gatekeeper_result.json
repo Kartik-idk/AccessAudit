@@ -1,0 +1,6 @@
+{
+  "valid": false,
+  "stage": "GATEKEEPER",
+  "reason": "SEMANTIC_REJECTION",
+  "message": "FORM_CONTEXT_UNSUPPORTED: div -> button not allowed inside <form>."
+}

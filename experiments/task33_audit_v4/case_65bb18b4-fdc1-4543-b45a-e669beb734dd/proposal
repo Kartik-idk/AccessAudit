@@ -1,0 +1,12 @@
+{
+  "rationale": "Label must be associated with input.",
+  "action": "MODIFY_ATTRIBUTE",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "UPDATE",
+      "attribute": "htmlFor",
+      "value": "TARGET_NODE_A"
+    }
+  ]
+}

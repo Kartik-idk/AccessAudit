@@ -1,0 +1,12 @@
+{
+  "rationale": "Buttons must have discernible text.",
+  "action": "MODIFY_ATTRIBUTE",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "ADD",
+      "attribute": "aria-label",
+      "value": "Submit"
+    }
+  ]
+}

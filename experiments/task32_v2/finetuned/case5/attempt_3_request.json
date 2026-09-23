@@ -1,0 +1,34 @@
+{
+  "model": "accessaudit-qwen7b-ft",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert accessibility engineer. You MUST reply with ONLY a flat JSON object. Do NOT output any conversational text."
+    },
+    {
+      "role": "user",
+      "content": "Remediate the following accessibility issue.\n\nNODE_A:\n<h1 id=\"c5-h1\"></h1>"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"rationale\":\"Headings must have discernible text.\",\"action\":\"MODIFY_ATTRIBUTE\",\"operations\":[{\"target\":\"NODE_A\",\"operation\":\"REMOVE\",\"attribute\":\"id\"}]}"
+    },
+    {
+      "role": "user",
+      "content": "Your proposal was rejected: Unsupported attribute id"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"rationale\":\"Headings must have discernible text.\",\"action\":\"MODIFY_TAG\",\"operations\":[{\"target\":\"NODE_A\",\"operation\":\"REPLACE_TAG\",\"tag\":\"span\"}]}"
+    },
+    {
+      "role": "user",
+      "content": "Your proposal was rejected: Schema validation failed: data/action must be equal to one of the allowed values"
+    }
+  ],
+  "options": {
+    "temperature": 0.1,
+    "seed": 42,
+    "num_ctx": 4096
+  }
+}

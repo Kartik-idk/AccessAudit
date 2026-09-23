@@ -1,0 +1,12 @@
+[
+  {
+    "attempt_number": 1,
+    "triggering_stage": "BUILD",
+    "trigger_reason": "BUILD_FAILURE"
+  },
+  {
+    "attempt_number": 2,
+    "triggering_stage": "NONE",
+    "trigger_reason": "SAFE_ABORT"
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "valid": true,
+  "isAbort": true,
+  "stage": "ABORT",
+  "message": "Model safely aborted."
+}

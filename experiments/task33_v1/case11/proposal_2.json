@@ -1,0 +1,11 @@
+{
+  "rationale": "Interactive generic elements should be buttons.",
+  "action": "MODIFY_ATTRIBUTE",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "REPLACE_TAG",
+      "replacement_tag": "button"
+    }
+  ]
+}

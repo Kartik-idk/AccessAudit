@@ -1,0 +1,9 @@
+@@ -118,7 +118,7 @@
+ // TARGET_CASE: Interactive div with existing attributes preserved (expected: REMEDIATION)
+ export function Struct5() {
+   return (
+-    <div id="TARGET_NODE_A" role="fake" className="btn" data-test="btn" onClick={() => {}}>
++    <div id="TARGET_NODE_A" className="btn" data-test="btn" onClick={() => {}}>
+       Proceed
+     </div>
+   );

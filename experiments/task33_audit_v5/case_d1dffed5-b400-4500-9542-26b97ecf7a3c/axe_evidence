@@ -1,0 +1,4 @@
+Baseline Target Violation Rule: aria-roles
+Post-Patch Target Violation Count: 1
+Target-Level Evidence: Still failing. Nodes affected: 4
+Total NEW Violations Introduced: 8

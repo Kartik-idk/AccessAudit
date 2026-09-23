@@ -1,0 +1,6 @@
+{
+  "valid": false,
+  "stage": "SYNTACTIC",
+  "reason": "UNSUPPORTED_REMEDIATION",
+  "message": "Unsupported attribute id"
+}

@@ -1,0 +1,1 @@
+{"rationale":"Changing tabIndex to -1 removes navigability.","action":"MULTI_NODE_REMEDIATION","operations":[{"target":"NODE_A","operation":"UPDATE","attribute":"tabIndex","value":"-1"}]}

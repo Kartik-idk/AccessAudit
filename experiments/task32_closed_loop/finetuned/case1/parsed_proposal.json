@@ -1,0 +1,12 @@
+{
+  "rationale": "Images must have alternative text.",
+  "action": "MODIFY_ATTRIBUTE",
+  "operations": [
+    {
+      "target": "NODE_A",
+      "operation": "ADD",
+      "attribute": "alt",
+      "value": "Banner Image"
+    }
+  ]
+}

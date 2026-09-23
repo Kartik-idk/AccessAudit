@@ -1,0 +1,13 @@
+[
+  {
+    "action": "MODIFY_ATTRIBUTE",
+    "reason": "Buttons must have discernible text.",
+    "target_element": "button",
+    "file": "/Users/kartikeyapradhan/Nit Surathkal/Access Audit/dom-source-test/src/components/Task18Benchmark.tsx",
+    "line": 14,
+    "column": 9,
+    "operation": "ADD",
+    "attribute": "aria-label",
+    "value": "Submit"
+  }
+]

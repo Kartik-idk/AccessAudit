@@ -1,0 +1,164 @@
+[
+  {
+    "uuid": "110209b2-5a19-406d-97c9-a66649b6e656",
+    "variant": "task33_v0",
+    "case": "case1",
+    "attempt": 1
+  },
+  {
+    "uuid": "b15e6d88-5eb1-4b71-8ff2-08bc58e6ca3b",
+    "variant": "task33_v0",
+    "case": "case12",
+    "attempt": 1
+  },
+  {
+    "uuid": "b9d41eec-f862-44a2-b1c6-c71b19bfd881",
+    "variant": "task33_v0",
+    "case": "case13",
+    "attempt": 1
+  },
+  {
+    "uuid": "40d172de-d2b3-44c7-a207-e338bcdb21e5",
+    "variant": "task33_v0",
+    "case": "case15",
+    "attempt": 1
+  },
+  {
+    "uuid": "59fe5dc6-024b-4656-96ec-6292de8c9047",
+    "variant": "task33_v0",
+    "case": "case2",
+    "attempt": 2
+  },
+  {
+    "uuid": "51f6e180-9648-433d-9139-6031fe7f4aa4",
+    "variant": "task33_v0",
+    "case": "case4",
+    "attempt": 1
+  },
+  {
+    "uuid": "0e6d58a0-e7ca-489b-ab70-c0864ededeb0",
+    "variant": "task33_v0",
+    "case": "case6",
+    "attempt": 1
+  },
+  {
+    "uuid": "314582cf-5482-4d7f-9aae-9fe4cc765a97",
+    "variant": "task33_v1",
+    "case": "case1",
+    "attempt": 1
+  },
+  {
+    "uuid": "a313194a-5354-4211-9640-181b34530128",
+    "variant": "task33_v1",
+    "case": "case12",
+    "attempt": 1
+  },
+  {
+    "uuid": "5029052d-0b02-4b9b-9ce9-6d98077d86b7",
+    "variant": "task33_v1",
+    "case": "case13",
+    "attempt": 1
+  },
+  {
+    "uuid": "5acbd15d-ec98-4d7d-a4c5-895a99835ff7",
+    "variant": "task33_v1",
+    "case": "case15",
+    "attempt": 1
+  },
+  {
+    "uuid": "98c43ef6-0ad3-4c47-be8f-ce62454d3ba6",
+    "variant": "task33_v1",
+    "case": "case4",
+    "attempt": 1
+  },
+  {
+    "uuid": "72b92037-336c-4498-9b25-ef6c74a90092",
+    "variant": "task33_v1",
+    "case": "case6",
+    "attempt": 1
+  },
+  {
+    "uuid": "66d31fb4-d14e-4f4b-96fb-07ea43131452",
+    "variant": "task33_v1",
+    "case": "case8",
+    "attempt": 1
+  },
+  {
+    "uuid": "9fce272e-dcdc-4379-b7ab-b640ea854ea8",
+    "variant": "task33_v2",
+    "case": "case1",
+    "attempt": 1
+  },
+  {
+    "uuid": "0df481a0-b578-406a-8bff-453df56c2366",
+    "variant": "task33_v2",
+    "case": "case12",
+    "attempt": 1
+  },
+  {
+    "uuid": "feae7d1c-85d3-479a-a4a8-4fb3bd4b1d55",
+    "variant": "task33_v2",
+    "case": "case13",
+    "attempt": 1
+  },
+  {
+    "uuid": "589e3920-615f-4bed-91e4-c4333521bc53",
+    "variant": "task33_v2",
+    "case": "case15",
+    "attempt": 1
+  },
+  {
+    "uuid": "e7eb95a9-3196-4e91-93bc-ad1b56eb6a73",
+    "variant": "task33_v2",
+    "case": "case2",
+    "attempt": 2
+  },
+  {
+    "uuid": "2079938a-6bf0-42c7-89ed-2dc094a58e46",
+    "variant": "task33_v2",
+    "case": "case4",
+    "attempt": 1
+  },
+  {
+    "uuid": "fad2f603-52cf-442e-a02c-ab57397900d6",
+    "variant": "task33_v2",
+    "case": "case6",
+    "attempt": 1
+  },
+  {
+    "uuid": "fd28dcac-5519-4723-b8c5-f74bba39ab06",
+    "variant": "task33_v3",
+    "case": "case1",
+    "attempt": 1
+  },
+  {
+    "uuid": "a49b83dc-dd59-4eb4-bd04-e8d79cff4414",
+    "variant": "task33_v3",
+    "case": "case12",
+    "attempt": 1
+  },
+  {
+    "uuid": "11c1a1f9-3f9d-4d51-adf9-cfa0ba7f80f4",
+    "variant": "task33_v3",
+    "case": "case13",
+    "attempt": 1
+  },
+  {
+    "uuid": "d3e5d33c-c5d0-432a-9638-4e16df04a903",
+    "variant": "task33_v3",
+    "case": "case15",
+    "attempt": 1
+  },
+  {
+    "uuid": "8e1d8dde-52be-414f-bf4b-e3c5c80d97d4",
+    "variant": "task33_v3",
+    "case": "case4",
+    "attempt": 1
+  },
+  {
+    "uuid": "c7f9f419-a43f-4998-8a4c-cae2995158ea",
+    "variant": "task33_v3",
+    "case": "case6",
+    "attempt": 1
+  }
+]
