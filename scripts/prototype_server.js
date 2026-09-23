@@ -289,4 +289,63 @@ export default defineConfig({ plugins: [react()] });`);
 });
 
 const PORT = 3001;
-app.listen(PORT, () => console.log(`[server] Prototype API running at http://localhost:${PORT}`));
+
+// ── Real URL Audit Routes ─────────────────────────────────────────────────────
+
+const scanSessions = new Map(); // scanSessionId -> { url, streaming: bool }
+
+app.post('/api/scan-url', (req, res) => {
+    if (activeAudit) {
+        return res.status(429).json({ error: 'An audit is already in progress. Try again when it finishes.' });
+    }
+    const { url } = req.body;
+    if (!url || typeof url !== 'string') {
+        return res.status(400).json({ error: 'Valid URL string is required.' });
+    }
+    
+    // Acquire the same global mutex so URL audits and prototype audits don't overlap heavily
+    activeAudit = true;
+    
+    const sessionId = crypto.randomUUID();
+    scanSessions.set(sessionId, { url, streaming: false });
+    res.json({ sessionId });
+});
+
+app.get('/api/scan-stream', async (req, res) => {
+    const { sessionId } = req.query;
+    if (!scanSessions.has(sessionId)) {
+        return res.status(404).json({ error: 'Session not found or already consumed' });
+    }
+    const session = scanSessions.get(sessionId);
+    if (session.streaming) {
+        return res.status(409).json({ error: 'Session already streaming' });
+    }
+    session.streaming = true;
+
+    res.writeHead(200, {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive',
+        'X-Accel-Buffering': 'no'
+    });
+    res.flushHeaders();
+
+    const emit = (type, payload) => {
+        res.write(`data: ${JSON.stringify({ type, payload })}\n\n`);
+    };
+
+    try {
+        // Dynamically import to avoid top-level circular dependencies or blocking if not used
+        const { runRealAudit } = await import('./real_audit_pipeline.js');
+        const result = await runRealAudit(session.url, emit);
+        emit(result.status === 'CLEAN' ? 'DONE_CLEAN' : 'DONE', result);
+    } catch (err) {
+        emit('ERROR', { message: err.message });
+    } finally {
+        activeAudit = false; // release global mutex
+        scanSessions.delete(sessionId);
+        res.end();
+    }
+});
+
+app.listen(PORT, () => console.log(`[server] API running at http://localhost:${PORT}`));
