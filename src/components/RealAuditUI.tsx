@@ -13,9 +13,8 @@ type Finding = {
 type AIGuidance = {
   problem?: string;
   why_it_matters?: string;
-  recommended_change?: string;
-  before?: string;
-  after?: string;
+  remediation_strategy?: string;
+  observed_dom?: string;
   manual_review?: boolean;
   manual_review_reason?: string;
   error?: string;
@@ -170,7 +169,7 @@ export default function RealAuditUI() {
                           <div><strong>Impact:</strong> {f.deterministic.impact || 'N/A'}</div>
                           <div>
                             <strong>Status:</strong> {f.deterministic.type === 'incomplete' 
-                              ? <span style={{ color: '#d39e00', fontWeight: 'bold' }}>NEEDS MANUAL REVIEW</span>
+                              ? <span style={{ color: '#d39e00', fontWeight: 'bold' }}>MANUAL REVIEW REQUIRED</span>
                               : <span style={{ color: '#dc3545', fontWeight: 'bold' }}>VIOLATION</span>}
                           </div>
                         </div>
@@ -199,23 +198,15 @@ export default function RealAuditUI() {
                               </div>
                             )}
 
-                            <div style={{ marginTop: 15 }}><strong>Recommended source change:</strong></div>
-                            <p style={{ margin: '5px 0 10px 0' }}>{f.ai_guidance.recommended_change}</p>
+                            <div style={{ marginTop: 15 }}><strong>RECOMMENDED CHANGE (NOT APPLIED):</strong></div>
+                            <p style={{ margin: '5px 0 10px 0' }}>{f.ai_guidance.remediation_strategy}</p>
                             
-                            <div style={{ display: 'flex', gap: 10 }}>
-                              {f.ai_guidance.before && (
-                                <div style={{ flex: 1 }}>
-                                  <div style={{ fontSize: '0.85em', fontWeight: 'bold', color: '#dc3545' }}>OBSERVED RENDERED DOM</div>
-                                  <pre style={{ background: '#fff', padding: 10, overflowX: 'auto', fontSize: '0.85em', border: '1px solid #f5c6cb' }}>{f.ai_guidance.before}</pre>
-                                </div>
-                              )}
-                              {f.ai_guidance.after && (
-                                <div style={{ flex: 1 }}>
-                                  <div style={{ fontSize: '0.85em', fontWeight: 'bold', color: '#28a745' }}>RECOMMENDED SOURCE CHANGE</div>
-                                  <pre style={{ background: '#fff', padding: 10, overflowX: 'auto', fontSize: '0.85em', border: '1px solid #c3e6cb' }}>{f.ai_guidance.after}</pre>
-                                </div>
-                              )}
-                            </div>
+                            {f.ai_guidance.observed_dom && (
+                              <div style={{ marginTop: 10 }}>
+                                <div style={{ fontSize: '0.85em', fontWeight: 'bold', color: '#dc3545' }}>OBSERVED RENDERED DOM</div>
+                                <pre style={{ background: '#fff', padding: 10, overflowX: 'auto', fontSize: '0.85em', border: '1px solid #f5c6cb' }}>{f.ai_guidance.observed_dom}</pre>
+                              </div>
+                            )}
                           </>
                         )}
                       </div>

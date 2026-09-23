@@ -15,41 +15,47 @@ const WCAG_CRITERIA_MAP = {
 };
 const SELECTED_TAGS = Object.keys(WCAG_CRITERIA_MAP);
 
-const SYSTEM_PROMPT = `You are an expert accessibility consultant.
-You will receive a specific Axe-core accessibility rule violation (or incomplete finding) that was DETECTED BY AXE on a rendered DOM.
-You must provide structured remediation guidance.
-
-CRITICAL CONSTRAINTS:
-- The Axe finding is authoritative.
-- Do not invent violations.
-- Do not invent source filenames or source locations.
-- The input is rendered DOM, not the source repository.
-- \`before\` must come from the observed DOM.
-- \`after\` is an example of the recommended source change, not evidence that it was applied.
+const SYSTEM_PROMPT = `You are providing remediation guidance for a rendered webpage audit.
+You do not have access to the website's source repository.
+You MUST distinguish observed evidence from recommendations.
+Do not generate source patches.
+Do not invent source filenames, line numbers, framework components, CSS classes, design tokens, or exact replacement HTML unless those facts are explicitly present in the supplied evidence.
+Do not generate inline CSS as a proposed patch.
+For contrast findings, do not invent foreground/background colors.
+Explain the conceptual change the developer should make in the site's stylesheet/design system.
+The recommendation has NOT been applied.
+The recommendation has NOT been verified.
+Axe is the authoritative source for the accessibility finding.
 
 Reply with ONLY a valid JSON object. No markdown, no prose.
 Schema:
 {
   "problem": "<clear 1-sentence explanation of what is wrong>",
   "why_it_matters": "<1-sentence impact on the user>",
-  "recommended_change": "<Actionable instruction. Use 'Recommended source change' terminology.>",
-  "before": "<example snippet of bad code from the observed DOM>",
-  "after": "<example snippet of good code for the source change>",
+  "remediation_strategy": "<Conceptual actionable instruction. Explain what should be changed in the source/design.>",
+  "observed_dom": "<example snippet of bad code from the observed evidence, if applicable>",
   "manual_review": <boolean, true if the rule inherently requires human judgment or was flagged as 'incomplete'>,
-  "manual_review_reason": "<if manual_review is true, explain what to check>"
+  "manual_review_reason": "<if manual_review is true, explain what the human should check>"
 }`;
 
 // --- SSRF Hardening ---
+// Note: Time-of-check to time-of-use (DNS rebinding) is an unavoidable limitation without a custom network resolver in Playwright. 
+// We mitigate by strict IP blocking during route interception for every single request.
 async function isSafeIp(ipStr) {
     try {
         const addr = ipaddr.parse(ipStr);
         const range = addr.range();
-        // Reject loopback, private, carrierGradeNat, multicast, linkLocal, etc.
-        const blockedRanges = ['unspecified', 'broadcast', 'multicast', 'linkLocal', 'loopback', 'private', 'carrierGradeNat', 'reserved'];
+        // Comprehensive block of unsafe ranges for IPv4 and IPv6
+        const blockedRanges = [
+            'unspecified', 'broadcast', 'multicast', 'linkLocal', 'loopback', 'private', 
+            'carrierGradeNat', 'reserved', 'ipv4Mapped', 'rfc6145', 'rfc6052', '6to4', 'teredo'
+        ];
         if (blockedRanges.includes(range)) return false;
         
-        // Explicitly reject specific metadata IPs just in case (AWS/GCP/Azure)
-        if (addr.kind() === 'ipv4' && ipStr === '169.254.169.254') return false;
+        // Explicitly block 169.254.x.x (AWS/GCP metadata) if ipaddr missed it as linkLocal
+        if (addr.kind() === 'ipv4' && ipStr.startsWith('169.254.')) return false;
+        if (addr.kind() === 'ipv4' && ipStr.startsWith('127.')) return false;
+        if (addr.kind() === 'ipv6' && ipStr === '::1') return false;
         
         return true;
     } catch (e) {
@@ -82,6 +88,15 @@ async function validateUrlSafety(urlStr) {
     return parsed.href;
 }
 
+// --- DOM Truncation ---
+function truncateHtml(html) {
+    if (!html || html.length <= 500) return html;
+    const originalLen = html.length;
+    const start = html.substring(0, 250);
+    const end = html.substring(originalLen - 200);
+    return `${start}\n... [TRUNCATED from ${originalLen} chars] ...\n${end}`;
+}
+
 // --- Inference ---
 async function runInference(ruleGroup, abortSignal) {
     const userPrompt = `Axe Rule: ${ruleGroup.id}
@@ -91,7 +106,9 @@ Description: ${ruleGroup.description}
 Status: ${ruleGroup.type === 'incomplete' ? 'NEEDS MANUAL REVIEW (Axe could not be certain)' : 'VIOLATION DETECTED'}
 Total Affected Nodes: ${ruleGroup.totalNodes}
 
-Representative HTML snippets (up to 5):
+${ruleGroup.contrastData ? `Observed Contrast Data:\nForeground: ${ruleGroup.contrastData.fgColor || 'unavailable'}\nBackground: ${ruleGroup.contrastData.bgColor || 'unavailable'}\nRatio: ${ruleGroup.contrastData.contrastRatio || 'unavailable'}\n` : ''}
+
+Representative HTML snippets (up to 5, possibly truncated):
 ${ruleGroup.snippets.join('\n\n')}
 
 Provide remediation guidance strictly as JSON.`;
@@ -146,16 +163,20 @@ export async function runRealAudit(rawUrl, onProgress) {
             let p;
             try { p = new URL(reqUrl); } catch(e) { return route.abort('blockedbyclient'); }
             
-            // Allow data URIs
+            // Allow data URIs but not for navigation
+            if (p.protocol === 'data:' && route.request().isNavigationRequest()) return route.abort('blockedbyclient');
             if (p.protocol === 'data:') return route.continue();
             
+            // Hard block dangerous schemes
+            if (['file:', 'ftp:', 'javascript:', 'blob:'].includes(p.protocol)) return route.abort('blockedbyclient');
             if (p.protocol !== 'http:' && p.protocol !== 'https:') return route.abort('blockedbyclient');
             
-            // We only strict-resolve the main navigation host dynamically to prevent hangs on 3rd party assets,
-            // but we block known private hostname patterns.
-            if (p.hostname === 'localhost' || p.hostname === '127.0.0.1' || p.hostname === '169.254.169.254') {
+            // Validate DNS to prevent redirect to internal IP
+            const isSafe = await resolveAndCheckSafety(p.hostname);
+            if (!isSafe) {
                 return route.abort('blockedbyclient');
             }
+            
             route.continue();
         });
 
@@ -194,7 +215,22 @@ export async function runRealAudit(rawUrl, onProgress) {
             if (!wcagTag) return;
             const criterion = WCAG_CRITERIA_MAP[wcagTag];
 
-            let snippets = rule.nodes.slice(0, 5).map(n => n.html);
+            // Enforce DOM truncation and 5-node bound
+            let snippets = rule.nodes.slice(0, 5).map(n => truncateHtml(n.html));
+            
+            // Extract contrast evidence if available
+            let contrastData = null;
+            if (rule.id === 'color-contrast' && rule.nodes[0]) {
+                const node = rule.nodes[0];
+                const contrastCheck = (node.any || []).concat(node.all || []).find(c => c.id === 'color-contrast');
+                if (contrastCheck && contrastCheck.data) {
+                    contrastData = {
+                        fgColor: contrastCheck.data.fgColor,
+                        bgColor: contrastCheck.data.bgColor,
+                        contrastRatio: contrastCheck.data.contrastRatio
+                    };
+                }
+            }
             
             rawFindings.push({
                 id: rule.id,
@@ -203,7 +239,8 @@ export async function runRealAudit(rawUrl, onProgress) {
                 type: type, // 'violation' or 'incomplete'
                 criterion: criterion,
                 totalNodes: rule.nodes.length,
-                snippets: snippets
+                snippets: snippets,
+                contrastData: contrastData
             });
         };
 
