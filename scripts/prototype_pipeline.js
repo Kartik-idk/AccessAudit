@@ -27,6 +27,14 @@ Schema:
     }
   ]
 }
+
+CRITICAL OPERATION RULES — you MUST follow these exactly:
+- ADD: use ONLY when the attribute does NOT currently exist on the element. Example: element has no aria-label → ADD aria-label.
+- UPDATE: use ONLY when the attribute ALREADY EXISTS on the element and its value must change. Example: element has aria-label="old" → UPDATE aria-label to new value.
+- REMOVE: use ONLY when the attribute ALREADY EXISTS on the element and must be deleted.
+- REPLACE_TAG: use ONLY for structural tag replacement (e.g. div → button). Set replacement_tag; no attribute needed.
+
+Before choosing ADD vs UPDATE, inspect the provided source snippet. If the attribute is absent from the JSX, use ADD. If it is present, use UPDATE.
 If remediation is unsafe or unsupported, use action=ABORT with no operations.`;
 
 async function runInference(messages) {
