@@ -3,7 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import dns from 'dns';
 import ipaddr from 'ipaddr.js';
 
-const MODEL = "accessaudit-qwen7b-ft";
+const MODEL = "qwen2.5-coder:7b";
 const OLLAMA_URL = "http://127.0.0.1:11434/api/chat";
 
 const WCAG_CRITERIA_MAP = {
@@ -17,8 +17,15 @@ const SELECTED_TAGS = Object.keys(WCAG_CRITERIA_MAP);
 
 const SYSTEM_PROMPT = `You are an expert accessibility consultant.
 You will receive a specific Axe-core accessibility rule violation (or incomplete finding) that was DETECTED BY AXE on a rendered DOM.
-You must provide structured remediation guidance. DO NOT invent source filenames or line numbers. You are only observing the rendered DOM.
-Do NOT attempt to judge if the violation exists; Axe has already established it.
+You must provide structured remediation guidance.
+
+CRITICAL CONSTRAINTS:
+- The Axe finding is authoritative.
+- Do not invent violations.
+- Do not invent source filenames or source locations.
+- The input is rendered DOM, not the source repository.
+- \`before\` must come from the observed DOM.
+- \`after\` is an example of the recommended source change, not evidence that it was applied.
 
 Reply with ONLY a valid JSON object. No markdown, no prose.
 Schema:
@@ -26,8 +33,8 @@ Schema:
   "problem": "<clear 1-sentence explanation of what is wrong>",
   "why_it_matters": "<1-sentence impact on the user>",
   "recommended_change": "<Actionable instruction. Use 'Recommended source change' terminology.>",
-  "before": "<example snippet of bad code>",
-  "after": "<example snippet of good code>",
+  "before": "<example snippet of bad code from the observed DOM>",
+  "after": "<example snippet of good code for the source change>",
   "manual_review": <boolean, true if the rule inherently requires human judgment or was flagged as 'incomplete'>,
   "manual_review_reason": "<if manual_review is true, explain what to check>"
 }`;
