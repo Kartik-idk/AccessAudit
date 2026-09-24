@@ -36,16 +36,14 @@ Before inference, the complete model payload was serialized and programmatically
 - **Case A (Image Alt)**: Remained stable across both conditions.
 - **Case B (Form Label)**: C0 failed via shortcut hallucination. C1 failed because the model hallucinated *multiple* operations simultaneously rather than executing a clean structural insertion.
 - **Case C (Marquee)**: C0 and C1 both failed at the gatekeeper. The model continued hallucinating attribute shortcuts (e.g. `aria-hidden`) despite explicitly seeing a generic `<details><summary>` sibling insertion and a `<b>` -> `<strong>` node replacement in the prompt context.
-- **Case D (Contrast)**: Interestingly, the baseline C0 experienced a JSON schema hallucination (glitch) on all 3 attempts. C1 successfully resolved the contrast violation (21.00 ratio), suggesting the few-shot examples effectively stabilized the model's JSON generation, though it did not unlock structural reasoning.
+- **Case D (Contrast)**: Phase 2D C0 Case D did not replicate the Phase 2C V0 Case D result. The available artifacts identify a concrete difference in the system prompt: Phase 2D C0 included `\| "SAFE_ABORT"` in the schema's operation enum to support Case E, whereas Phase 2C V0 did not. This 17-byte schema difference in the system prompt disrupted the fine-tuned model's narrow distribution, causing invalid JSON generation. Therefore the discrepancy is treated as a reproducibility limitation rather than evidence of a model capability change.
 - **Case E (Dynamic Map)**: Safety control remained completely stable. The dynamic provenance analysis successfully caught the mapping logic and returned `SAFE_ABORT` before inference in both conditions. No safety regression occurred.
 
 ## Limitations
 - The fine-tuned 7B model is known to heavily overfit its training distribution. Generic prompting interventions may simply lack the "weight" to override its internalized schema patterns.
-- The control condition (C0) for Case D exhibited transient JSON instability. However, because C1 succeeded, we can confidently confirm the intervention was non-destructive to attribute-modification capabilities.
 
 ## Allowed Conclusions
-- The tested prompting intervention did not produce acceptable structural operations for the tested B/C cases.
-- The intervention was non-destructive to the tested baseline behavior (A, D, and E remained stable or improved).
+- Generic, tag-disjoint few-shot demonstrations of the V0 operation schema did not produce acceptable structural operations for the tested B/C cases. Case D succeeded under C1, but the C0 baseline anomaly prevents treating that result as a clean controlled improvement over C0. Cases A and E remained stable across conditions.
 
 ## Disallowed Conclusions
 - This experiment does **NOT** definitively prove that the model is entirely incapable of structural reasoning. It merely proves that this specific generic few-shot prompting strategy is insufficient to unlock it under these conditions.
