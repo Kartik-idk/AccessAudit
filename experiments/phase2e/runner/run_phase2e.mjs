@@ -259,9 +259,20 @@ function gatekeeper(caseKey, patch) {
         case 'C':
             if (op.operation !== 'REPLACE_NODE') return { ok: false, reason: 'Case C requires REPLACE_NODE' };
             if (typeof op.newNode !== 'string') return { ok: false, reason: 'newNode must be a string' };
-            const trimmedNode = op.newNode.trim();
-            if (!/^[A-Za-z][A-Za-z0-9:-]*$/.test(trimmedNode)) return { ok: false, reason: 'newNode must be a valid HTML/JSX tag name without markup' };
-            if (trimmedNode === 'marquee') return { ok: false, reason: 'Replacement node cannot be marquee' };
+            const nodeName = op.newNode.trim();
+            const lowerNode = nodeName.toLowerCase();
+            const safeAllowlist = new Set([
+                'p', 'span', 'div', 'button', 'strong', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+                'section', 'article', 'aside', 'main', 'header', 'footer', 'nav',
+                'ul', 'ol', 'li', 'blockquote', 'label', 'a', 'form', 'fieldset', 'legend', 'details', 'summary'
+            ]);
+            
+            if (lowerNode === 'marquee') return { ok: false, reason: 'Replacement node cannot be marquee' };
+            if (!safeAllowlist.has(lowerNode)) return { ok: false, reason: 'newNode is not in the strict semantic allowlist' };
+            if (nodeName !== lowerNode) return { ok: false, reason: 'newNode must be lowercase' };
+            
+            // Re-enforce strictly alphanumeric/dash just in case
+            if (!/^[a-z][a-z0-9-]*$/.test(nodeName)) return { ok: false, reason: 'newNode contains invalid characters' };
             break;
         case 'D':
             if (op.operation !== 'UPDATE' || op.attribute !== 'style') return { ok: false, reason: 'Case D allows only UPDATE style' };
@@ -447,40 +458,40 @@ async function runCase(condition, caseKey, attempt, browser) {
     }
     result.stages.axe_resolution = axeMechanicalPass ? 'PASS' : 'FAIL';
 
-    let semanticPass = true;
+    let heuristicPass = true;
     const targetEl = await page.$('[data-a11y-id="NODE_A"]');
     if (!targetEl) {
-        semanticPass = false;
+        heuristicPass = false;
         result.error = 'VERIFICATION_FAILED: Identity lost';
     } else {
         if (caseKey === 'A') {
             const actual = await targetEl.getAttribute('alt');
             if (typeof actual !== 'string') {
-                semanticPass = false;
+                heuristicPass = false;
             } else {
                 const trimmed = actual.trim();
                 const lower = trimmed.toLowerCase();
                 const antiPatterns = ["image", "picture", "photo", "image of an image", "placeholder"];
                 if (trimmed === "") {
-                    semanticPass = false;
+                    heuristicPass = false;
                 } else if (antiPatterns.includes(lower) || lower.startsWith("image of ") || lower.startsWith("picture of ") || lower.startsWith("photo of ")) {
-                    semanticPass = false;
+                    heuristicPass = false;
                 } else {
-                    semanticPass = true;
+                    heuristicPass = true;
                 }
             }
         } else if (caseKey === 'B') {
             const label = await page.$('label[for="email"]');
-            if (!label) semanticPass = false;
+            if (!label) heuristicPass = false;
             else {
                 const text = await label.textContent();
-                semanticPass = (text === expectedGroundTruth) || !!text; 
+                heuristicPass = (text === expectedGroundTruth) || !!text; 
             }
         } else if (caseKey === 'C') {
             const tag = await targetEl.evaluate(e => e.tagName.toLowerCase());
             const text = await targetEl.evaluate(e => e.textContent.trim());
-            if (tag === 'marquee') semanticPass = false;
-            if (text !== baselineText) semanticPass = false;
+            if (tag === 'marquee') heuristicPass = false;
+            if (text !== baselineText) heuristicPass = false;
         } else if (caseKey === 'D') {
             const bgStr = await targetEl.evaluate(e => window.getComputedStyle(e).backgroundColor);
             const colorStr = await targetEl.evaluate(e => window.getComputedStyle(e).color);
@@ -494,22 +505,22 @@ async function runCase(condition, caseKey, attempt, browser) {
             const darkest = Math.min(lum1, lum2);
             const ratio = (brightest + 0.05) / (darkest + 0.05);
             
-            if (ratio < 4.5) semanticPass = false;
-            if (bgStr !== baselineBgColor) semanticPass = false;
+            if (ratio < 4.5) heuristicPass = false;
+            if (bgStr !== baselineBgColor) heuristicPass = false;
             
             result.stages.contrastRatio = ratio.toFixed(2);
         }
     }
-    result.stages.semantic_validation = semanticPass ? 'PASS' : 'FAIL';
+    result.stages.heuristic_validation = heuristicPass ? 'PASS' : 'FAIL';
 
     const regressions = finalAxe.violations.length - baselineAxe.violations.length;
     result.stages.regression_validation = (regressions <= 0) ? 'PASS' : 'FAIL';
 
     if (!axeMechanicalPass && result.stages.earliest_failure === undefined) result.stages.earliest_failure = 'AXE';
-    if (!semanticPass && result.stages.earliest_failure === undefined) result.stages.earliest_failure = 'SEMANTIC';
+    if (!heuristicPass && result.stages.earliest_failure === undefined) result.stages.earliest_failure = 'HEURISTIC';
     if (regressions > 0 && result.stages.earliest_failure === undefined) result.stages.earliest_failure = 'REGRESSION';
 
-    if (axeMechanicalPass && semanticPass && regressions <= 0) {
+    if (axeMechanicalPass && heuristicPass && regressions <= 0) {
         result.success = true;
     } else {
         result.success = false;

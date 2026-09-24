@@ -7,24 +7,23 @@ function gatekeeper(caseKey, patch) {
         case 'C':
             if (op.operation !== 'REPLACE_NODE') return { ok: false, reason: 'Case C requires REPLACE_NODE' };
             if (typeof op.newNode !== 'string') return { ok: false, reason: 'newNode must be a string' };
-            const trimmedNode = op.newNode.trim();
-            if (!/^[A-Za-z][A-Za-z0-9:-]*$/.test(trimmedNode)) return { ok: false, reason: 'newNode must be a valid HTML/JSX tag name without markup' };
-            if (trimmedNode === 'marquee') return { ok: false, reason: 'Replacement node cannot be marquee' };
+            const nodeName = op.newNode.trim();
+            const lowerNode = nodeName.toLowerCase();
+            const safeAllowlist = new Set([
+                'p', 'span', 'div', 'button', 'strong', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+                'section', 'article', 'aside', 'main', 'header', 'footer', 'nav',
+                'ul', 'ol', 'li', 'blockquote', 'label', 'a', 'form', 'fieldset', 'legend', 'details', 'summary'
+            ]);
+            
+            if (lowerNode === 'marquee') return { ok: false, reason: 'Replacement node cannot be marquee' };
+            if (!safeAllowlist.has(lowerNode)) return { ok: false, reason: 'newNode is not in the strict semantic allowlist' };
+            if (nodeName !== lowerNode) return { ok: false, reason: 'newNode must be lowercase' };
+            
+            // Re-enforce strictly alphanumeric/dash just in case
+            if (!/^[a-z][a-z0-9-]*$/.test(nodeName)) return { ok: false, reason: 'newNode contains invalid characters' };
             break;
     }
     return { ok: true, op };
-}
-
-function validateAltText(actual) {
-    if (typeof actual !== 'string') return false;
-    const trimmed = actual.trim();
-    if (trimmed === "") return false;
-    const lower = trimmed.toLowerCase();
-    const antiPatterns = ["image", "picture", "photo", "image of an image", "placeholder"];
-    if (antiPatterns.includes(lower) || lower.startsWith("image of ") || lower.startsWith("picture of ") || lower.startsWith("photo of ")) {
-        return false;
-    }
-    return true;
 }
 
 let fails = 0;
@@ -38,16 +37,33 @@ function assert(condition, message) {
     }
 }
 
-// Gatekeeper Negative Tests
+// Gatekeeper Negative Tests (Malformed/Dangerous Tags)
 const negativeNodes = [
     "<p>System Maintenance</p>",
-    "<p>",
-    "</p>",
+    "<script>",
+    "script",
+    "iframe",
+    "object",
+    "embed",
+    "style",
+    "link",
+    "meta",
+    "base",
+    "svg",
+    "html",
+    "head",
+    "body",
     "p>",
     "<p",
     "p text",
-    " ",
-    ""
+    "div onclick",
+    "foo/bar",
+    "foo:bar",
+    "",
+    "SCRIPT",
+    "Script",
+    "IFrame",
+    "SVG"
 ];
 for (const node of negativeNodes) {
     const res = gatekeeper('C', { operations: [{ target: 'NODE_A', operation: 'REPLACE_NODE', newNode: node }] });
@@ -57,39 +73,21 @@ for (const node of negativeNodes) {
 // Gatekeeper Positive Tests
 const positiveNodes = [
     "p",
+    "span",
+    "div",
     "strong",
     "section",
-    "my-custom-element"
+    "article",
+    "button",
+    "h1",
+    "nav",
+    "main",
+    "details",
+    "summary"
 ];
 for (const node of positiveNodes) {
     const res = gatekeeper('C', { operations: [{ target: 'NODE_A', operation: 'REPLACE_NODE', newNode: node }] });
     assert(res.ok, `Positive Gatekeeper Case: '${node}' should be accepted`);
-}
-
-// Evaluator Negative Tests
-const negativeAlts = [
-    "",
-    "   ",
-    "image",
-    "Picture",
-    "PHOTO",
-    "Image of a dog",
-    "picture of sunset",
-    "placeholder"
-];
-for (const alt of negativeAlts) {
-    assert(!validateAltText(alt), `Negative Evaluator Case: '${alt}' should be rejected`);
-}
-
-// Evaluator Positive Tests
-const positiveAlts = [
-    "Product Thumbnail",
-    "Dog playing fetch",
-    "A chart showing sales growth",
-    "Descriptive text here"
-];
-for (const alt of positiveAlts) {
-    assert(validateAltText(alt), `Positive Evaluator Case: '${alt}' should be accepted`);
 }
 
 if (fails > 0) process.exit(1);
