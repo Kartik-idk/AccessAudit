@@ -1,7 +1,7 @@
 # AccessAudit
 
 AccessAudit is an AI-assisted accessibility remediation pipeline that combines deterministic DOM-to-source provenance, constrained LLM remediation proposals, deterministic validation, source-preserving patching, and browser/Axe verification.
-
+The workflow of accessAudit- https://gitdiagram.com/kartik-idk/accessaudit
 **LLM proposes.**
 **Deterministic gatekeeper decides.**
 **Source patcher executes.**
