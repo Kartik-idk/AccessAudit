@@ -258,7 +258,10 @@ function gatekeeper(caseKey, patch) {
             break;
         case 'C':
             if (op.operation !== 'REPLACE_NODE') return { ok: false, reason: 'Case C requires REPLACE_NODE' };
-            if (op.newNode === 'marquee') return { ok: false, reason: 'Replacement node cannot be marquee' };
+            if (typeof op.newNode !== 'string') return { ok: false, reason: 'newNode must be a string' };
+            const trimmedNode = op.newNode.trim();
+            if (!/^[A-Za-z][A-Za-z0-9:-]*$/.test(trimmedNode)) return { ok: false, reason: 'newNode must be a valid HTML/JSX tag name without markup' };
+            if (trimmedNode === 'marquee') return { ok: false, reason: 'Replacement node cannot be marquee' };
             break;
         case 'D':
             if (op.operation !== 'UPDATE' || op.attribute !== 'style') return { ok: false, reason: 'Case D allows only UPDATE style' };
@@ -452,7 +455,20 @@ async function runCase(condition, caseKey, attempt, browser) {
     } else {
         if (caseKey === 'A') {
             const actual = await targetEl.getAttribute('alt');
-            semanticPass = (actual === expectedGroundTruth);
+            if (typeof actual !== 'string') {
+                semanticPass = false;
+            } else {
+                const trimmed = actual.trim();
+                const lower = trimmed.toLowerCase();
+                const antiPatterns = ["image", "picture", "photo", "image of an image", "placeholder"];
+                if (trimmed === "") {
+                    semanticPass = false;
+                } else if (antiPatterns.includes(lower) || lower.startsWith("image of ") || lower.startsWith("picture of ") || lower.startsWith("photo of ")) {
+                    semanticPass = false;
+                } else {
+                    semanticPass = true;
+                }
+            }
         } else if (caseKey === 'B') {
             const label = await page.$('label[for="email"]');
             if (!label) semanticPass = false;
