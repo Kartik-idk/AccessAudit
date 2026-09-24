@@ -1,0 +1,100 @@
+[
+  {
+    "case": "A",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "gatekeeper": "ACCEPTED",
+      "patch_execution": "SUCCESS",
+      "build": "SUCCESS",
+      "axe_resolution": "PASS",
+      "semantic_validation": "PASS",
+      "regression_validation": "PASS"
+    },
+    "success": true
+  },
+  {
+    "case": "B",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "gatekeeper": "REJECTED"
+    },
+    "error": "GATEKEEPER_FAILED: Case B requires INSERT_SIBLING for label"
+  },
+  {
+    "case": "B",
+    "attempt": 2,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "gatekeeper": "REJECTED"
+    },
+    "error": "GATEKEEPER_FAILED: Case B requires INSERT_SIBLING for label"
+  },
+  {
+    "case": "B",
+    "attempt": 3,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "gatekeeper": "REJECTED"
+    },
+    "error": "GATEKEEPER_FAILED: Case B requires INSERT_SIBLING for label"
+  },
+  {
+    "case": "C",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "gatekeeper": "REJECTED"
+    },
+    "error": "GATEKEEPER_FAILED: Case C requires REPLACE_NODE with button"
+  },
+  {
+    "case": "C",
+    "attempt": 2,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "gatekeeper": "REJECTED"
+    },
+    "error": "GATEKEEPER_FAILED: Case C requires REPLACE_NODE with button"
+  },
+  {
+    "case": "C",
+    "attempt": 3,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "gatekeeper": "REJECTED"
+    },
+    "error": "GATEKEEPER_FAILED: Case C requires REPLACE_NODE with button"
+  },
+  {
+    "case": "D",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "gatekeeper": "ACCEPTED",
+      "patch_execution": "SUCCESS",
+      "build": "SUCCESS",
+      "axe_resolution": "PASS",
+      "semantic_validation": "PASS",
+      "regression_validation": "PASS"
+    },
+    "success": true
+  },
+  {
+    "case": "E",
+    "attempt": 1,
+    "stages": {
+      "provenance": "SAFE_ABORT"
+    },
+    "success": true
+  }
+]

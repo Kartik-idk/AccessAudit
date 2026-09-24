@@ -1,0 +1,263 @@
+[
+  {
+    "condition": 0,
+    "case": "A",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "VALID",
+      "schema_validity": "VALID",
+      "gatekeeper": "ACCEPTED",
+      "patch_execution": "SUCCESS",
+      "build": "SUCCESS",
+      "axe_resolution": "PASS",
+      "semantic_validation": "PASS",
+      "regression_validation": "PASS"
+    },
+    "success": true
+  },
+  {
+    "condition": 0,
+    "case": "B",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "VALID",
+      "schema_validity": "VALID",
+      "gatekeeper": "REJECTED",
+      "earliest_failure": "GATEKEEPER"
+    },
+    "error": "GATEKEEPER_FAILED: Case B requires INSERT_SIBLING"
+  },
+  {
+    "condition": 0,
+    "case": "B",
+    "attempt": 2,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "VALID",
+      "schema_validity": "VALID",
+      "gatekeeper": "REJECTED",
+      "earliest_failure": "GATEKEEPER"
+    },
+    "error": "GATEKEEPER_FAILED: Case B requires INSERT_SIBLING"
+  },
+  {
+    "condition": 0,
+    "case": "B",
+    "attempt": 3,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "VALID",
+      "schema_validity": "VALID",
+      "gatekeeper": "REJECTED",
+      "earliest_failure": "GATEKEEPER"
+    },
+    "error": "GATEKEEPER_FAILED: Case B requires INSERT_SIBLING"
+  },
+  {
+    "condition": 0,
+    "case": "C",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "VALID",
+      "schema_validity": "VALID",
+      "gatekeeper": "REJECTED",
+      "earliest_failure": "GATEKEEPER"
+    },
+    "error": "GATEKEEPER_FAILED: Case C requires REPLACE_NODE"
+  },
+  {
+    "condition": 0,
+    "case": "C",
+    "attempt": 2,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "VALID",
+      "schema_validity": "VALID",
+      "gatekeeper": "REJECTED",
+      "earliest_failure": "GATEKEEPER"
+    },
+    "error": "GATEKEEPER_FAILED: Case C requires REPLACE_NODE"
+  },
+  {
+    "condition": 0,
+    "case": "C",
+    "attempt": 3,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "VALID",
+      "schema_validity": "VALID",
+      "gatekeeper": "REJECTED",
+      "earliest_failure": "GATEKEEPER"
+    },
+    "error": "GATEKEEPER_FAILED: Case C requires REPLACE_NODE"
+  },
+  {
+    "condition": 0,
+    "case": "D",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "INVALID",
+      "earliest_failure": "MODEL_OUTPUT"
+    },
+    "error": "MODEL_FAILED: Invalid JSON schema"
+  },
+  {
+    "condition": 0,
+    "case": "D",
+    "attempt": 2,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "INVALID",
+      "earliest_failure": "MODEL_OUTPUT"
+    },
+    "error": "MODEL_FAILED: Invalid JSON schema"
+  },
+  {
+    "condition": 0,
+    "case": "D",
+    "attempt": 3,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "INVALID",
+      "earliest_failure": "MODEL_OUTPUT"
+    },
+    "error": "MODEL_FAILED: Invalid JSON schema"
+  },
+  {
+    "condition": 0,
+    "case": "E",
+    "attempt": 1,
+    "stages": {
+      "provenance": "SAFE_ABORT",
+      "safe_abort_correctness": "PASS"
+    },
+    "success": true
+  },
+  {
+    "condition": 1,
+    "case": "A",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "VALID",
+      "schema_validity": "VALID",
+      "gatekeeper": "ACCEPTED",
+      "patch_execution": "SUCCESS",
+      "build": "SUCCESS",
+      "axe_resolution": "PASS",
+      "semantic_validation": "PASS",
+      "regression_validation": "PASS"
+    },
+    "success": true
+  },
+  {
+    "condition": 1,
+    "case": "B",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "VALID",
+      "schema_validity": "VALID",
+      "gatekeeper": "REJECTED",
+      "earliest_failure": "GATEKEEPER"
+    },
+    "error": "GATEKEEPER_FAILED: Must have exactly 1 operation"
+  },
+  {
+    "condition": 1,
+    "case": "B",
+    "attempt": 2,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "VALID",
+      "schema_validity": "VALID",
+      "gatekeeper": "REJECTED",
+      "earliest_failure": "GATEKEEPER"
+    },
+    "error": "GATEKEEPER_FAILED: Must have exactly 1 operation"
+  },
+  {
+    "condition": 1,
+    "case": "B",
+    "attempt": 3,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "VALID",
+      "schema_validity": "VALID",
+      "gatekeeper": "REJECTED",
+      "earliest_failure": "GATEKEEPER"
+    },
+    "error": "GATEKEEPER_FAILED: Must have exactly 1 operation"
+  },
+  {
+    "condition": 1,
+    "case": "C",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "VALID",
+      "schema_validity": "VALID",
+      "gatekeeper": "REJECTED",
+      "earliest_failure": "GATEKEEPER"
+    },
+    "error": "GATEKEEPER_FAILED: Case C requires REPLACE_NODE"
+  },
+  {
+    "condition": 1,
+    "case": "C",
+    "attempt": 2,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "VALID",
+      "schema_validity": "VALID",
+      "gatekeeper": "REJECTED",
+      "earliest_failure": "GATEKEEPER"
+    },
+    "error": "GATEKEEPER_FAILED: Case C requires REPLACE_NODE"
+  },
+  {
+    "condition": 1,
+    "case": "C",
+    "attempt": 3,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "VALID",
+      "schema_validity": "VALID",
+      "gatekeeper": "REJECTED",
+      "earliest_failure": "GATEKEEPER"
+    },
+    "error": "GATEKEEPER_FAILED: Case C requires REPLACE_NODE"
+  },
+  {
+    "condition": 1,
+    "case": "D",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "raw_json": "VALID",
+      "schema_validity": "VALID",
+      "gatekeeper": "ACCEPTED",
+      "patch_execution": "SUCCESS",
+      "build": "SUCCESS",
+      "axe_resolution": "PASS",
+      "contrastRatio": "21.00",
+      "semantic_validation": "PASS",
+      "regression_validation": "PASS"
+    },
+    "success": true
+  },
+  {
+    "condition": 1,
+    "case": "E",
+    "attempt": 1,
+    "stages": {
+      "provenance": "SAFE_ABORT",
+      "safe_abort_correctness": "PASS"
+    },
+    "success": true
+  }
+]
