@@ -125,7 +125,8 @@ export async function runRealAudit(rawUrl, onProgress) {
 
         onProgress('STATUS', `Launching headless browser with proxy on port ${proxyPort}...`);
         browser = await chromium.launch({
-            proxy: { server: `http://127.0.0.1:${proxyPort}`, bypass: '<-loopback>' }
+            proxy: { server: `http://127.0.0.1:${proxyPort}`, bypass: '<-loopback>' },
+            args: ['--webrtc-ip-handling-policy=disable_non_proxied_udp']
         });
         const context = await browser.newContext();
         

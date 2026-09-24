@@ -7,7 +7,11 @@ import ipaddr from 'ipaddr.js';
 // --- IP Safety Validation ---
 async function isSafeIp(ipStr) {
     try {
-        const addr = ipaddr.parse(ipStr);
+        let addr = ipaddr.parse(ipStr);
+        if (addr.kind() === 'ipv6' && addr.isIPv4MappedAddress()) {
+            addr = addr.toIPv4Address();
+            ipStr = addr.toString();
+        }
         const range = addr.range();
         const blockedRanges = [
             'unspecified', 'broadcast', 'multicast', 'linkLocal', 'loopback', 'private', 
@@ -70,6 +74,18 @@ export class SsrfProxy {
                         res.end('Only HTTP proxying supported here');
                         return;
                     }
+                    if (parsedUrl.username || parsedUrl.password) {
+                        res.writeHead(403);
+                        res.end('Credentials not allowed in URL');
+                        return;
+                    }
+
+                    const destPort = parseInt(parsedUrl.port || '80', 10);
+                    if (destPort !== 80 && destPort !== 443) {
+                        res.writeHead(403);
+                        res.end('Destination port not allowed');
+                        return;
+                    }
 
                     const validatedIp = await resolveAndCheckSafety(parsedUrl.hostname);
                     
@@ -84,6 +100,10 @@ export class SsrfProxy {
                     const proxyReq = http.request(options, (proxyRes) => {
                         res.writeHead(proxyRes.statusCode, proxyRes.headers);
                         proxyRes.pipe(res, { end: true });
+                    });
+
+                    proxyReq.setTimeout(10000, () => {
+                        proxyReq.destroy(new Error('Outbound socket timeout'));
                     });
 
                     proxyReq.on('error', (err) => {
@@ -101,17 +121,34 @@ export class SsrfProxy {
             // Handle HTTPS CONNECT requests
             this.server.on('connect', async (req, clientSocket, head) => {
                 try {
-                    // Extract hostname and port from CONNECT string (e.g. example.com:443)
-                    const [hostname, portStr] = req.url.split(':');
-                    const port = portStr ? parseInt(portStr) : 443;
+                    let urlStr = req.url;
+                    if (!urlStr.startsWith('http://') && !urlStr.startsWith('https://')) {
+                        urlStr = 'http://' + urlStr;
+                    }
+                    const parsedUrl = new URL(urlStr);
                     
-                    const validatedIp = await resolveAndCheckSafety(hostname);
+                    if (parsedUrl.username || parsedUrl.password) {
+                        throw new Error('Credentials not allowed');
+                    }
 
-                    const serverSocket = net.connect(port, validatedIp, () => {
+                    const destPort = parseInt(parsedUrl.port || '443', 10);
+                    if (destPort !== 80 && destPort !== 443) {
+                        throw new Error('Destination port not allowed');
+                    }
+                    
+                    const validatedIp = await resolveAndCheckSafety(parsedUrl.hostname);
+
+                    const serverSocket = net.connect(destPort, validatedIp, () => {
                         clientSocket.write('HTTP/1.1 200 Connection Established\r\n\r\n');
                         serverSocket.write(head);
                         serverSocket.pipe(clientSocket);
                         clientSocket.pipe(serverSocket);
+                    });
+
+                    serverSocket.setTimeout(10000);
+                    serverSocket.on('timeout', () => {
+                        serverSocket.destroy();
+                        clientSocket.end();
                     });
 
                     serverSocket.on('error', (err) => {
