@@ -1,7 +1,7 @@
 import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
-import dns from 'dns';
-import ipaddr from 'ipaddr.js';
+import { URL } from 'url';
+import { SsrfProxy, resolveAndCheckSafety } from './ssrf_proxy.js';
 
 const MODEL = "qwen2.5-coder:7b";
 const OLLAMA_URL = "http://127.0.0.1:11434/api/chat";
@@ -39,42 +39,7 @@ Schema:
 }`;
 
 // --- SSRF Hardening ---
-// Note: Time-of-check to time-of-use (DNS rebinding) is an unavoidable limitation without a custom network resolver in Playwright. 
-// We mitigate by strict IP blocking during route interception for every single request.
-async function isSafeIp(ipStr) {
-    try {
-        const addr = ipaddr.parse(ipStr);
-        const range = addr.range();
-        // Comprehensive block of unsafe ranges for IPv4 and IPv6
-        const blockedRanges = [
-            'unspecified', 'broadcast', 'multicast', 'linkLocal', 'loopback', 'private', 
-            'carrierGradeNat', 'reserved', 'ipv4Mapped', 'rfc6145', 'rfc6052', '6to4', 'teredo'
-        ];
-        if (blockedRanges.includes(range)) return false;
-        
-        // Explicitly block 169.254.x.x (AWS/GCP metadata) if ipaddr missed it as linkLocal
-        if (addr.kind() === 'ipv4' && ipStr.startsWith('169.254.')) return false;
-        if (addr.kind() === 'ipv4' && ipStr.startsWith('127.')) return false;
-        if (addr.kind() === 'ipv6' && ipStr === '::1') return false;
-        
-        return true;
-    } catch (e) {
-        return false;
-    }
-}
-
-async function resolveAndCheckSafety(hostname) {
-    try {
-        const records = await dns.promises.lookup(hostname, { all: true });
-        if (records.length === 0) return false;
-        for (const record of records) {
-            if (!(await isSafeIp(record.address))) return false;
-        }
-        return true;
-    } catch (e) {
-        return false; // ENOTFOUND etc.
-    }
-}
+// SSRF enforcement occurs at the egress proxy. Playwright request interception is not the security boundary.
 
 async function validateUrlSafety(urlStr) {
     let parsed;
@@ -149,33 +114,32 @@ export async function runRealAudit(rawUrl, onProgress) {
     const overallTimeout = setTimeout(() => abortController.abort(new Error("Overall audit timeout (180s)")), TIMEOUTS.overall);
 
     let browser = null;
+    let proxy = new SsrfProxy();
+    
     try {
+        onProgress('STATUS', `Starting SSRF egress proxy...`);
+        const proxyPort = await proxy.start();
+
         onProgress('STATUS', `Validating URL safety...`);
         const safeUrl = await validateUrlSafety(rawUrl);
 
-        onProgress('STATUS', `Launching headless browser...`);
-        browser = await chromium.launch();
+        onProgress('STATUS', `Launching headless browser with proxy on port ${proxyPort}...`);
+        browser = await chromium.launch({
+            proxy: { server: `http://127.0.0.1:${proxyPort}`, bypass: '<-loopback>' }
+        });
         const context = await browser.newContext();
         
-        // Playwright Request Interception for SSRF on Redirects/Subresources
+        // Playwright Request Interception is NO LONGER the security boundary.
+        // We keep it only to block data URI navigation and dangerous schemes quickly.
         await context.route('**/*', async (route) => {
             const reqUrl = route.request().url();
             let p;
             try { p = new URL(reqUrl); } catch(e) { return route.abort('blockedbyclient'); }
             
-            // Allow data URIs but not for navigation
             if (p.protocol === 'data:' && route.request().isNavigationRequest()) return route.abort('blockedbyclient');
             if (p.protocol === 'data:') return route.continue();
-            
-            // Hard block dangerous schemes
             if (['file:', 'ftp:', 'javascript:', 'blob:'].includes(p.protocol)) return route.abort('blockedbyclient');
             if (p.protocol !== 'http:' && p.protocol !== 'https:') return route.abort('blockedbyclient');
-            
-            // Validate DNS to prevent redirect to internal IP
-            const isSafe = await resolveAndCheckSafety(p.hostname);
-            if (!isSafe) {
-                return route.abort('blockedbyclient');
-            }
             
             route.continue();
         });
@@ -299,5 +263,6 @@ export async function runRealAudit(rawUrl, onProgress) {
         throw e;
     } finally {
         if (browser) await browser.close().catch(() => {});
+        await proxy.stop().catch(() => {});
     }
 }
