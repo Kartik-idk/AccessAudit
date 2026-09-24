@@ -1,0 +1,116 @@
+[
+  {
+    "case": "A1",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "leakage_audit": "NO_LEAKAGE",
+      "gatekeeper": "ACCEPTED",
+      "patch_execution": "SUCCESS",
+      "build": "SUCCESS",
+      "axe_resolution": "PASS",
+      "semantic_validation": "PASS",
+      "regression_validation": "PASS"
+    },
+    "success": true
+  },
+  {
+    "case": "A2",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "leakage_audit": "NO_LEAKAGE",
+      "gatekeeper": "ACCEPTED",
+      "patch_execution": "SUCCESS",
+      "build": "SUCCESS",
+      "axe_resolution": "PASS",
+      "semantic_validation": "FAIL",
+      "regression_validation": "PASS"
+    },
+    "success": false
+  },
+  {
+    "case": "A2",
+    "attempt": 2,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "leakage_audit": "NO_LEAKAGE",
+      "gatekeeper": "ACCEPTED",
+      "patch_execution": "SUCCESS",
+      "build": "SUCCESS",
+      "axe_resolution": "PASS",
+      "semantic_validation": "FAIL",
+      "regression_validation": "PASS"
+    },
+    "success": false
+  },
+  {
+    "case": "A2",
+    "attempt": 3,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "leakage_audit": "NO_LEAKAGE",
+      "gatekeeper": "ACCEPTED",
+      "patch_execution": "SUCCESS",
+      "build": "SUCCESS",
+      "axe_resolution": "PASS",
+      "semantic_validation": "FAIL",
+      "regression_validation": "PASS"
+    },
+    "success": false
+  },
+  {
+    "case": "C",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "leakage_audit": "NO_LEAKAGE",
+      "gatekeeper": "REJECTED"
+    },
+    "error": "GATEKEEPER_FAILED: Case C requires REPLACE_NODE"
+  },
+  {
+    "case": "C",
+    "attempt": 2,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "leakage_audit": "NO_LEAKAGE",
+      "gatekeeper": "REJECTED"
+    },
+    "error": "GATEKEEPER_FAILED: Case C requires REPLACE_NODE"
+  },
+  {
+    "case": "C",
+    "attempt": 3,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "leakage_audit": "NO_LEAKAGE",
+      "gatekeeper": "REJECTED"
+    },
+    "error": "GATEKEEPER_FAILED: Case C requires REPLACE_NODE"
+  },
+  {
+    "case": "D",
+    "attempt": 1,
+    "stages": {
+      "provenance": "OK",
+      "model_proposal": "VALID_JSON",
+      "leakage_audit": "NO_LEAKAGE",
+      "gatekeeper": "ACCEPTED",
+      "patch_execution": "SUCCESS",
+      "build": "SUCCESS",
+      "axe_resolution": "PASS",
+      "contrastRatio": "21.00",
+      "semantic_validation": "PASS",
+      "regression_validation": "PASS"
+    },
+    "success": true
+  }
+]
