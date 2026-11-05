@@ -24,3 +24,8 @@ checkpoints/
 outputs/
 tmp/
 scratch/
+
+playwright-report/
+test-results/
+.playwright/
+*.tsbuildinfo
