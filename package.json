@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node tests/test_engine_controls_v19.js",
     "prototype": "concurrently \"npx vite\" \"node scripts/prototype_server.js\""
   },
   "keywords": [],

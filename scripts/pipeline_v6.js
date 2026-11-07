@@ -35,7 +35,7 @@ const schema = {
 };
 
 const validateSchema = ajv.compile(schema);
-const ALLOWED_ATTRIBUTES = ['alt', 'aria-label', 'aria-labelledby', 'aria-describedby', 'role', 'title', 'for', 'htmlFor', 'tabIndex', 'aria-hidden', 'placeholder'];
+const ALLOWED_ATTRIBUTES = ['alt', 'aria-label', 'aria-labelledby', 'aria-describedby', 'role', 'title', 'for', 'htmlFor', 'id', 'tabIndex', 'aria-hidden', 'placeholder'];
 
 export function parseMultiObjectResponse(responseText) {
     const objects = [];
