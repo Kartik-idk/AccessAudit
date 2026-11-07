@@ -2,7 +2,7 @@
 
 [![Quality Checks](https://github.com/Kartik-idk/AccessAudit/actions/workflows/quality.yml/badge.svg)](https://github.com/Kartik-idk/AccessAudit/actions)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org/)
-[![License: Research Prototype](https://img.shields.io/badge/License-Research%20Prototype-informational.svg)](LICENSE)
+[![License: Research Prototype](https://img.shields.io/badge/License-Research%20Prototype%20(Undecided)-lightgrey.svg)](LICENSE)
 
 An AI-assisted accessibility remediation research prototype that pairs constrained LLM code proposals with deterministic DOM-to-source provenance, AST-level validation, and closed-loop browser verification.
 
@@ -127,4 +127,4 @@ flowchart TD
 
 ## License
 
-See [LICENSE](LICENSE) for research licensing notices and terms.
+This software is an active research prototype. The licensing for this project is currently undecided—all rights are reserved by the author. See [LICENSE](LICENSE) for research licensing notices and terms.

@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "type": "module",
   "dependencies": {
     "@axe-core/playwright": "^4.13.0",
